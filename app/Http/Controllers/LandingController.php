@@ -28,18 +28,20 @@ class LandingController extends Controller
     public function profilKepsek()
     {
         $kepsek = Teacher::where('role', 1)->get();
-        return view('pages.profilKepsek',[
-            'kepsek' => $kepsek
+        return view('pages.profilKepsek', [
+            'kepsek' => $kepsek,
         ]);
     }
 
     public function profilStaff()
     {
+        $kepsek = Teacher::where('role', 1)->get();
         $guru = Teacher::where('role', 2)->get();
         $staff = Teacher::where('role', 3)->get();
-        return view('pages.profilStaff',[
+        return view('pages.profilStaff', [
             'guru' => $guru,
-            'staff' => $staff
+            'kepsek' => $kepsek,
+            'staff' => $staff,
         ]);
     }
 
@@ -47,7 +49,7 @@ class LandingController extends Controller
     {
         $galery = News::orderBy('id', 'DESC')->get();
         return view('pages.galery', [
-            'galery' => $galery
+            'galery' => $galery,
         ]);
     }
 
@@ -58,39 +60,53 @@ class LandingController extends Controller
 
     public function news()
     {
-        $news = News::orderBy('id', 'DESC')->get();;
-        return view('pages.news',[
-            'news' =>  $news
+        $newsRandom= News::inRandomOrder()->limit(1)->get();; 
+        $newsAll = News::orderBy('id', 'DESC')->get(); 
+        $latesNews = News::orderBy('id', 'DESC')->limit('3')->get(); 
+        return view('pages.news', [
+            'newsAll' => $newsAll,
+            'latesNews' => $latesNews,
+            'newsRandom' => $newsRandom,
         ]);
     }
 
     public function show($id_title)
     {
-        $show = News::find($id_title);
-        return view('pages.show', $show);
+        $show = News::where('id_title', $id_title)->first();
+        $categories = Categories::where('id', $show->category_id)->first();
+        $author = User::where('id', $show->author_id)->first();
+        return view('pages.show',[
+            'show' => $show,
+            'categories' => $categories,
+            'author' => $author
+        ]);
     }
 
     public function login()
     {
-        return view('pages.auth.login');
+        return view('pages.login');
     }
 
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'login' => ['required'],
             'password' => ['required'],
         ]);
- 
-        if (Auth::attempt($credentials)) {
+
+        $field = filter_var($credentials['login'], FILTER_VALIDATE_EMAIL) ? 'email' : (is_numeric($credentials['login']) ? (strlen($credentials['login']) == 10 ? 'NIS' : 'NIP') : 'email');
+
+        if (Auth::attempt([$field => $credentials['login'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
- 
+
             return redirect()->intended('handleRoles');
         }
- 
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+
+        return back()
+            ->withErrors([
+                'login' => 'The provided credentials do not match our records.',
+            ])
+            ->onlyInput('login');
     }
 
     public function logout(Request $request)
@@ -104,10 +120,11 @@ class LandingController extends Controller
         return redirect('/');
     }
 
-    public function handleRoles() {
+    public function handleRoles()
+    {
         if (Auth::check()) {
-            $role = auth()->user()->role;
-            if ($role == 1) {
+            $roles = auth()->user()->roles;
+            if ($roles == 1) {
                 return redirect('/guru/dashboard')->with('success', 'Masuk Sebagai Guru!');
             } else {
                 return redirect('/siswa/dashboard')->with('success', 'Masuk Sebagai Siswa!');

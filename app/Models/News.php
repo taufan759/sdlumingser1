@@ -10,4 +10,5 @@ class News extends Model
     use HasFactory;
     protected $table = 'news';
     protected $primary = 'id_title';
+    protected $guarded = [];
 }

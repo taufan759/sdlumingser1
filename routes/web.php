@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\LandingController;
 use App\Http\Middleware\Guru;
 use App\Http\Middleware\Siswa;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\Guru\GuruController;
+use App\Http\Controllers\Siswa\SiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 // Landing Page
 Route::get('/', [LandingController::class, 'home']);
 Route::get('/profile', [LandingController::class, 'profilSekolah']);
-Route::get('/principal_profile', [LandingController::class, 'profilKepsek']);
 Route::get('/staff_profile', [LandingController::class, 'profilStaff']);
 Route::get('/news', [LandingController::class, 'news']);
 Route::get('/news/{id_title}', [LandingController::class, 'show']);
@@ -35,7 +36,10 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     //guru
     Route::middleware(Guru::class)->group(function () {
-        Route::get('/guru/home', [GuruController::class, 'home']);
+        Route::get('/guru/dashboard', [GuruController::class, 'dashboard']);
+        Route::get('/guru/settings', [GuruController::class, 'settings']);
+        Route::get('/guru/teacher', [GuruController::class, 'teacher']);
+        Route::post('/guru/updateProfil', [GuruController::class, 'updateProfil']);
     });
     //siswa
     Route::middleware(Siswa::class)->group(function () {

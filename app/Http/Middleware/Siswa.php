@@ -15,11 +15,9 @@ class Siswa
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->user()->role != 2) {
-            if(auth()->user()->role == 1) {
-                return redirect()->back()->with('message', 'Errors!! Anda Mencoba Akses permission Siswa.');
-            } 
-        }
+        if (auth()->check() && auth()->user()->roles != 2) {
+            return redirect()->back()->with('message', 'Errors!! Anda Mencoba Akses permission Guru.');
+         }
         return $next($request);
     }
 }

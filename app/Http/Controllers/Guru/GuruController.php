@@ -4,63 +4,74 @@ namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class GuruController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function home()
+    public function dashboard()
     {
-        dd('halaman dashboard index untuk guru');
-        return view('guru.index');
+        return view('guru.dashboard');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function settings()
     {
-        //
+        return view('guru.settings');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function updateProfil(Request $request)
     {
-        //
+        $user = auth()->user();
+
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'nip' => 'required|string|max:255',
+            'jabatan' => 'nullable|string|max:255',
+            'alamat' => 'nullable|string|max:255',
+            'no_tlp' => 'nullable|string|max:20',
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        $user->update([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'NIP' => $request->nip,
+            'jabatan' => $request->jabatan,
+            'alamat_lengkap' => $request->alamat,
+            'no_tlp' => $request->no_tlp,
+            'password' => $request->password ? Hash::make($request->password) : $user->password,
+        ]);
+
+        return redirect()->back()->with('success', 'Profile updated successfully.');
+    }
+    public function teacher()
+    {
+        return view('guru.teacher');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function createTeacher(Request $request)
     {
-        //
-    }
+        $user = auth()->user();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'nip' => 'required|string|max:255',
+            'jabatan' => 'nullable|string|max:255',
+            'alamat' => 'nullable|string|max:255',
+            'no_tlp' => 'nullable|string|max:20',
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+   
+   
 }
