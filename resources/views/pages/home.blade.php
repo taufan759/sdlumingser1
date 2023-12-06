@@ -12,16 +12,16 @@
                     aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="2000">
-                    <img src="{{ asset('assets/img/Carousel.jpeg') }}" class="d-block w-100 object-fit-cover"
-                        style="height: 80vh">
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
+                <div class="carousel-item active" data-bs-interval="3000">
                     <img src="{{ asset('assets/img/Carousel1.jpg') }}" class="d-block w-100 object-fit-cover"
                         style="height: 80vh">
                 </div>
-                <div class="carousel-item" data-bs-interval="2000">
+                <div class="carousel-item" data-bs-interval="3000">
                     <img src="{{ asset('assets/img/Carousel2.jpeg') }}" class="d-block w-100 object-fit-cover"
+                        style="height: 80vh">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="{{ asset('assets/img/Carousel3.jpg') }}" class="d-block w-100 object-fit-cover"
                         style="height: 80vh">
                 </div>
             </div>
@@ -37,40 +37,40 @@
             </button>
         </div>
     </div>
-    <div class="row text-center">
-        <h1>Sambutan Kepala Sekolah</h1>
+    <div class="welcome-overlay">
+        <h1 class="display-1 text-white"><span class="typing-text"></span></h1>
     </div>
-    <div class="row">
-        <div class="col">
-            <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-        </div>
-        <div class="col">
-            <p>Selamat datang di situs web resmi SDN Kesamiran 01!</p>
-
-            <p>Puji syukur kita panjatkan ke hadirat Tuhan Yang Maha Esa atas limpahan rahmat dan hidayah-Nya, sehingga kita
-                dapat berkumpul di sini. Saya, Ali Rosidi, S.Pd, SD, sebagai Kepala Sekolah, dengan bangga menyambut Anda di
-                lingkungan pendidikan yang penuh semangat dan dedikasi ini.</p>
-
-            <p>SDN Kesamiran 01 bukan sekadar sebuah lembaga pendidikan, tetapi sebuah keluarga besar yang peduli terhadap
-                perkembangan setiap anak didiknya.</p>
-
-            <p>Di SDN Kesamiran 01, kami memandang pendidikan sebagai kunci utama untuk membentuk generasi penerus yang
-                berkarakter, cerdas, dan berintegritas. Kami memiliki komitmen untuk memberikan pendidikan berkualitas,
-                melibatkan siswa dalam proses pembelajaran yang kreatif, inovatif, dan berorientasi pada nilai-nilai
-                kehidupan.</p>
-
-            <p>Situs web ini hadir sebagai wadah informasi utama bagi orang tua, siswa, dan masyarakat umum. Kami berharap
-                situs ini dapat menjadi sumber referensi yang bermanfaat, tidak hanya terkait dengan kegiatan sekolah,
-                tetapi juga perkembangan terbaru dalam dunia pendidikan.</p>
-
-            <p>Kami mengundang Anda untuk menjelajahi halaman-halaman situs ini, mengikuti perkembangan kegiatan sekolah,
-                dan terlibat aktif dalam mendukung proses pembelajaran anak-anak kita. Keterlibatan dan dukungan Anda sangat
-                berarti bagi kami dalam menciptakan lingkungan belajar yang optimal.</p>
-
-            <p>Terima kasih atas kepercayaan dan dukungan Anda terhadap SDN Kesamiran 01. Mari kita bersama-sama membentuk
-                generasi yang unggul, berbudi luhur, dan siap menghadapi tantangan masa depan.</p>
-
-            <p>Salam Pendidikan,<br>Ali Rosidi, S.Pd, SD<br>Kepala Sekolah SDN Kesamiran 01</p>
+    <div class="row py-4 text-center">
+        <h1 data-aos="fade-up" class="display-6">Sambutan Kepala Sekolah</h1>
+    </div>
+    <div class="container-md">
+        <div class="row">
+            <div class="col-12 col-lg-4 text-center">
+                <img data-aos="fade-up" src="{{ asset('assets/img/kepsek.png') }}" alt="" class="img-fluid mb-3">
+            </div>
+            <div data-aos="fade-up" class="col-12 col-lg-8">
+                <h4>Selamat Datang di Laman Web Resmi SD Negeri Kesamiran 01!</h4>
+    
+                <p class="lead">Saya, Ali Rosidi, S.Pd, dengan bangga menyambut Anda di platform ini, tempat di mana kita dapat
+                    berbagi informasi, pencapaian, dan momen-momen berharga dari kehidupan sekolah kami.</p>
+    
+                <p>Di SD Kesamiran 01, kami memandang setiap siswa sebagai bintang yang berpotensi cemerlang. Dengan staf
+                    pengajar yang berdedikasi dan kurikulum yang terkini, kami berkomitmen untuk memberikan pendidikan
+                    berkualitas yang tidak hanya melibatkan siswa dalam pembelajaran akademis, tetapi juga mendukung
+                    perkembangan karakter dan keterampilan sosial mereka.</p>
+    
+                <p>Melalui laman web ini, kami berharap dapat memberikan akses yang mudah bagi orang tua, siswa, dan
+                    masyarakat untuk mengikuti berbagai kegiatan sekolah, mendapatkan informasi terkini, serta terlibat
+                    aktif dalam pembentukan masa depan generasi muda kami.</p>
+    
+                <p>Terima kasih atas dukungan Anda, dan mari bersama-sama menciptakan lingkungan belajar yang positif dan
+                    inspiratif.</p>
+    
+                <p class="font-italic">Salam hormat,</p>
+    
+                <p class="font-weight-bold">Ali Rosidi, S.Pd<br>Kepala Sekolah<br>Sekolah Dasar Kesamiran 01</p>
+            </div>
         </div>
     </div>
+    
 @endsection

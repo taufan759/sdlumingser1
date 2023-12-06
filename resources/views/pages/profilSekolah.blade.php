@@ -2,14 +2,14 @@
 
 @section('content')
     <div class="row" style="padding-top: 100px">
-        <div class="col text-center">
+        <div data-aos="fade-up" class="col text-center">
             <h1>Profil Sekolah</h1>
             <h2>SD Negeri Kesamiran 01</h2>
         </div>
     </div>
     <div class="row">
         <div class="col p-5 pt-3">
-            <div class="card rounded-4 shadow-lg">
+            <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                 <div class="card-body">
                     <div class="card-title">
                         <h3 class="fw-medium text-center">Visi :</h3>
@@ -56,7 +56,7 @@
     </div>
     <div class="row">
         <div class="col p-5 pt-3">
-            <div class="card rounded-4 shadow-lg">
+            <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                 <div class="card-body">
                     <div class="card-title">
                         <h3 class="fw-medium pb-2 text-center">Profil Geografis :</h3>
