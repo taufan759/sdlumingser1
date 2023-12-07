@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('image');
             $table->text('content');
+            $table->enum('status',[1,2])->default(2); //1 publish 2 draft
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();

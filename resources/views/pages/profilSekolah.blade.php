@@ -128,11 +128,6 @@
                                                     <td>Inti</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Akreditasi</th>
-                                                    <td>:</td>
-                                                    <td>A</td>
-                                                </tr>
-                                                <tr>
                                                     <th>KBM</th>
                                                     <td>:</td>
                                                     <td>Pagi</td>

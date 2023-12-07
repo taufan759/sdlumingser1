@@ -16,14 +16,14 @@ class CategoriesSeeder extends Seeder
     {
         // Category 1
         DB::table('categories')->insert([
-            'name' => 'Technology',
+            'name' => 'Akademik',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
         // Category 2
         DB::table('categories')->insert([
-            'name' => 'Science',
+            'name' => 'Non Akademik',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

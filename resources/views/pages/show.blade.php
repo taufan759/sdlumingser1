@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
-    <div class="mt-4 p-5">
+    <div class="mt-5 p-5">
         <div class="card mb-3">
           <div class="p-3">
             <h1 class="p-2 fs-1 " >{{$show->title}} <div class="vr"></div> <span class="btn btn-outline-primary btn-sm">#{{  $categories->name}}</span></h1>
