@@ -23,6 +23,7 @@ class TeacherSeeder extends Seeder
             'jabatan' => 'Kepala Sekolah',
             'alamat' => 'Jl. Kepala Sekolah No. 1',
             'no_tlp' => '081234567890',
+            'image'  => 'icon.png.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -36,6 +37,7 @@ class TeacherSeeder extends Seeder
             'jabatan' => 'Guru Matematika',
             'alamat' => 'Jl. Guru Pertama No. 2',
             'no_tlp' => '087654321098',
+            'image'  => 'icon.png.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -49,6 +51,7 @@ class TeacherSeeder extends Seeder
             'jabatan' => 'Staff Administrasi',
             'alamat' => 'Jl. Staff Administrasi No. 3',
             'no_tlp' => '081234567890',
+            'image'  => 'icon.png.',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
