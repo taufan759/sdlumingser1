@@ -12,9 +12,41 @@
     <main>
         @yield('content')
     </main>
-    <footer>
-        @include('includes.footer')
-    </footer>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn floating-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="bi bi-whatsapp"></i>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                @csrf
+                <form>
+                    <div class="form-group text-center">
+                        <p class="lead fw-normal pt-3">Portal Layanan SDN Kesamiran 01</p>
+                    </div>
+            
+                    <div class="form-group p-3 pt-2">
+                        <label for="nama">Nama:</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Masukkan nama Anda">
+                    </div>
+            
+                    <div class="form-group p-3 pt-2">
+                        <label for="pesan">Pesan:</label>
+                        <textarea class="form-control" id="pesan" rows="4" placeholder="Masukkan pesan Anda"></textarea>
+                    </div>
+            
+                    <div class="form-group d-flex justify-content-center pb-3">
+                        <button type="reset" class="btn btn-secondary me-2" data-bs-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-primary ms-2" onclick="kirimPesan()">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer>
+            @include('includes.footer')
+        </footer>
 </body>
 
 </html>

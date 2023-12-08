@@ -1,4 +1,14 @@
 // PLAIN JS
+function kirimPesan() {
+    var nama = document.getElementById('nama').value;
+    var pesan = document.getElementById('pesan').value;
+
+    // Membuat pesan yang berisi informasi dari form
+    var whatsappPesan = "Nama : " + encodeURI(nama) + "%0aPesan : " + encodeURI(pesan);
+
+    // Mengarahkan pengguna ke WhatsApp dengan pesan yang sudah dibuat
+    window.open("https://api.whatsapp.com/send?phone=6282314552812&text=" + whatsappPesan,'_blank');
+};
 document.addEventListener('DOMContentLoaded', function () {
     AOS.init();
     var navEl = document.querySelector('.navbar');
@@ -19,9 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    
 
 });
-
 
 // JQUERY
 $(document).ready(function () {
