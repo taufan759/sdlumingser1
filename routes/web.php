@@ -44,6 +44,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/guru/akun-teacher', [GuruController::class, 'insertAkunTeacher']);
         Route::get('/guru/teacher', [GuruController::class, 'teacher']);
         Route::post('/guru/teacher', [GuruController::class, 'insertTeacher']);
+        Route::get('/guru/berita', [GuruController::class, 'berita']);
         Route::post('/guru/updateAkun', [GuruController::class, 'updateAkun']);
         Route::post('/guru/updateProfil', [GuruController::class, 'updateProfil']);
     });

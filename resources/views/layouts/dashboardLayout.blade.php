@@ -177,18 +177,25 @@
                                    Insert Guru
                                 </a>
                             </li>
-                            <li class="app-sidebar__heading">UI Components</li>
+                            <li class="app-sidebar__heading">Components</li>
                             <li>
                                 <a href="#">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Elements
-                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    <i class="fa-solid fa-newspaper"></i>
+                                    Berita
                                 </a>
+                                <ul>
+                                    <li>
+                                        <a href="/guru/berita">
+                                            <i class="metismenu-icon"></i>
+                                            Berita Post
+                                        </a>
+                                    </li>
+                                </ul>
                                 <ul>
                                     <li>
                                         <a href="elements-buttons-standard.html">
                                             <i class="metismenu-icon"></i>
-                                            Buttons
+                                           insert Berita 
                                         </a>
                                     </li>
                                 </ul>
