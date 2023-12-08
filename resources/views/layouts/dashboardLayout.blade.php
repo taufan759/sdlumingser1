@@ -164,7 +164,13 @@
                 <div class="scrollbar-sidebar">
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
-                            <li class="app-sidebar__heading">Dashboard</li>
+                            <li class="app-sidebar__heading">Pengajar</li>
+                            <li>
+                                <a href="/guru/akun-teacher" >
+                                    <i class="fa-solid fa-chalkboard-user"></i>
+                                   Daftarkan Guru
+                                </a>
+                            </li>
                             <li>
                                 <a href="/guru/teacher" >
                                     <i class="fa-solid fa-chalkboard-user"></i>
@@ -287,6 +293,20 @@
             <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#liveSearch").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("table tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
     <script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js">
     </script>
 </body>

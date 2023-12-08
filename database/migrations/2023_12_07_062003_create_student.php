@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('nama_siswa')->nullable();
             $table->string('tempat_tanggal_lahir_siswa')->nullable();
             $table->string('kelas')->nullable();
+            $table->string('alamat_lengkap')->nullable();
             $table->string('nama_ibu')->nullable();
             $table->string('nama_ayah')->nullable();
-            $table->string('alamat_lengkap')->nullable();
             $table->string('foto_kk')->nullable();
             $table->string('no_tlp')->nullable();
             $table->enum('kelamin',['L','P','N'])->default('N');

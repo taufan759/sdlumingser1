@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('teacher', function (Blueprint $table) {
             $table->id();
-            $table->string('title'); 
             $table->string('image');
             $table->unsignedBigInteger('users_id');
-            $table->string('NIP')->unique()->nullable();
+            $table->string('title');
             $table->string('nama');
-            $table->enum('role',[1,2,3]); // 1 = kepsek, 2 = guru, 3 = staff
+            $table->enum('roles',[1,2,3]); // 1 = kepsek, 2 = guru, 3 = staff
+            $table->string('NIP')->unique()->nullable();
             $table->string('jabatan');
             $table->string('alamat');
             $table->string('no_tlp');

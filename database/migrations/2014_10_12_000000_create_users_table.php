@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('NIS')->unique()->nullable();
             $table->string('email')->unique();
             $table->string('nama')->nullable();
-            $table->enum('roles',[1,2])->default(2); // 1 = Admin, 2 = Siswa
+            $table->enum('roles',[1,2,3])->default(3); // 1 = Admin master, 2 = dewan guru , 3 = siswa
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
