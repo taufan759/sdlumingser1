@@ -15,13 +15,23 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // Admin user
+        // Admin master
         DB::table('users')->insert([
-            'NIP' => '123456789',
-            'nama' => 'Admin User',
+            'nama' => 'Admin Master',
             'email' => 'admin@admin.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('admin123'),
             'roles' => 1, // Admin role
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Guru
+        DB::table('users')->insert([
+            'NIP' => '12345678',
+            'nama' => 'Guru bahasa arab',
+            'email' => 'guru@guru.com',
+            'password' => Hash::make('password'),
+            'roles' => 2, // Guru role
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -32,7 +42,7 @@ class UsersTableSeeder extends Seeder
             'nama' => 'Siswa User 1',
             'email' => 'siswa1@siswa.com',
             'password' => Hash::make('password'),
-            'roles' => 2, // Siswa role
+            'roles' => 3, // Siswa role
             'created_at' => now(),
             'updated_at' => now(),
         ]);

@@ -14,15 +14,15 @@ class StudentSeeder extends Seeder
     {
        
         DB::table('student')->insert([
-            'users_id' => 2, // Assuming you have a user with ID 1
+            'users_id' => 3, //siswa roles
             'image' => 'siswa.jpg',
             'NIS' => '987654321',
             'nama_siswa' => 'Rizki Putra ',
             'tempat_tanggal_lahir_siswa' => 'Banyumas, 03 desember 2021',
             'kelas' => 'kelas 1',
+            'alamat_lengkap' => 'bayumas jawa tengah',
             'nama_ibu' => 'uswatun khasanah',
             'nama_ayah' => 'mulyono',
-            'alamat_lengkap' => 'bayumas jawa tengah',
             'foto_kk' => 'kk.jpg',
             'no_tlp' => '0912831893',
             'kelamin' => 'L',

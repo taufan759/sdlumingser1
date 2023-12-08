@@ -125,7 +125,9 @@ class LandingController extends Controller
         if (Auth::check()) {
             $roles = auth()->user()->roles;
             if ($roles == 1) {
-                return redirect('/guru/dashboard')->with('success', 'Masuk Sebagai Guru!');
+                return redirect('/guru/dashboard')->with('success', 'Masuk Sebagai Admin!');
+            } elseif ($roles == 2) {
+                return redirect('/guru/dashboard')->with('success', 'Masuk Sebagai guru!');
             } else {
                 return redirect('/siswa/dashboard')->with('success', 'Masuk Sebagai Siswa!');
             }

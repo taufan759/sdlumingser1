@@ -16,8 +16,8 @@ class SavingSeeder extends Seeder
     {
         // Saving 1
         DB::table('saving')->insert([
-            'users_id' => 2, // Assuming user ID 1 is the penabung
-            'authors_id' => 1, // Assuming user ID 2 is the one entering the savings
+            'users_id' => 3, // siswa login
+            'authors_id' => 2, // data login guru
             'saldo_sekarang' => 1000,
             'jenis_transaksi' => 1, // Menabung
             'saldo_transaksi' => 500,
@@ -29,8 +29,8 @@ class SavingSeeder extends Seeder
 
         // Saving 2
         DB::table('saving')->insert([
-            'users_id' => 2, // Assuming user ID 3 is the penabung
-            'authors_id' => 1, // Assuming user ID 1 is the one entering the savings
+            'users_id' => 3, // siswa login
+            'authors_id' => 2, // data login guru
             'saldo_sekarang' => 800,
             'jenis_transaksi' => 2, // Menarik
             'saldo_transaksi' => 300,
@@ -40,6 +40,5 @@ class SavingSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        // Add more savings as needed
     }
 }

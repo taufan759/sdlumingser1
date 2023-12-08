@@ -32,7 +32,6 @@ Route::get('/login', [LandingController::class, 'login']);
 Route::post('/login', [LandingController::class, 'authenticate']);
 Route::get('/logout', [LandingController::class, 'logout']);
 //handle roles
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/handleRoles', [LandingController::class, 'handleRoles']);
 });
@@ -41,7 +40,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(Guru::class)->group(function () {
         Route::get('/guru/dashboard', [GuruController::class, 'dashboard']);
         Route::get('/guru/settings', [GuruController::class, 'settings']);
+        Route::get('/guru/akun-teacher', [GuruController::class, 'akunTeacher']);
+        Route::post('/guru/akun-teacher', [GuruController::class, 'insertAkunTeacher']);
         Route::get('/guru/teacher', [GuruController::class, 'teacher']);
+        Route::post('/guru/teacher', [GuruController::class, 'insertTeacher']);
+        Route::post('/guru/updateAkun', [GuruController::class, 'updateAkun']);
         Route::post('/guru/updateProfil', [GuruController::class, 'updateProfil']);
     });
     //siswa

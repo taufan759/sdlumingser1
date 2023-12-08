@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
 use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
@@ -26,79 +27,105 @@ class GuruController extends Controller
         return view('guru.settings');
     }
 
-    public function updateProfil(Request $request)
+    public function updateAkun(Request $request)
     {
         $user = auth()->user();
 
         $request->validate([
             'nama' => 'required|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'nip' => 'required|string|max:255',
-            'jabatan' => 'nullable|string|max:255',
-            'alamat' => 'nullable|string|max:255',
-            'no_tlp' => 'nullable|string|max:20',
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 
         $user->update([
             'nama' => $request->nama,
             'email' => $request->email,
-            'NIP' => $request->nip,
-            'jabatan' => $request->jabatan,
-            'alamat_lengkap' => $request->alamat,
-            'no_tlp' => $request->no_tlp,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        return redirect()->back()->with('success', 'Akun updated successfully.');
     }
-    public function teacher()
+    public function akunTeacher()
     {
-        return view('guru.teacher');
+        $guru = User::where('roles', 2)->get();
+        return view('guru.AkunTeacher', [
+            'guru' => $guru
+        ]);
     }
+    public function insertAkunTeacher(Request $request)
+    {
+        $user = auth()->user();
 
-    public function storeTeacher(Request $request)
-    {
         $request->validate([
             'nama' => 'required|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'nip' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'password' => 'nullable|string|min:8',
+        ], [
+            'nama.required' => 'Kolom Nama tidak boleh kosong',
+            'nip.required' => 'Kolom NIP tidak boleh kosong',
+            'nip.unique' => 'NIP sudah terdaftar',
+            'email.unique' => 'Email sudah terdaftar',
+            'password.min' => 'Password harus memiliki minimal 8 karakter',
+        ]);
+        
+
+        $user->create([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'roles' => 2,
+            'NIP' => $request->nip,
+            'password' => $request->password ? Hash::make($request->password) : $user->password,
+        ]);
+
+        return redirect()->back()->with('success', 'Akun Guru berhasil ditambahkan.');
+    }
+
+    public function teacher()
+    {
+        $guruUsers = User::where('roles', 2)->get();
+
+        return view('guru.teacher', compact('guruUsers'));
+    }
+
+    public function insertTeacher(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
+            'users_id' => 'required|string|max:255|unique:teacher,users_id', // Add unique rule
+            'title' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'roles' => 'required|string|max:255',
             'nip' => 'required|string|max:255',
             'jabatan' => 'nullable|string|max:255',
             'alamat' => 'nullable|string|max:255',
             'no_tlp' => 'nullable|string|max:20',
-            'password' => 'nullable|string|min:8|confirmed',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
-        ],
-        [
+        ], [
             'nama.required' => 'Kolom Nama tidak boleh kosong',
-            'email.required' => 'Kolom Email tidak boleh kosong',
             'nip.required' => 'Kolom NIP tidak boleh kosong',
-            'jabatan.required' => 'Kolom Jabatan tidak boleh kosong',
-            'alamat.required' => 'Kolom Alamat tidak boleh kosong',
-            'no_tlp.required' => 'Kolom Nomor Telepon tidak boleh kosong',
-            'password.required' => 'Kolom password tidak boleh kosong',
-            'image.required' => 'Tipe file harus JPEG,PNG,JPG,GIF,SVG & Tidak lebih dari 10MB',
-        ]);
+            'image.required' => 'Tipe file harus JPEG, PNG, JPG, GIF, SVG & tidak lebih dari 10MB',
+            'roles.required' => 'Harap pilih peran (roles) untuk guru',
+            'users_id.unique' => 'ID akun sudah digunakan',
+        ]);           
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $filename = 'image' . date('Ymd') . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/image/' . $filename);
+            $filename = 'guru' . date('Ymd') . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/' . $filename);
         }
 
         Teacher::create([
+            'image' => $filename,
+            'users_id' => $request->users_id,
+            'title' => $request->title,
             'nama' => $request->nama,
-            'email' => $request->email,
-            'nip' => $request->nip,
+            'roles' => $request->roles,
+            'NIP' => $request->nip,
             'jabatan' => $request->jabatan,
             'alamat' => $request->alamat,
-            'no_tlp' => $request->no_telp,
-            'password' => $request->password,
-            'image' => $request->image,
+            'no_tlp' => $request->no_tlp,
         ]);
-
-
+        return redirect()->back()->with('success', 'Data Guru berhasil ditambahkan.');
     }
-   
-   
+
 }
