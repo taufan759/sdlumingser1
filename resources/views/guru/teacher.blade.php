@@ -1,5 +1,28 @@
 @extends('layouts.dashboardLayout')
 @section('content')
+<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Tambahkan identitas lengkap guru</p>
+<div class="col-md-6 col-lg-3">
+    <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
+        <div class="widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left pr-2 fsize-1">
+                        <div class="widget-numbers mt-0 fsize-3 text-info">{{$guru->count()}}</div>
+                    </div>
+                    <div class="widget-content-right w-100">
+                        <div class="progress-bar-xs progress">
+                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="89"
+                                aria-valuemin="0" aria-valuemax="100" style="width: {{$guru->count()}}%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-content-left fsize-1">
+                    <div class="text-muted opacity-6">Totals Guru</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <form method="POST" action="{{ url('/guru/teacher') }}" enctype="multipart/form-data">
         @csrf
         @if (session('success'))
@@ -141,4 +164,74 @@
             </div>
         </div>
     </form>
+
+    <div class=" mb-2">
+        <div class="input-group">
+            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" id="liveSearch" placeholder="Cari Akun" class="form-control">
+          </div>
+    </div>
+    <div class="table-responsive mb-5">
+        <table class="table-borderless table-striped table-hover mb-0 table align-middle">
+            <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>Foto</th>
+                    <th>Akun Guru</th>
+                    <th>Title</th>
+                    <th class="text-center">NIP</th>
+                    <th class="text-center">Nama</th>
+                    <th class="text-center">Type Pengajar</th>
+                    <th class="text-center">Jabatan</th>
+                    <th class="text-center">Alamat</th>
+                    <th class="text-center">No Tlp</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($guru as $guru)
+                <tr>
+                    <td class="text-muted text-center">{{$loop->iteration}}</td>
+                    <td>
+                        <div class="widget-content p-0">
+                            <div class="widget-content-wrapper">
+                                <div class="widget-content-left mr-3">
+                                    <div class="widget-content-left">
+                                        <img width="40" class="rounded-circle" src="{{asset('storage/'.$guru->image)}}"
+                                            alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="text-center">{{ $guru->user->nama  }}</td>
+                    <td class="text-center">{{ $guru->title }}</td>
+                    <td class="text-center">
+                        <div class="badge badge-success">{{ $guru->NIP }}</div>
+                    </td>
+                    <td class="text-center">{{ $guru->nama }}</td>
+                    <td class="text-center">
+                        @if($guru->roles == 1)
+                            <div class="badge badge-info">Kepala Sekolah</div>
+                        @elseif($guru->roles == 2)
+                            <div class="badge badge-warning">Guru</div>
+                        @else
+                        <div class="badge badge-danger">Staff</div>
+                        @endif
+                    </td>
+                    
+                    <td class="text-center">{{ $guru->jabatan }}</td>
+                    <td class="text-center">{{ $guru->alamat }}</td>
+                    <td class="text-center">{{ $guru->no_tlp }}</td>
+                    <td class="text-center">
+                        <button type="button" id="PopoverCustomT-2"
+                        class="btn btn-info btn-sm"><i class="fa-solid fa-user-pen"></i></button>
+                        <button type="button" id="PopoverCustomT-2"
+                            class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @endsection

@@ -10,4 +10,8 @@ class Teacher extends Model
     use HasFactory;
     protected $table = 'teacher';
     protected $guarded = [];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
+    }
 }

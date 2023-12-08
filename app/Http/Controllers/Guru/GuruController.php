@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Guru;
 
-use App\Http\Controllers\Controller;
-use App\Models\Teacher;
+use App\Models\News;
 use App\Models\User;
+use App\Models\Teacher;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class GuruController extends Controller
 {
@@ -30,7 +32,7 @@ class GuruController extends Controller
     public function updateAkun(Request $request)
     {
         $user = auth()->user();
-
+        
         $request->validate([
             'nama' => 'required|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
@@ -84,8 +86,12 @@ class GuruController extends Controller
     public function teacher()
     {
         $guruUsers = User::where('roles', 2)->get();
+        $guru = Teacher::orderBy('id', 'DESC')->get();
 
-        return view('guru.teacher', compact('guruUsers'));
+        return view('guru.teacher',[
+            'guruUsers' => $guruUsers,
+            'guru' => $guru
+        ]);
     }
 
     public function insertTeacher(Request $request)
@@ -110,7 +116,7 @@ class GuruController extends Controller
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $filename = 'guru' . date('Ymd') . '.' . $image->getClientOriginalExtension();
+            $filename = 'guru'. '-' .Str::random(10). '-' .date('Ymd') . '.' . $image->getClientOriginalExtension();
             $image->storeAs('public/' . $filename);
         }
 
@@ -126,6 +132,14 @@ class GuruController extends Controller
             'no_tlp' => $request->no_tlp,
         ]);
         return redirect()->back()->with('success', 'Data Guru berhasil ditambahkan.');
+    }
+
+    public function berita()
+    {
+        $berita = News::orderBy('id', 'DESC')->get();
+        return view('guru.berita', [
+            'berita' => $berita
+        ]);
     }
 
 }
