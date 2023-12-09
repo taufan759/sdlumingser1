@@ -1,5 +1,4 @@
 body {
-    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
@@ -82,6 +81,16 @@ body {
     font-size: 1.5em;
 }
 /* End Floating Button */
+
+.overlay-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.overlay-content .card-body h5, p {
+    color: white;
+}
+
 
 /* Add a media query for mobile devices */
 @media only screen and (max-width: 600px) {

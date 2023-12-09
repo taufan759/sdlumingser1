@@ -1,30 +1,33 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="row text-center" style="padding-top: 100px">
-        <h1><u>Berita Terbaru</u></h1>
-    </div>
     <div class="container">
+        <div class="row" style="padding-top: 100px">
+        </div>
         <div class="row">
             <div class="col-xl-8">
-                <div class="card rounded-3">
-                    <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt="" class="card-img-top rounded-3"
-                        style="object-fit: cover">
-                    <div class="card-img-overlay">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                            <a href="#" class="btn">Go somewhere</a>
+                <h4>Berita Terbaru</h4>
+                <a href="">
+                    <div class="card rounded-3">
+                        <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt="" class="card-img-top rounded-3"
+                            style="object-fit: cover">
+                        <div class="card-img-overlay d-flex flex-column justify-content-end">
+                            <div class="overlay-content">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the
+                                        bulk of the card's content.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-4">
-                <div class="card bg-dark text-white px-3">
+                <h4>Berita Terhangat</h4>
+                <div class="card bg-dark px-3 text-white">
                     <div class="card-body">
-                        <h2>Berita Terhangat</h2>
-
+                        <div class="card"></div>
                         <div class="d-flex border-bottom-blue align-items-center justify-content-between pb-4 pt-3">
                             <div class="pr-3">
                                 <h5>Virus Kills Member Of Advising Iran’s Supreme</h5>
