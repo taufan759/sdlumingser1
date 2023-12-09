@@ -13,6 +13,7 @@
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
     <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
 </head>
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -166,26 +167,40 @@
                         <ul class="vertical-nav-menu">
                             <li class="app-sidebar__heading">Pengajar</li>
                             <li>
-                                <a href="/guru/akun-teacher" >
+                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/akun-teacher" >
                                     <i class="fa-solid fa-chalkboard-user"></i>
                                    Daftarkan Guru
                                 </a>
                             </li>
                             <li>
-                                <a href="/guru/teacher" >
+                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/teacher" >
                                     <i class="fa-solid fa-chalkboard-user"></i>
                                    Insert Guru
                                 </a>
                             </li>
-                            <li class="app-sidebar__heading">Components</li>
+                        <li class="app-sidebar__heading">Press Release</li>
                             <li>
-                                <a href="#">
+                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+                                    <i class="fa-solid fa-newspaper"></i>
+                                    Category
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/categories">
+                                            <i class="metismenu-icon"></i>
+                                           insert Category 
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
                                     <i class="fa-solid fa-newspaper"></i>
                                     Berita
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="/guru/berita">
+                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/berita">
                                             <i class="metismenu-icon"></i>
                                             Berita Post
                                         </a>
@@ -193,30 +208,30 @@
                                 </ul>
                                 <ul>
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/insert-berita">
                                             <i class="metismenu-icon"></i>
                                            insert Berita 
                                         </a>
                                     </li>
                                 </ul>
                             </li>
+                        <li class="app-sidebar__heading">Data Siswa</li>
                             <li>
-                                <a href="#">
-                                    <i class="metismenu-icon pe-7s-car"></i>
-                                    Components
-                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+                                    <i class="fa-solid fa-newspaper"></i>
+                                    Siswa
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="components-tabs.html">
-                                            <i class="metismenu-icon">
-                                            </i>Tabs
+                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/siswa">
+                                            <i class="metismenu-icon"></i>
+                                           insert akun Siswa
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="components-accordions.html">
-                                            <i class="metismenu-icon">
-                                            </i>Accordions
+                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/data-siswa">
+                                            <i class="metismenu-icon"></i>
+                                           data lengkap siswa
                                         </a>
                                     </li>
                                 </ul>
@@ -313,6 +328,12 @@
                 });
             });
         });
+
+        ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
     </script>
     <script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js">
     </script>
