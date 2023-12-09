@@ -2,7 +2,7 @@
     <div class="container-md">
         <a class="navbar-brand" href="/">
             <img src="{{ asset('assets/img/icon.png') }}" alt="Logo"
-                class="d-inline-block align-text-center">
+                class="d-inline-block align-text-center" width="50" height="50">
             SDN Kesamiran 01
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav">
@@ -16,7 +16,7 @@
             <div class="offcanvas-body ms-3">
                 <ul class="navbar-nav nav-underline justify-content-end pe-2 flex-grow-1">
                     <li class="nav-item">
-                        <a href="/" class="{{ (request()->is('/')) ? 'nav-link active' : 'nav-link' }}">Home</a>
+                        <a href="/" class="{{ (request()->is('/')) ? 'nav-link active' : 'nav-link' }}">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -29,13 +29,13 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="/galery" class="{{ (request()->is('/galery')) ? 'nav-link active' : 'nav-link' }}">Gallery</a>
+                        <a href="/galery" class="{{ (request()->is('/galery')) ? 'nav-link active' : 'nav-link' }}">Galeri</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/news" class="{{ (request()->is('/news')) ? 'nav-link active' : 'nav-link' }}">News</a>
+                        <a href="/news" class="{{ (request()->is('/news')) ? 'nav-link active' : 'nav-link' }}">Berita</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/contact" class="{{ (request()->is('/contact')) ? 'nav-link active' : 'nav-link' }}">Contact</a>
+                        <a href="/contact" class="{{ (request()->is('/contact')) ? 'nav-link active' : 'nav-link' }}">Kritik & Saran</a>
                     </li>
                 </ul>
                 <a href="/login" class="btn">Login <i class="bi bi-arrow-right-circle"></i></a>

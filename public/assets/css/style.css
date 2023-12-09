@@ -1,8 +1,12 @@
 body {
+    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    background: rgb(188,219,127);
+    background: radial-gradient(circle, rgba(188,219,127,1) 0%, rgba(204,225,160,1) 51%, rgba(187,230,188,1) 95%);
+    background-repeat: no-repeat;
 }
 
 @keyframes fadeInAnimation {
@@ -13,40 +17,16 @@ body {
         opacity: 1;
     }
 }
-
-.navbar {
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-}
 .navbar img {
-    filter: brightness(100%);
-    width: 50px;
-    height: 50px;
+    filter: invert(1);
 }
-.navbar a, h5 {
-    color: #ffffff;
-}
-.navbar a:hover, a:focus {
-    color: #909090;
-    background-color: transparent;
-}
-.fixed-top {
-    background-color: transparent;
-}
-.navbar-scrolled {
-    background-color: #212529;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-}
-.navbar-nav .nav-item .nav-link.active{
-    color: #ffffff;
-}
-.dropdown-menu a:hover, a:focus {
-    color: #909090;
-    background-color: transparent;
+.carousel {
+    padding-top: 75px;
 }
 .carousel-inner img {
-    filter: brightness(50%);
+    filter: brightness(80%);
 }
+/* Welcome Text */
 .welcome-overlay {
     position: absolute;
     top: 50%;
@@ -54,7 +34,7 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     overflow: hidden;
-    margin-top: -72px;
+    margin-top: -20px;
 }
 
 .typing-text {
@@ -79,25 +59,30 @@ body {
         opacity: 0;
     }
 }
+/* End Welcome Text */
+
+/* Floating Button */
 .floating-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    background-color: #25D366; /* Warna hijau WhatsApp */
-    border: none; /* Hapus border */
-    color: #fff; /* Warna teks putih */
-    border-radius: 50%; /* Membuat tombol oval */
-    width: 50px; /* Sesuaikan lebar sesuai kebutuhan */
-    height: 50px; /* Sesuaikan tinggi sesuai kebutuhan */
+    background-color: #25D366;
+    border: none;
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
-  }
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
 .floating-button i {
     font-size: 1.5em;
-}  
+}
+/* End Floating Button */
+
 /* Add a media query for mobile devices */
 @media only screen and (max-width: 600px) {
     .typing-text {

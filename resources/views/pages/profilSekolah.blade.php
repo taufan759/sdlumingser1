@@ -1,13 +1,13 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="row" style="padding-top: 100px">
+    <div class="row" style="padding-top: 75px;">
         <div data-aos="fade-up" class="col text-center">
             <h1>Profil Sekolah</h1>
             <h2>SD Negeri Kesamiran 01</h2>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="padding-inline: 50px">
         <div class="col p-5 pt-3">
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                 <div class="card-body">
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="padding-inline: 50px">
         <div class="col p-5 pt-3">
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                 <div class="card-body">
@@ -121,6 +121,11 @@
                                                     <th>Status Sekolah</th>
                                                     <td>:</td>
                                                     <td>Negeri</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Akreditasi</th>
+                                                    <td>:</td>
+                                                    <td>B</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Kelompok Sekolah</th>
@@ -198,11 +203,6 @@
                                                     <th>Tanggal Upload SK Op.</th>
                                                     <td>:</td>
                                                     <td>2023-04-19 03:56:30.160</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Akreditasi</th>
-                                                    <td>:</td>
-                                                    <td>B</td>
                                                 </tr>
                                             </table>
                                         </div>

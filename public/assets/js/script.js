@@ -11,26 +11,6 @@ function kirimPesan() {
 };
 document.addEventListener('DOMContentLoaded', function () {
     AOS.init();
-    var navEl = document.querySelector('.navbar');
-    var ddMN = document.querySelector('.dropdown-menu');
-    var currentURL = window.location.pathname;
-
-    if (currentURL !== '/'){
-        navEl.classList.add('navbar-scrolled')
-        ddMN.classList.remove('bg-transparent');
-        ddMN.classList.add('bg-dark');
-    }else {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY >= 56) {
-                navEl.classList.add('navbar-scrolled');
-            } else {
-                navEl.classList.remove('navbar-scrolled');
-            }
-        });
-    }
-
-    
-
 });
 
 // JQUERY
