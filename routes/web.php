@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\Guru;
 use App\Http\Middleware\Siswa;
+use App\Http\Middleware\Roles1;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Guru\GuruController;
@@ -38,21 +39,23 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     //guru
     Route::middleware(Guru::class)->group(function () {
-        Route::get('/guru/dashboard', [GuruController::class, 'dashboard']);
+        Route::middleware(Roles1::class)->group(function () {
+            Route::get('/guru/akun-teacher', [GuruController::class, 'akunTeacher']);
+            Route::post('/guru/akun-teacher', [GuruController::class, 'insertAkunTeacher']);
+            Route::get('/guru/teacher', [GuruController::class, 'teacher']);
+            Route::post('/guru/teacher', [GuruController::class, 'insertTeacher']);
+            Route::get('/guru/siswa', [GuruController::class, 'siswa']);
+            Route::post('/guru/akun-siswa', [GuruController::class, 'StoreSiswaAccount']);
+            Route::get('/guru/data-siswa', [GuruController::class, 'DataSiswa']);
+            Route::get('/guru/siswa/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataSiswa']);
+        });
         Route::get('/guru/settings', [GuruController::class, 'settings']);
-        Route::get('/guru/akun-teacher', [GuruController::class, 'akunTeacher']);
-        Route::post('/guru/akun-teacher', [GuruController::class, 'insertAkunTeacher']);
-        Route::get('/guru/teacher', [GuruController::class, 'teacher']);
-        Route::post('/guru/teacher', [GuruController::class, 'insertTeacher']);
+        Route::get('/guru/dashboard', [GuruController::class, 'dashboard']);
         Route::get('/guru/berita', [GuruController::class, 'berita']);
         Route::get('/guru/insert-berita', [GuruController::class, 'InsertBerita']);
-        Route::post('/guru/StoreBerita', [GuruController::class, 'StoreBerita']);
+        Route::post('/guru/StoreBerita', [GuruController::class, 'StoreBerita'])->name('StoreBerita');
         Route::get('/guru/categories', [GuruController::class, 'categories']);
         Route::post('/guru/StoreCategories', [GuruController::class, 'StoreCategories']);
-        Route::get('/guru/siswa', [GuruController::class, 'siswa']);
-        Route::post('/guru/akun-siswa', [GuruController::class, 'StoreSiswaAccount']);
-        Route::get('/guru/data-siswa', [GuruController::class, 'DataSiswa']);
-        Route::get('/guru/siswa/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataSiswa']);
 
 
         Route::post('/guru/updateAkun', [GuruController::class, 'updateAkun']);

@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>SDN Kesamiran 01</title>
-<link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
@@ -98,13 +98,15 @@
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
                                             class="dropdown-menu dropdown-menu-right">
-                                           <a style="text-decoration:none" href="/guru/settings"> <button type="button" tabindex="0"
-                                                class="dropdown-item">Settings</button></a>
-                                           <a style="text-decoration:none" href="/guru/tabungan"> <button type="button" tabindex="0"
-                                                class="dropdown-item">Tabungan</button></a>
+                                            <a style="text-decoration:none" href="/guru/settings"> <button
+                                                    type="button" tabindex="0"
+                                                    class="dropdown-item">Settings</button></a>
+                                            <a style="text-decoration:none" href="/guru/tabungan"> <button
+                                                    type="button" tabindex="0"
+                                                    class="dropdown-item">Tabungan</button></a>
                                             <div tabindex="-1" class="dropdown-divider"></div>
-                                            <a style="text-decoration:none" href="/logout"> <button type="button" tabindex="0"
-                                                class="dropdown-item">Logout</button></a>
+                                            <a style="text-decoration:none" href="/logout"> <button type="button"
+                                                    tabindex="0" class="dropdown-item">Logout</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -165,78 +167,133 @@
                 <div class="scrollbar-sidebar">
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
-                            <li class="app-sidebar__heading">Pengajar</li>
-                            <li>
-                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/akun-teacher" >
-                                    <i class="fa-solid fa-chalkboard-user"></i>
-                                   Daftarkan Guru
-                                </a>
-                            </li>
-                            <li>
-                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/teacher" >
-                                    <i class="fa-solid fa-chalkboard-user"></i>
-                                   Insert Guru
-                                </a>
-                            </li>
-                        <li class="app-sidebar__heading">Press Release</li>
-                            <li>
-                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
-                                    <i class="fa-solid fa-newspaper"></i>
-                                    Category
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/categories">
-                                            <i class="metismenu-icon"></i>
-                                           insert Category 
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
-                                    <i class="fa-solid fa-newspaper"></i>
-                                    Berita
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/berita">
-                                            <i class="metismenu-icon"></i>
-                                            Berita Post
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/insert-berita">
-                                            <i class="metismenu-icon"></i>
-                                           insert Berita 
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        <li class="app-sidebar__heading">Data Siswa</li>
-                            <li>
-                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
-                                    <i class="fa-solid fa-newspaper"></i>
-                                    Siswa
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/siswa">
-                                            <i class="metismenu-icon"></i>
-                                           insert akun Siswa
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/guru/data-siswa">
-                                            <i class="metismenu-icon"></i>
-                                           data lengkap siswa
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                            @if (auth()->user()->roles == '1')
+                                <li class="app-sidebar__heading">Pengajar</li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="/guru/akun-teacher">
+                                        <i class="fa-solid fa-chalkboard-user"></i>
+                                        Daftarkan Guru
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="/guru/teacher">
+                                        <i class="fa-solid fa-chalkboard-user"></i>
+                                        Insert Guru
+                                    </a>
+                                </li>
+                                <li class="app-sidebar__heading">Press Release</li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Category
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/categories">
+                                                <i class="metismenu-icon"></i>
+                                                insert Category
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Berita
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/berita">
+                                                <i class="metismenu-icon"></i>
+                                                Berita Post
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/insert-berita">
+                                                <i class="metismenu-icon"></i>
+                                                insert Berita
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="app-sidebar__heading">Data Siswa</li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Siswa
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/siswa">
+                                                <i class="metismenu-icon"></i>
+                                                insert akun Siswa
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/data-siswa">
+                                                <i class="metismenu-icon"></i>
+                                                data lengkap siswa
+                                            </a>
+                                        </li>
+                                      @elseif (auth()->user()->roles == '2')
+                                      <li class="app-sidebar__heading">Press Release</li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Category
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/categories">
+                                                <i class="metismenu-icon"></i>
+                                                insert Category
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Berita
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/berita">
+                                                <i class="metismenu-icon"></i>
+                                                Berita Post
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/insert-berita">
+                                                <i class="metismenu-icon"></i>
+                                                insert Berita
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                      @endif
+                                  </ul>
+                              </li>
+                          </ul>
                     </div>
                 </div>
             </div>
@@ -249,7 +306,8 @@
                                     <i class="fa-solid fa-screwdriver-wrench"></i>
                                 </div>
                                 <div>Dashboard Guru
-                                    <div class="page-title-subheading">👋  Hai!, {{auth()->user()->nama}} Bpk/Ibu guru SD Negeri Kesamiran 01.
+                                    <div class="page-title-subheading">👋 Hai!, {{ auth()->user()->nama }} Bpk/Ibu guru
+                                        SD Negeri Kesamiran 01.
                                     </div>
                                 </div>
                             </div>
@@ -315,25 +373,25 @@
             <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $("#liveSearch").on("keyup", function () {
+        $(document).ready(function() {
+            $("#liveSearch").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
-                $("table tbody tr").filter(function () {
+                $("table tbody tr").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
         });
 
         ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
     <script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js">
     </script>

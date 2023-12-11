@@ -1,8 +1,7 @@
 @extends('layouts.dashboardLayout')
 @section('content')
 <p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Tambahkan Postingan Berita</p>
-
-<form method="POST" action="{{ url('/guru/StoreBerita') }}" enctype="multipart/form-data">
+<form method="POST" action="/guru/StoreBerita" enctype="multipart/form-data">
     @csrf
     @if (session('success'))
         <div class="alert alert-success">
@@ -49,25 +48,12 @@
             @enderror
         </div>
     </div>
-
-    <div class="row mb-3">
-        <label for="author_id" class="col-sm-2 col-form-label">{{ __('Penulis') }}</label>
-        <div class="col-sm-10">
-            <input id="author_id" type="text" class="form-control @error('author_id') is-invalid @enderror"
-                name="author_id" value="{{ auth()->user()->nama }}" disabled placeholder="ID Penulis" autocomplete="author_id" autofocus>
-            @error('author_id')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-
+    
     <div class="row mb-3">
         <label for="category_id" class="col-sm-2 col-form-label">{{ __('Category') }}</label>
         <div class="col-sm-10">
             <select id="category_id" class="form-control @error('category_id') is-invalid @enderror" name="category_id" required>
-                <option value="" disabled selected>Select a category</option>
+                <option value="" selected>Select a category</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
                         {{ $category->name }}
@@ -96,12 +82,10 @@
             @enderror
         </div>
     </div>
-    <!-- Add other fields similar to the above fields -->
-
     <div class="row mb-3">
         <div class="col-sm-10 offset-sm-2">
             <button type="submit" class="btn btn-primary">
-                {{ __('Submit') }}
+               Tambah
             </button>
         </div>
     </div>

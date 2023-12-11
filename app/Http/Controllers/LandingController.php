@@ -27,7 +27,7 @@ class LandingController extends Controller
 
     public function profilKepsek()
     {
-        $kepsek = Teacher::where('role', 1)->get();
+        $kepsek = Teacher::where('roles', 1)->get();
         return view('pages.profilKepsek', [
             'kepsek' => $kepsek,
         ]);
@@ -35,9 +35,9 @@ class LandingController extends Controller
 
     public function profilStaff()
     {
-        $kepsek = Teacher::where('role', 1)->get();
-        $guru = Teacher::where('role', 2)->get();
-        $staff = Teacher::where('role', 3)->get();
+        $kepsek = Teacher::where('roles', 1)->get();
+        $guru = Teacher::where('roles', 2)->get();
+        $staff = Teacher::where('roles', 3)->get();
         return view('pages.profilStaff', [
             'guru' => $guru,
             'kepsek' => $kepsek,
@@ -89,6 +89,7 @@ class LandingController extends Controller
 
     public function authenticate(Request $request)
     {
+        //dd($request->all());
         $credentials = $request->validate([
             'login' => ['required'],
             'password' => ['required'],

@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-    <p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Daftarkan Akun Untuk Guru</p>
+    <p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Postingan Berita </p>
     <div class="col-md-6 col-lg-3">
         <div class="card-shadow-info widget-chart widget-chart2 card mb-3 text-left">
             <div class="widget-content">
@@ -88,12 +88,12 @@
                         </td>
                         <td class="text-center">
                             @if ($berita->status == 2)
-                                <a type="button" class="text-success btn border-0" id="PopoverCustomT-2">
-                                    <i class="fa-regular fa-thumbs-up"></i>
+                                <a type="button" class="text-danger btn border-0" id="PopoverCustomT-2">
+                                    <i class="fa-solid fa-thumbs-down"></i>
                                 </a>
                             @elseif($berita->status == 1)
-                                <a type="button" id="PopoverCustomT-2" class="text-danger btn border-0">
-                                    <i class="fa-solid fa-thumbs-down"></i>
+                                <a type="button" id="PopoverCustomT-2" class=" text-success btn border-0">
+                                    <i class="fa-regular fa-thumbs-up"></i>
                                 </a>
                             @else
                                 <!-- Handle other cases if needed -->

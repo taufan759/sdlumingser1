@@ -44,14 +44,12 @@
                     <input disabled value="{{ $detail->nama_ayah }}" type="text" class="form-control">
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">KK : </span>
-                    <a href="{{ asset('storage/' . $detail->foto_kk) }}"><span class="badge text-bg-warning p-2 rounded-0">lihat Kartu Keluarga</span></a>
+                    <a><span class="badge text-bg-warning p-2 rounded-0">Kartu Keluarga</span></a>
                 </div>
-                <!-- Add more details as needed -->
-
-                <!-- Add your other details here -->
-
             </div>
+        </div>
+        <div class="mb-3">
+            <img src="{{ asset('storage/' . $detail->foto_kk) }}" alt="{{ $detail->nama_siswa }}" class="img-fluid rounded">
         </div>
     </div>
 @endsection

@@ -166,9 +166,9 @@ class GuruController extends Controller
 
     public function StoreBerita(Request $request)
     {
-        //dd($request->all());
+       dd($request->all());
         $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // adjust image validation as needed
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
             'title' => 'required|string',
             'content' => 'required|string',
             'status' => 'required|in:1,2',
