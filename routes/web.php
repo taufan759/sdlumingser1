@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Guru\GuruController;
 use App\Http\Controllers\Siswa\SiswaController;
+use App\Http\Middleware\profilGuru;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,14 +49,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/guru/akun-siswa', [GuruController::class, 'StoreSiswaAccount']);
             Route::get('/guru/data-siswa', [GuruController::class, 'DataSiswa']);
             Route::get('/guru/siswa/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataSiswa']);
+            Route::get('/guru/teacher/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataTeacher']);
         });
+        Route::middleware(profilGuru::class)->group(function () {  
+            Route::get('/guru/berita', [GuruController::class, 'berita']);
+            Route::get('/guru/insert-berita', [GuruController::class, 'InsertBerita']);
+            Route::post('/guru/StoreBerita', [GuruController::class, 'StoreBerita']);
+            Route::get('/guru/publish/{id}', [GuruController::class, 'publish']);
+            Route::get('/guru/draft/{id}', [GuruController::class, 'draft']);
+            Route::get('/guru/categories', [GuruController::class, 'categories']);
+            Route::post('/guru/StoreCategories', [GuruController::class, 'StoreCategories']);
+         });
         Route::get('/guru/settings', [GuruController::class, 'settings']);
+        Route::get('/guru/profil', [GuruController::class, 'profil']);
+        Route::post('/guru/profil', [GuruController::class, 'StoreProfil']);
         Route::get('/guru/dashboard', [GuruController::class, 'dashboard']);
-        Route::get('/guru/berita', [GuruController::class, 'berita']);
-        Route::get('/guru/insert-berita', [GuruController::class, 'InsertBerita']);
-        Route::post('/guru/StoreBerita', [GuruController::class, 'StoreBerita'])->name('StoreBerita');
-        Route::get('/guru/categories', [GuruController::class, 'categories']);
-        Route::post('/guru/StoreCategories', [GuruController::class, 'StoreCategories']);
 
 
         Route::post('/guru/updateAkun', [GuruController::class, 'updateAkun']);
