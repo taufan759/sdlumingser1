@@ -7,21 +7,64 @@
         <div class="row">
             <div class="col-xl-8">
                 <h4>Berita Terbaru</h4>
-                <a href="">
-                    <div class="card rounded-3">
-                        <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt="" class="card-img-top rounded-3"
-                            style="object-fit: cover">
-                        <div class="card-img-overlay d-flex flex-column justify-content-end">
-                            <div class="overlay-content">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the
-                                        bulk of the card's content.</p>
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="">
+                                <div class="card rounded-3">
+                                    <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt=""
+                                        class="card-img-top rounded-3" style="object-fit: cover">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <div class="overlay-content">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and
+                                                    make up the
+                                                    bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="">
+                                <div class="card rounded-3">
+                                    <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt=""
+                                        class="card-img-top rounded-3" style="object-fit: cover">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <div class="overlay-content">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and
+                                                    make up the
+                                                    bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="">
+                                <div class="card rounded-3">
+                                    <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt=""
+                                        class="card-img-top rounded-3" style="object-fit: cover">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <div class="overlay-content">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and
+                                                    make up the
+                                                    bulk of the card's content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-xl-4">
                 <h4>Berita Terhangat</h4>
