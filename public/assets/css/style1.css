@@ -8,6 +8,7 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Page Load Animation */
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -16,16 +17,41 @@ body {
         opacity: 1;
     }
 }
+/* End Page Load Animation */
+
+/* Navbar */
+.navbar {
+    background-color: transparent;
+}
 .navbar img {
     filter: invert(1);
 }
+.dropdown-menu {
+    background: rgb(188,219,127);
+    background: radial-gradient(circle, rgba(188,219,127,1) 0%, rgba(204,225,160,1) 51%, rgba(187,230,188,1) 95%);
+    filter: brightness(90%);
+}
+.dropdown-item {
+    background: rgb(188,219,127);
+    background: radial-gradient(circle, rgba(188,219,127,1) 0%, rgba(204,225,160,1) 51%, rgba(187,230,188,1) 95%);
+    filter: brightness(100%);
+    transition: all 0.5s ease;
+}
+.dropdown-item:hover {
+    text-decoration: underline;
+}
+/* End Navbar */
+
+/* Jumbotron Carousel */
 .jumbotron {
     padding-top: 35px
 }
 .jumbotron .carousel-inner img {
     filter: brightness(80%);
 }
-/* Welcome Text */
+/* End Jumbotron Carousel */
+
+/* Welcome Text Overlay */
 .welcome-overlay {
     position: absolute;
     top: 50%;
@@ -58,9 +84,9 @@ body {
         opacity: 0;
     }
 }
-/* End Welcome Text */
+/* End Welcome Text Overlay */
 
-/* Floating Button */
+/* Whatsapp Floating Button */
 .floating-button {
     position: fixed;
     bottom: 20px;
@@ -80,28 +106,63 @@ body {
 .floating-button i {
     font-size: 1.5em;
 }
-/* End Floating Button */
+/* End Whatsapp Floating Button */
 
-.overlay-content {
+/* News Overlay */
+.news .overlay-content {
     position: absolute;
     bottom: 0;
     width: 100%;
 }
-.overlay-content .card-body h5, p {
+.news .overlay-content .card-body h5, p {
     color: white;
 }
 
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 
-/* Add a media query for mobile devices */
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+}
+
+/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    /* Offcanvas */
+    .offcanvas{
+        background: rgb(188,219,127);
+        background: radial-gradient(circle, rgba(188,219,127,1) 0%, rgba(204,225,160,1) 51%, rgba(187,230,188,1) 95%);
+    }
+    /* End Offcanvas */
+    /* Jumbotron Carousel */
     .jumbotron {
         padding-inline: 10px;
     }
+    /* End Jumbotron Carousel */
+
+    /* Welcome Text Overlay */
     .typing-text {
         display: block;
-        font-size: 0.4em; /* Adjust the font size as needed */
+        font-size: 0.4em;
     }
+    /* End Welcome Text Overlay */
+
+    /* School Profile Contact Overflow */
     #nav-contact {
         overflow-x: scroll;
     }
+    /* End School Profile Contact Overflow */
 }
+

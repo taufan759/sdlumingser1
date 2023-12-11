@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
-            <div class="carousel-inner">
+        <div id="carouselExampleIndicators" class="jumbotron carousel slide mb-4" data-bs-ride="carousel">
+            <div class="jumbotron carousel-inner">
                 <div class="carousel-item active rounded-4" data-bs-interval="3000">
                     <img src="{{ asset('assets/img/Carousel1.jpg') }}" class="d-block w-100 object-fit-cover rounded-4"
                         style="height: 80vh">

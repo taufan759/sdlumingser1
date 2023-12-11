@@ -15,7 +15,7 @@
                                     <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt=""
                                         class="card-img-top rounded-3" style="object-fit: cover">
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                        <div class="overlay-content">
+                                        <div class="news overlay-content">
                                             <div class="card-body">
                                                 <h5 class="card-title">Card title</h5>
                                                 <p class="card-text">Some quick example text to build on the card title and
@@ -30,10 +30,10 @@
                         <div class="carousel-item">
                             <a href="">
                                 <div class="card rounded-3">
-                                    <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt=""
+                                    <img src="{{ asset('assets/img/Carousel2.jpeg') }}" alt=""
                                         class="card-img-top rounded-3" style="object-fit: cover">
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                        <div class="overlay-content">
+                                        <div class="news overlay-content">
                                             <div class="card-body">
                                                 <h5 class="card-title">Card title</h5>
                                                 <p class="card-text">Some quick example text to build on the card title and
@@ -48,10 +48,10 @@
                         <div class="carousel-item">
                             <a href="">
                                 <div class="card rounded-3">
-                                    <img src="{{ asset('assets/img/Carousel1.jpg') }}" alt=""
+                                    <img src="{{ asset('assets/img/Carousel3.jpg') }}" alt=""
                                         class="card-img-top rounded-3" style="object-fit: cover">
                                     <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                        <div class="overlay-content">
+                                        <div class="news overlay-content">
                                             <div class="card-body">
                                                 <h5 class="card-title">Card title</h5>
                                                 <p class="card-text">Some quick example text to build on the card title and

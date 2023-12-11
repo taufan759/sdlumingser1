@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-md">
+<nav class="navbar fixed-top navbar-expand-md bg-transparent">
     <div class="container-md">
         <a class="navbar-brand" href="/">
             <img src="{{ asset('assets/img/icon.png') }}" alt="Logo"
@@ -23,7 +23,7 @@
                             aria-expanded="false">
                             Profil
                         </a>
-                        <ul class="dropdown-menu bg-transparent">
+                        <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/profile">Profil Sekolah</a></li>
                             <li><a class="dropdown-item" href="/staff_profile">Profil Guru & Staff</a></li>
                         </ul>
