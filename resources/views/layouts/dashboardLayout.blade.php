@@ -247,75 +247,127 @@
                                                 data lengkap siswa
                                             </a>
                                         </li>
-                                    @elseif (auth()->user()->roles == '2')
-                                        <li class="app-sidebar__heading">Data Identitas</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Tabungan
+                                    </a>
+                                    <ul>
                                         <li>
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                href="#">
-                                                <i class="fa-solid fa-layer-group"></i>
-                                                Account
+                                                href="/guru/saving">
+                                                <i class="metismenu-icon"></i>
+                                                Tabungan
                                             </a>
-                                            <ul>
-                                                <li>
-                                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                        href="/guru/settings">
-                                                        <i class="metismenu-icon"></i>
-                                                        Settings Akun
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <ul>
-                                                <li>
-                                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                        href="/guru/profil">
-                                                        <i class="metismenu-icon"></i>
-                                                        Profile
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </li>
-                                        <li class="app-sidebar__heading">Press Release</li>
+                                    </ul>
+                                    <ul>
                                         <li>
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                href="#">
-                                                <i class="fa-solid fa-layer-group"></i>
-                                                Category
+                                                href="/guru/insertSaving">
+                                                <i class="metismenu-icon"></i>
+                                                Tambah Tabungan
                                             </a>
-                                            <ul>
-                                                <li>
-                                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                        href="/guru/categories">
-                                                        <i class="metismenu-icon"></i>
-                                                        insert Category
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </li>
+                                    </ul>
+                                </li>
+                            @elseif (auth()->user()->roles == '2')
+                                <li class="app-sidebar__heading">Data Identitas</li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-layer-group"></i>
+                                        Account
+                                    </a>
+                                    <ul>
                                         <li>
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                href="#">
-                                                <i class="fa-solid fa-newspaper"></i>
-                                                Berita
+                                                href="/guru/settings">
+                                                <i class="metismenu-icon"></i>
+                                                Settings Akun
                                             </a>
-                                            <ul>
-                                                <li>
-                                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                        href="/guru/berita">
-                                                        <i class="metismenu-icon"></i>
-                                                        Berita Post
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <ul>
-                                                <li>
-                                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                        href="/guru/insert-berita">
-                                                        <i class="metismenu-icon"></i>
-                                                        insert Berita
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/profil">
+                                                <i class="metismenu-icon"></i>
+                                                Profile
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="app-sidebar__heading">Press Release</li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-layer-group"></i>
+                                        Category
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/categories">
+                                                <i class="metismenu-icon"></i>
+                                                insert Category
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Berita
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/berita">
+                                                <i class="metismenu-icon"></i>
+                                                Berita Post
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/insert-berita">
+                                                <i class="metismenu-icon"></i>
+                                                insert Berita
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Tabungan
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/saving">
+                                                <i class="metismenu-icon"></i>
+                                                Tabungan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/insertSaving">
+                                                <i class="metismenu-icon"></i>
+                                                Tambah Tabungan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             @endif
                         </ul>
                         </li>

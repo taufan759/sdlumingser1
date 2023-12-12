@@ -57,6 +57,7 @@
             <p class="text-xs italic text-red-500">{{ $message }}</p>
         @enderror
     </div>
+    
     <div class=" mb-3 mt-4 d-flex flex-row-reverse bd-highlight">
         <div class="mr-0">
             <button type="submit" class="btn btn-primary">
