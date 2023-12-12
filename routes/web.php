@@ -51,7 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/guru/siswa/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataSiswa']);
             Route::get('/guru/teacher/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataTeacher']);
         });
-        Route::middleware(profilGuru::class)->group(function () {  
+        Route::middleware(profilGuru::class)->group(function () {
             Route::get('/guru/berita', [GuruController::class, 'berita']);
             Route::get('/guru/insert-berita', [GuruController::class, 'InsertBerita']);
             Route::post('/guru/StoreBerita', [GuruController::class, 'StoreBerita']);
@@ -59,6 +59,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/guru/draft/{id}', [GuruController::class, 'draft']);
             Route::get('/guru/categories', [GuruController::class, 'categories']);
             Route::post('/guru/StoreCategories', [GuruController::class, 'StoreCategories']);
+            Route::get('/guru/saving', [GuruController::class, 'saving']);
+            Route::get('/guru/siswa/saving/{id}/={name}', [GuruController::class, 'savingDetail']);
          });
         Route::get('/guru/settings', [GuruController::class, 'settings']);
         Route::get('/guru/profil', [GuruController::class, 'profil']);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Guru;
 
 use App\Models\News;
+use App\Models\Saving;
 use App\Models\User;
 use App\Models\Teacher;
 use Illuminate\Support\Str;
@@ -15,17 +16,12 @@ use Illuminate\Support\Facades\Hash;
 
 class GuruController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function dashboard()
     {
         return view('guru.dashboard');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function settings()
     {
         return view('guru.settings');
@@ -225,7 +221,7 @@ class GuruController extends Controller
     public function StoreBerita(Request $request)
     {
         $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'title' => 'required|string',
             'content' => 'required|string',
             'category_id' => 'required|',
@@ -246,7 +242,7 @@ class GuruController extends Controller
             'author_id' => $user->id,
             'category_id' => $validatedData['category_id'],
         ]);
-    
+
         $news->save();
         return redirect('/guru/berita')->with('success', 'Berita berhasil disimpan!');
     }
@@ -348,6 +344,31 @@ class GuruController extends Controller
         $detail = Siswa::where('id', $id)->first();
         return view('guru.detail_data_siswa', [
             'detail' => $detail
+        ]);
+    }
+
+    public function saving()
+    {
+        $saving = Saving::all();
+        return view('guru.saving', [
+            'saving' => $saving
+        ]);
+    }
+    public function savingDetail($id)
+    {
+        $savingID = Saving::find($id);
+        $siswa = User::where('id', $savingID->users_id)->first();
+        $profil = Siswa::where('users_id', $siswa->id)->first();
+        $saving = Saving::where('users_id', $siswa->id)->get();
+        $menabungCount = $saving->where('jenis_transaksi', 1)->count();
+        $menarikCount = $saving->where('jenis_transaksi', 2)->count();
+
+        return view('guru.detail-saving', [
+            'saving' => $saving,
+            'siswa' => $siswa,
+            'profil' => $profil,
+            'menabungCount' => $menabungCount,
+            'menarikCount' => $menarikCount
         ]);
     }
 }
