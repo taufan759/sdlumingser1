@@ -7,7 +7,7 @@
             <h2>SD Negeri Kesamiran 01</h2>
         </div>
     </div>
-    <div class="row" style="padding-inline: 50px">
+    <div class="row">
         <div class="col p-5 pt-3">
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                 <div class="card-body" id="vm">
@@ -54,8 +54,8 @@
             </div>
         </div>
     </div>
-    <div class="row" style="padding-inline: 50px">
-        <div class="col p-5 pt-3">
+    <div class="row">
+        <div class="col p-5 pt-2 pt-md-3">
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                 <div class="card-body" id="pg">
                     <div class="card-title">
@@ -74,7 +74,7 @@
                             <div class="col-12 col-md-6 pt-md-0 pt-3">
                                 <div class="card rounded-3">
                                     <nav>
-                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                             <button class="nav-link active" id="nav-identitas-tab" data-bs-toggle="tab"
                                                 data-bs-target="#nav-identitas" type="button" role="tab"
                                                 aria-controls="nav-identitas" aria-selected="true">Identitas</button>
@@ -90,7 +90,7 @@
                                     <div class="tab-content" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="nav-identitas" role="tabpanel"
                                             aria-labelledby="nav-identitas-tab" tabindex="0">
-                                            <table class="table-striped table">
+                                            <table class="table-borderless table">
                                                 <tr>
                                                     <th>Nama Sekolah</th>
                                                     <td>:</td>
@@ -156,7 +156,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="nav-dokumen" role="tabpanel"
                                             aria-labelledby="nav-dokumen-tab" tabindex="0">
-                                            <table class="table-striped table">
+                                            <table class="table-borderless table">
                                                 <tr>
                                                     <th>Kementerian Pembina</th>
                                                     <td>:</td>
@@ -208,7 +208,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                             aria-labelledby="nav-contact-tab" tabindex="0">
-                                            <table class="table-striped table">
+                                            <table class="table-borderless table">
                                                 <tr>
                                                     <th>Lintang</th>
                                                     <td>:</td>

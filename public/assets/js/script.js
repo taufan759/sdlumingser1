@@ -1,17 +1,49 @@
 // PLAIN JS
+document.addEventListener('DOMContentLoaded', function () {
+    AOS.init();
+    const Swal = require('sweetalert2');
+});
+window.addEventListener("scroll", function() {
+    var navbar = document.querySelector('.navbar');
+    if (window.scrollY > 0) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
 function kirimPesan() {
     var nama = document.getElementById('nama').value;
     var pesan = document.getElementById('pesan').value;
 
+    if (nama === '' && pesan === '') {
+        Swal.fire({
+            icon: "error",
+            title: "Eitss",
+            text: "Isi dulu Nama & Pesanya",
+        });
+        return;
+    } else if (nama === '') {
+        Swal.fire({
+            icon: "error",
+            title: "Eitss",
+            text: "Isi dulu Namanya",
+        });
+        return;
+    } else if (pesan === '') {
+        Swal.fire({
+            icon: "error",
+            title: "Eitss",
+            text: "Isi dulu Pesanya",
+        });
+        return;
+    }
     // Membuat pesan yang berisi informasi dari form
     var whatsappPesan = "Nama : " + encodeURI(nama) + "%0aPesan : " + encodeURI(pesan);
 
     // Mengarahkan pengguna ke WhatsApp dengan pesan yang sudah dibuat
     window.open("https://api.whatsapp.com/send?phone=6282314552812&text=" + whatsappPesan,'_blank');
 };
-document.addEventListener('DOMContentLoaded', function () {
-    AOS.init();
-});
 
 // JQUERY
 $(document).ready(function () {

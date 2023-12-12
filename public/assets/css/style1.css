@@ -22,6 +22,13 @@ body {
 /* Navbar */
 .navbar {
     background-color: transparent;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: none;
+}
+
+.navbar.scrolled {
+    background-color: whitesmoke !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .navbar img {
     filter: invert(1);
@@ -92,23 +99,9 @@ body {
 }
 
 /* Visi Misi */
-#vm {
-    padding-top: 50px;
-    padding-bottom: 70px;
-}
-#visi {
-    padding-inline: 70px;
-}
+
 #visi p {
     color: black;
-}
-#misi {
-    padding-inline: 70px;
-}
-#pg {
-    padding-top: 50px;
-    padding-bottom: 70px;
-    padding-inline: 70px;
 }
 /* End Visi Misi */
 
@@ -132,6 +125,9 @@ body {
 .floating-button i {
     font-size: 1.5em;
 }
+.modal-content p {
+    color: black;
+}
 /* End Whatsapp Floating Button */
 
 /* News Overlay */
@@ -142,6 +138,9 @@ body {
 }
 .news .overlay-content .card-body h5, p {
     color: white;
+}
+footer a {
+    text-decoration: none;
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

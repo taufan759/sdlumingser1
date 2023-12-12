@@ -25,5 +25,7 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 {{-- AOS JS CDN --}}
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+{{-- SweetAlert2 JS CDN --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {{-- Custom JS --}}
 <script src="{{ asset('assets/js/script.js') }}"></script>
