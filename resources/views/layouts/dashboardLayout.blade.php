@@ -179,7 +179,7 @@
                                 <li>
                                     <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                         href="/guru/teacher">
-                                        <i class="fa-solid fa-chalkboard-user"></i>
+                                        <i class="fa-solid fa-user-tie"></i>
                                         Insert Guru
                                     </a>
                                 </li>
@@ -187,7 +187,7 @@
                                 <li>
                                     <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                         href="#">
-                                        <i class="fa-solid fa-newspaper"></i>
+                                        <i class="fa-solid fa-layer-group"></i>
                                         Category
                                     </a>
                                     <ul>
@@ -229,7 +229,7 @@
                                 <li>
                                     <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                         href="#">
-                                        <i class="fa-solid fa-newspaper"></i>
+                                        <i class="fa-solid fa-user-plus"></i>
                                         Siswa
                                     </a>
                                     <ul>
@@ -247,12 +247,65 @@
                                                 data lengkap siswa
                                             </a>
                                         </li>
-                                      @elseif (auth()->user()->roles == '2')
-                                      <li class="app-sidebar__heading">Press Release</li>
+                                    </ul>
+                                </li>
                                 <li>
                                     <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                         href="#">
                                         <i class="fa-solid fa-newspaper"></i>
+                                        Tabungan
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/saving">
+                                                <i class="metismenu-icon"></i>
+                                                Tabungan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/insertSaving">
+                                                <i class="metismenu-icon"></i>
+                                                Tambah Tabungan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @elseif (auth()->user()->roles == '2')
+                                <li class="app-sidebar__heading">Data Identitas</li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-layer-group"></i>
+                                        Account
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/settings">
+                                                <i class="metismenu-icon"></i>
+                                                Settings Akun
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/profil">
+                                                <i class="metismenu-icon"></i>
+                                                Profile
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="app-sidebar__heading">Press Release</li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-layer-group"></i>
                                         Category
                                     </a>
                                     <ul>
@@ -290,10 +343,35 @@
                                         </li>
                                     </ul>
                                 </li>
-                                      @endif
-                                  </ul>
-                              </li>
-                          </ul>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-newspaper"></i>
+                                        Tabungan
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/saving">
+                                                <i class="metismenu-icon"></i>
+                                                Tabungan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/insertSaving">
+                                                <i class="metismenu-icon"></i>
+                                                Tambah Tabungan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endif
+                        </ul>
+                        </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -311,60 +389,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="page-title-actions">
-                                <button type="button" data-toggle="tooltip" title="Example Tooltip"
-                                    data-placement="bottom" class="btn-shadow btn btn-dark mr-3">
-                                    <i class="fa fa-star"></i>
-                                </button>
-                                <div class="d-inline-block dropdown">
-                                    <button type="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
-                                        <span class="btn-icon-wrapper opacity-7 pr-2">
-                                            <i class="fa fa-business-time fa-w-20"></i>
-                                        </span>
-                                        Buttons
-                                    </button>
-                                    <div tabindex="-1" role="menu" aria-hidden="true"
-                                        class="dropdown-menu dropdown-menu-right">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" class="nav-link">
-                                                    <i class="nav-link-icon lnr-inbox"></i>
-                                                    <span>
-                                                        Inbox
-                                                    </span>
-                                                    <div class="badge badge-pill badge-secondary ml-auto">86</div>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" class="nav-link">
-                                                    <i class="nav-link-icon lnr-book"></i>
-                                                    <span>
-                                                        Book
-                                                    </span>
-                                                    <div class="badge badge-pill badge-danger ml-auto">5</div>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="javascript:void(0);" class="nav-link">
-                                                    <i class="nav-link-icon lnr-picture"></i>
-                                                    <span>
-                                                        Picture
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a disabled href="javascript:void(0);" class="nav-link disabled">
-                                                    <i class="nav-link-icon lnr-file-empty"></i>
-                                                    <span>
-                                                        File Disabled
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     @yield('content')
@@ -387,11 +412,139 @@
             });
         });
 
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
+        ClassicEditor.create(document.getElementById("editor"), {
+            toolbar: {
+                items: [
+                    'exportPDF', 'exportWord', '|',
+                    'findAndReplace', 'selectAll', '|',
+                    'heading', '|',
+                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
+                    'removeFormat', '|',
+                    'bulletedList', 'numberedList', 'todoList', '|',
+                    'outdent', 'indent', '|',
+                    'undo', 'redo',
+                    '-',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                    'alignment', '|',
+                    'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed',
+                    '|',
+                    'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                    'textPartLanguage', '|',
+                    'sourceEditing'
+                ],
+                shouldNotGroupWhenFull: true
+            },
+            list: {
+                properties: {
+                    styles: true,
+                    startIndex: true,
+                    reversed: true
+                }
+            },
+            heading: {
+                options: [{
+                        model: 'paragraph',
+                        title: 'Paragraph',
+                        class: 'ck-heading_paragraph'
+                    },
+                    {
+                        model: 'heading1',
+                        view: 'h1',
+                        title: 'Heading 1',
+                        class: 'ck-heading_heading1'
+                    },
+                    {
+                        model: 'heading2',
+                        view: 'h2',
+                        title: 'Heading 2',
+                        class: 'ck-heading_heading2'
+                    },
+                    {
+                        model: 'heading3',
+                        view: 'h3',
+                        title: 'Heading 3',
+                        class: 'ck-heading_heading3'
+                    },
+                    {
+                        model: 'heading4',
+                        view: 'h4',
+                        title: 'Heading 4',
+                        class: 'ck-heading_heading4'
+                    },
+                    {
+                        model: 'heading5',
+                        view: 'h5',
+                        title: 'Heading 5',
+                        class: 'ck-heading_heading5'
+                    },
+                    {
+                        model: 'heading6',
+                        view: 'h6',
+                        title: 'Heading 6',
+                        class: 'ck-heading_heading6'
+                    }
+                ]
+            },
+            placeholder: '',
+            fontFamily: {
+                options: [
+                    'default',
+                    'Arial, Helvetica, sans-serif',
+                    'Courier New, Courier, monospace',
+                    'Georgia, serif',
+                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                    'Tahoma, Geneva, sans-serif',
+                    'Times New Roman, Times, serif',
+                    'Trebuchet MS, Helvetica, sans-serif',
+                    'Verdana, Geneva, sans-serif'
+                ],
+                supportAllValues: true
+            },
+            fontSize: {
+                options: [10, 12, 14, 'default', 18, 20, 22],
+                supportAllValues: true
+            },
+            htmlSupport: {
+                allow: [{
+                    name: /.*/,
+                    attributes: true,
+                    classes: true,
+                    styles: true
+                }]
+            },
+            htmlEmbed: {
+                showPreviews: true
+            },
+            link: {
+                decorators: {
+                    addTargetToExternalLinks: true,
+                    defaultProtocol: 'https://',
+                    toggleDownloadable: {
+                        mode: 'manual',
+                        label: 'Downloadable',
+                        attributes: {
+                            download: 'file'
+                        }
+                    }
+                }
+            },
+            mention: {
+                feeds: [{
+                    marker: '@',
+                    feed: [
+                        '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes',
+                        '@chocolate', '@cookie', '@cotton', '@cream',
+                        '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread',
+                        '@gummi', '@ice', '@jelly-o',
+                        '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding',
+                        '@sesame', '@snaps', '@soufflé',
+                        '@sugar', '@sweet', '@topping', '@wafer'
+                    ],
+                    minimumCharacters: 1
+                }]
+            },
+
+        });
     </script>
     <script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js">
     </script>

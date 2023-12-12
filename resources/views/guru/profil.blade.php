@@ -1,29 +1,112 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Tambahkan identitas lengkap guru</p>
-<div class="col-md-6 col-lg-3">
-    <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
-        <div class="widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left pr-2 fsize-1">
-                        <div class="widget-numbers mt-0 fsize-3 text-info">{{$guru->count()}}</div>
-                    </div>
-                    <div class="widget-content-right w-100">
-                        <div class="progress-bar-xs progress">
-                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="89"
-                                aria-valuemin="0" aria-valuemax="100" style="width: {{$guru->count()}}%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="widget-content-left fsize-1">
-                    <div class="text-muted opacity-6">Totals Guru</div>
-                </div>
+
+@if ($teacher)
+<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Data identitas anda lengkap.</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left Side - Photo -->
+        <div class="col-md-4">
+            <img src="{{ asset('storage/' . $teacher->image) }}" alt="{{ $teacher->nama }}" class="img-fluid rounded">
+        </div>
+
+        <!-- Right Side - teachers -->
+        <div class="col-md-8 mt-2">
+            <div class="input-group input-group-sm mb-3">
+                <a><span class="badge text-bg-warning p-2 rounded">Akun {{ $teacher->nama }}</span></a>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">NAMA AKUN : </span>
+                <input disabled value="{{ $teacher->user->nama }}" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">EMAIL : </span>
+                <input disabled value="{{ $teacher->user->email }}" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">NIP : </span>
+                <input disabled value="{{ $teacher->user->NIP }}" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Roles : </span>
+                @php
+                    switch ($teacher->user->roles) {
+                        case 1:
+                            $roleText = 'Kepala Sekolah';
+                            break;
+                        case 2:
+                            $roleText = 'Guru';
+                            break;
+                        case 3:
+                            $roleText = 'Siswa';
+                            break;
+                        default:
+                            $roleText = 'Unknown Role';
+                    }
+                @endphp
+                <input disabled value="{{ $roleText }}" type="text" class="form-control">
+            </div>
+            
+            <div class="input-group input-group-sm mb-3">
+                <a><span class="badge text-bg-warning p-2 rounded">Identitas {{ $teacher->nama }}</span></a>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="badge text-bg-success p-2 rounded" id="inputGroup-sizing-sm">{{ $teacher->title }} </span>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">NAMA : </span>
+                <input disabled value="{{ $teacher->nama }}" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">NIP : </span>
+                <input disabled value="{{ $teacher->NIP }}" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Staff : </span>
+                @php
+                switch ($teacher->roles) {
+                    case 1:
+                        $roleText = 'Kepala Sekolah';
+                        break;
+                    case 2:
+                        $roleText = 'Guru';
+                        break;
+                    case 3:
+                        $roleText = 'Staff Admin';
+                        break;
+                    default:
+                        $roleText = 'Unknown Role';
+                }
+            @endphp
+                <input disabled value="{{ $roleText }}" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">JABATAN : </span>
+                <input disabled value="{{ $teacher->jabatan }}" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">ALAMAT : </span>
+                <input disabled value="{{ $teacher->alamat }}" type="text" class="form-control">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-sm">NO TLP : </span>
+                <input disabled value="{{ $teacher->no_tlp }}" type="text" class="form-control">
             </div>
         </div>
     </div>
+   
 </div>
-<form method="POST" action="{{ url('/guru/teacher') }}" enctype="multipart/form-data">
+<div class=" mb-3 mt-4 d-flex flex-row-reverse bd-highlight">
+    <div class="mr-0">
+        <a href="" class="btn btn-primary">
+          Edit Profil
+        </a>
+    </div>
+</div>
+@else
+<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Lengkapi identitas anda.</p>
+<form method="POST" action="{{ url('/guru/profil') }}" enctype="multipart/form-data">
         @csrf
         @if (session('success'))
             <div class="alert alert-success">
@@ -44,25 +127,6 @@
             </div>
         </div>
         <div class="row mb-3">
-            <label for="users_id" class="col-sm-2 col-form-label">{{ __('Nama Akun') }}</label>
-            <div class="col-sm-10">
-                <select id="users_id" class="form-control @error('users_id') is-invalid @enderror" name="users_id" required>
-                    <option value="">--- Select Akun Guru ---</option>
-                    @foreach ($guruUsers as $guruUser)
-                        <option value="{{ $guruUser->id }}" {{ old('users_id') == $guruUser->id ? 'selected' : '' }}>
-                            {{ $guruUser->nama }}
-                        </option>
-                    @endforeach
-                </select>
-                @error('users_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="row mb-3">
             <label for="tittle" class="col-sm-2 col-form-label">{{ __('Title') }}</label>
             <div class="col-sm-10">
                 <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
@@ -75,7 +139,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="row mb-3">
             <label for="nama" class="col-sm-2 col-form-label">{{ __('Nama') }}</label>
             <div class="col-sm-10">
@@ -108,7 +171,7 @@
             <label for="nip" class="col-sm-2 col-form-label">{{ __('NIP') }}</label>
             <div class="col-sm-10">
                 <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip"
-                    value="{{ old('nip') }}" required autocomplete="nip" autofocus>
+                    value="{{ auth()->user()->NIP }}" disabled autocomplete="nip" autofocus>
                 @error('nip')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -116,7 +179,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="row mb-3">
             <label for="jabatan" class="col-sm-2 col-form-label">{{ __('Jabatan') }}</label>
             <div class="col-sm-10">
@@ -129,7 +191,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="row mb-3">
             <label for="alamat" class="col-sm-2 col-form-label">{{ __('Alamat') }}</label>
             <div class="col-sm-10">
@@ -142,7 +203,6 @@
                 @enderror
             </div>
         </div>
-        
         <div class="row mb-3">
             <label for="no_tlp" class="col-sm-2 col-form-label">{{ __('No. Tlp') }}</label>
             <div class="col-sm-10">
@@ -155,7 +215,6 @@
                 @enderror
             </div>
         </div>
-
         <div class="row mb-3">
             <div class="col-sm-10 offset-sm-2">
                 <button type="submit" class="btn btn-primary">
@@ -164,61 +223,6 @@
             </div>
         </div>
     </form>
+    @endif
 
-    <div class=" mb-2">
-        <div class="input-group">
-            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <input type="text" id="liveSearch" placeholder="Cari Akun" class="form-control">
-          </div>
-    </div>
-    <div class="table-responsive mb-5">
-        <table class="table-borderless table-striped table-hover mb-0 table align-middle">
-            <thead>
-                <tr>
-                    <th class="text-center">#</th>
-                    <th>Foto</th>
-                    <th>Akun Guru</th>
-                    <th class="text-center">NIP</th>
-                    <th class="text-center">Nama</th>
-                    <th class="text-center">Jabatan</th>
-                    <th class="text-center">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($guru as $guru)
-                <tr>
-                    <td class="text-muted text-center">{{$loop->iteration}}</td>
-                    <td>
-                        <div class="widget-content p-0">
-                            <div class="widget-content-wrapper">
-                                <div class="widget-content-left mr-3">
-                                    <div class="widget-content-left">
-                                        <img width="40" class="rounded-circle" src="{{asset('storage/'.$guru->image)}}"
-                                            alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="text-center">{{ $guru->user->nama  }}</td>
-                    <td class="text-center">
-                        <div class="badge badge-success">{{ $guru->NIP }}</div>
-                    </td>
-                    <td class="text-center">{{ $guru->nama }}</td>
-                    
-                    
-                    <td class="text-center">{{ $guru->jabatan }}</td>
-                    <td class="text-center">
-                        <a href="/guru/teacher/view/{{ $guru->id }}/={{ urlencode($guru->nama) }}" id="PopoverCustomT-2"
-                            class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i></a>   
-                        <button type="button" id="PopoverCustomT-2"
-                        class="btn btn-info btn-sm"><i class="fa-solid fa-user-pen"></i></button>
-                        <button type="button" id="PopoverCustomT-2"
-                            class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
 @endsection

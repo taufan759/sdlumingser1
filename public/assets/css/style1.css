@@ -85,6 +85,33 @@ body {
 }
 /* End Welcome Text Overlay */
 
+
+/* Sambutan Home */
+#sambutan p {
+    color: black;
+}
+
+/* Visi Misi */
+#vm {
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+#visi {
+    padding-inline: 70px;
+}
+#visi p {
+    color: black;
+}
+#misi {
+    padding-inline: 70px;
+}
+#pg {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    padding-inline: 70px;
+}
+/* End Visi Misi */
+
 /* Whatsapp Floating Button */
 .floating-button {
     position: fixed;
@@ -157,6 +184,7 @@ body {
         font-size: 0.4em;
     }
     /* End Welcome Text Overlay */
+
 
     /* School Profile Contact Overflow */
     #nav-contact {

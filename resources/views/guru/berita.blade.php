@@ -88,11 +88,11 @@
                         </td>
                         <td class="text-center">
                             @if ($berita->status == 2)
-                                <a type="button" class="text-danger btn border-0" id="PopoverCustomT-2">
+                                <a href="/guru/publish/{{ $berita->id }}"  class="text-danger btn border-0" id="PopoverCustomT-2">
                                     <i class="fa-solid fa-thumbs-down"></i>
                                 </a>
                             @elseif($berita->status == 1)
-                                <a type="button" id="PopoverCustomT-2" class=" text-success btn border-0">
+                                <a href="/guru/draft/{{ $berita->id }}"  id="PopoverCustomT-2" class=" text-success btn border-0">
                                     <i class="fa-regular fa-thumbs-up"></i>
                                 </a>
                             @else

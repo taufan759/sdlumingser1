@@ -27,7 +27,7 @@
             <div class="col-12 col-lg-4 text-center">
                 <img data-aos="fade-up" src="{{ asset('assets/img/kepsek.png') }}" alt="" class="img-fluid mb-3">
             </div>
-            <div data-aos="fade-up" class="col-12 col-lg-8">
+            <div data-aos="fade-up" class="col-12 col-lg-8" id="sambutan">
                 <h4>Selamat Datang di Laman Web Resmi SD Negeri Kesamiran 01!</h4>
 
                 <p class="lead">Saya, Ali Rosidi, S.Pd, dengan bangga menyambut Anda di platform ini, tempat di mana kita

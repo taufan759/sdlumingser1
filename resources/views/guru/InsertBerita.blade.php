@@ -8,7 +8,6 @@
             {{ session('success') }}
         </div>
     @endif
-
     <div class="row mb-3">
         <label for="image" class="col-sm-2 col-form-label">Foto <span class="text-danger">*</span></label>
         <div class="col-sm-10">
@@ -22,7 +21,6 @@
             @enderror
         </div>
     </div>
-
     <div class="row mb-3">
         <label for="title" class="col-sm-2 col-form-label">{{ __('Title') }}</label>
         <div class="col-sm-10">
@@ -35,20 +33,6 @@
             @enderror
         </div>
     </div>
-
-    <div class="row mb-3">
-        <label for="content" class="col-sm-2 col-form-label">{{ __('Content') }}</label>
-        <div class="col-sm-10">
-            <textarea id="editor" class="form-control @error('content') is-invalid @enderror" name="content"
-                required placeholder="Isi Berita">{{ old('content') }}</textarea>
-            @error('content')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-    
     <div class="row mb-3">
         <label for="category_id" class="col-sm-2 col-form-label">{{ __('Category') }}</label>
         <div class="col-sm-10">
@@ -67,25 +51,17 @@
             @enderror
         </div>
     </div>
-
-    <div class="row mb-3">
-        <label for="status" class="col-sm-2 col-form-label">{{ __('Status') }}</label>
-        <div class="col-sm-10">
-            <select id="status" class="form-control @error('status') is-invalid @enderror" name="status" required>
-                <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Publish</option>
-                <option value="2" {{ old('status') == '2' ? 'selected' : '' }}>Draft</option>
-            </select>
-            @error('status')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
+    <div class="group relative z-0 mb-6 w-full">
+        <textarea name="content" id="editor"></textarea>
+        @error('content')
+            <p class="text-xs italic text-red-500">{{ $message }}</p>
+        @enderror
     </div>
-    <div class="row mb-3">
-        <div class="col-sm-10 offset-sm-2">
+    
+    <div class=" mb-3 mt-4 d-flex flex-row-reverse bd-highlight">
+        <div class="mr-0">
             <button type="submit" class="btn btn-primary">
-               Tambah
+               Upload Berita    
             </button>
         </div>
     </div>

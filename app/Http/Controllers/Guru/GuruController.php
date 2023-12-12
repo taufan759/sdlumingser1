@@ -31,6 +31,56 @@ class GuruController extends Controller
         return view('guru.settings');
     }
 
+    public function profil()
+    {
+        $user = auth()->user()->id;
+        $teacher = Teacher::where('users_id', $user)->first();
+        return view('guru.profil', [
+            'teacher' => $teacher
+        ]);
+    }
+
+    public function StoreProfil(Request $request)
+    {
+        $request->validate(
+            [
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
+                'title' => 'required|string|max:255',
+                'nama' => 'required|string|max:255',
+                'roles' => 'required|string|max:255',
+                'jabatan' => 'nullable|string|max:255',
+                'alamat' => 'nullable|string|max:255',
+                'no_tlp' => 'nullable|string|max:20',
+            ],
+            [
+                'nama.required' => 'Kolom Nama tidak boleh kosong',
+                'image.required' => 'Tipe file harus JPEG, PNG, JPG, GIF, SVG & tidak lebih dari 10MB',
+                'roles.required' => 'Harap pilih peran (roles) untuk guru',
+            ],
+        );
+        $user = auth()->user();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = 'guru' . '-' . Str::random(10) . '-' . date('Ymd') . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/' . $filename);
+        }
+
+        Teacher::create([
+            'image' => $filename,
+            'users_id' => $user->id,
+            'title' => $request->title,
+            'nama' => $request->nama,
+            'roles' => $request->roles,
+            'NIP' => $user->NIP,
+            'jabatan' => $request->jabatan,
+            'alamat' => $request->alamat,
+            'no_tlp' => $request->no_tlp,
+        ]);
+        return redirect()
+            ->back()
+            ->with('success', 'Data Guru berhasil ditambahkan.');
+    }
+
     public function updateAkun(Request $request)
     {
         $user = auth()->user();
@@ -147,6 +197,14 @@ class GuruController extends Controller
             ->with('success', 'Data Guru berhasil ditambahkan.');
     }
 
+    public function ShowDataTeacher($id, $nama_siswa)
+    {
+        $detail = Teacher::where('id', $id)->first();
+        return view('guru.detail_data_guru', [
+            'detail' => $detail
+        ]);
+    }
+
     public function berita()
     {
         $berita = News::orderBy('id', 'DESC')->get();
@@ -166,12 +224,10 @@ class GuruController extends Controller
 
     public function StoreBerita(Request $request)
     {
-       dd($request->all());
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
             'title' => 'required|string',
             'content' => 'required|string',
-            'status' => 'required|in:1,2',
             'category_id' => 'required|',
         ]);
 
@@ -186,7 +242,7 @@ class GuruController extends Controller
             'title' => $validatedData['title'],
             'image' => $filename,
             'content' => $validatedData['content'],
-            'status' => $validatedData['status'],
+            'status' => 2,
             'author_id' => $user->id,
             'category_id' => $validatedData['category_id'],
         ]);
@@ -194,6 +250,30 @@ class GuruController extends Controller
         $news->save();
         return redirect('/guru/berita')->with('success', 'Berita berhasil disimpan!');
     }
+    public function publish($id)
+    {
+        $news = News::find($id);
+        $title = $news->title;
+        $news->update([
+            'status' => 1,
+        ]);
+        return redirect()
+            ->back()
+            ->with('success', $title. ' Berhasil dipublish.');
+    }
+
+    public function draft($id)
+    {
+        $news = News::find($id);
+        $title = $news->title;
+        $news->update([
+            'status' => 2,
+        ]);
+        return redirect()
+            ->back()
+            ->with('success', $title. ' Berhasil disimpan didraft.');
+    }
+
     public function categories()
     {
         $categories = Categories::all();
