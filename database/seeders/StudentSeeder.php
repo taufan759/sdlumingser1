@@ -12,15 +12,15 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-       
+
         DB::table('student')->insert([
             'users_id' => 3, //siswa roles
             'image' => 'siswa.jpg',
-            'NIS' => '987654321',
-            'nama_siswa' => 'Rizki Putra ',
+            'NIS' => '12221436',
+            'nama_siswa' => 'Yusuf Saputra',
             'tempat_tanggal_lahir_siswa' => 'Banyumas, 03 desember 2021',
             'kelas' => 'kelas 1',
-            'alamat_lengkap' => 'bayumas jawa tengah',
+            'alamat_lengkap' => 'Banyumas jawa tengah',
             'nama_ibu' => 'uswatun khasanah',
             'nama_ayah' => 'mulyono',
             'foto_kk' => 'kk.jpg',

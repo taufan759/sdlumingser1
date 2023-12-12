@@ -4,9 +4,13 @@
 
     <div class="container-fluid">
         <div class="row">
-            <!-- Left Side - Photo -->
             <div class="col-md-4">
-                <img src="{{ asset('storage/'.$profil->image) }}" alt="" class="img-fluid rounded">
+                @if ($profil && $profil->first()->image)
+                    <img src="{{ asset('storage/' . $profil->first()->image) }}" alt="" class="img-fluid rounded">
+                @else
+                    <!-- You can add a placeholder image or leave it empty -->
+                   
+                @endif
             </div>
 
             <!-- Right Side - Details -->
@@ -29,21 +33,29 @@
                 <div class="input-group input-group-sm mb-3">
                     <a><span class="badge text-bg-success p-2 rounded">Informasi Profil {{ $siswa->nama }}</span></a>
                 </div>
+                @if ($profil)
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">NAMA : </span>
+                        <input disabled value="{{ $profil->nama_siswa }}" type="text" class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">NIS : </span>
+                        <input disabled value="{{ $profil->NIS }}" type="text" class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">KELAS : </span>
+                        <input disabled value="{{ $profil->kelas }}" type="text" class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <a href="/guru/siswa/view/{{ $profil->id }}/={{ urlencode($profil->nama_siswa) }}"><span
+                                class="badge text-bg-warning p-2 rounded">Lebih Detail Tentang {{ $profil->nama_siswa }} <i
+                                    class="fa-solid fa-arrow-trend-up"></i></span></a>
+                    </div>
+                @else
                 <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">NAMA : </span>
-                    <input disabled value="{{ $profil->nama_siswa }}" type="text" class="form-control">
+                    <a><span class="badge text-bg-danger p-2 rounded"><i class="fa-solid fa-triangle-exclamation"></i> {{ $siswa->nama }} Belum Melengkapi Datanya !!.</span></a>
                 </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">NIS : </span>
-                    <input disabled value="{{ $profil->NIS }}" type="text" class="form-control">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">KELAS : </span>
-                    <input disabled value="{{ $profil->kelas }}" type="text" class="form-control">
-                </div>
-                <div class="input-group input-group-sm mb-3">
-                    <a href="/guru/siswa/view/{{ $profil->id }}/={{ urlencode($profil->nama_siswa) }}"><span class="badge text-bg-warning p-2 rounded">Lebih Detail Tentang {{ $profil->nama_siswa }} <i class="fa-solid fa-arrow-trend-up"></i></span></a>
-                </div>
+                @endif
             </div>
         </div>
         <div class="row">
@@ -57,8 +69,9 @@
                                 </div>
                                 <div class="widget-content-right w-100">
                                     <div class="progress-bar-xs progress">
-                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="89" aria-valuemin="0"
-                                            aria-valuemax="100" style="width: {{ $menabungCount }}%;"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="89"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: {{ $menabungCount }}%;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -80,8 +93,9 @@
                                 </div>
                                 <div class="widget-content-right w-100">
                                     <div class="progress-bar-xs progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="89" aria-valuemin="0"
-                                            aria-valuemax="100" style="width: {{ $menarikCount }}%;"></div>
+                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="89"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: {{ $menarikCount }}%;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +129,7 @@
                 <div class="input-group">
                     <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="text" id="liveSearch" placeholder="Cari" class="form-control">
-                  </div>
+                </div>
             </div>
             <div class="table-responsive mb-5">
                 <table class="table-borderless table-striped table-hover mb-0 table align-middle">
@@ -134,30 +148,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($saving as $saving)
-                        <tr>
-                            <td class="text-muted text-center">{{$loop->iteration}}</td>
-                            <td class="text-center">{{ $profil->nama_siswa }}</td>
-                            <td class="text-center">{{ $saving->author->nama }}</td>
-                            <td class="text-center">{{ $saving->saldo_sekarang }}</td>
-                            <td class="text-center">
-                                @if($saving->jenis_transaksi == 1)
-                                <div class="badge badge-success">Menabung</div>
+                        @foreach ($saving as $saving)
+                            <tr>
+                                <td class="text-muted text-center">{{ $loop->iteration }}</td>
+                                @if ($profil && $profil->first()->nama_siswa)
+                                  <td class="text-center">{{ $profil->nama_siswa }}</td>
                                 @else
-                                <div class="badge badge-danger">Menarik</div>
+                                  <td class="text-center">{{ $saving->siswa->nama }}</td>
                                 @endif
-                            </td>
-                            <td class="text-center">{{ $saving->saldo_transaksi }}</td>
-                            <td class="text-center">{{ $saving->saldo_final }}</td>
-                            <td class="text-center">{{ $saving->keterangan }}</td>
-                            <td class="text-center">{{ $saving->updated_at->diffForHumans() }}</td>
-                            <td class="text-center">
-                                <button type="button" id="PopoverCustomT-2"
-                                class="btn btn-info btn-sm"><i class="fa-solid fa-user-pen"></i></button>
-                                <button type="button" id="PopoverCustomT-2"
-                                    class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        </tr>
+
+                                <td class="text-center">{{ $saving->author->nama }}</td>
+                                <td class="text-center">{{ $saving->saldo_sekarang }}</td>
+                                <td class="text-center">
+                                    @if ($saving->jenis_transaksi == 1)
+                                        <div class="badge badge-success">Menabung</div>
+                                    @else
+                                        <div class="badge badge-danger">Menarik</div>
+                                    @endif
+                                </td>
+                                <td class="text-center">{{ $saving->saldo_transaksi }}</td>
+                                <td class="text-center">{{ $saving->saldo_final }}</td>
+                                <td class="text-center">{{ $saving->keterangan }}</td>
+                                <td class="text-center">{{ $saving->updated_at->diffForHumans() }}</td>
+                                <td class="text-center">
+                                    <button type="button" id="PopoverCustomT-2" class="btn btn-info btn-sm"><i
+                                            class="fa-solid fa-user-pen"></i></button>
+                                    <button type="button" id="PopoverCustomT-2" class="btn btn-danger btn-sm"><i
+                                            class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

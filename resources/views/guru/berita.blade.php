@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-    <p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Postingan Berita </p>
+    <p class="font-weight-bold">  <i class="fa-solid fa-newspaper"></i> Postingan Berita </p>
     <div class="col-md-6 col-lg-3">
         <div class="card-shadow-info widget-chart widget-chart2 card mb-3 text-left">
             <div class="widget-content">

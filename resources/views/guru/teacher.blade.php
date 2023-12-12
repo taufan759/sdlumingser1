@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Tambahkan identitas lengkap guru</p>
+<p class="font-weight-bold"> <i class="fa-solid fa-user-tie"></i> Tambahkan identitas lengkap guru</p>
 <div class="col-md-6 col-lg-3">
     <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
         <div class="widget-content">
@@ -142,12 +142,12 @@
                 @enderror
             </div>
         </div>
-        
+
         <div class="row mb-3">
             <label for="no_tlp" class="col-sm-2 col-form-label">{{ __('No. Tlp') }}</label>
             <div class="col-sm-10">
                 <input id="no_tlp" type="text" class="form-control @error('no_tlp') is-invalid @enderror"
-                    name="no_tlp" value="{{ old('no_tlp') }}" required autocomplete="no_tlp" autofocus>
+                    name="no_tlp" value="{{ old('no_tlp') }}" autocomplete="no_tlp" autofocus>
                 @error('no_tlp')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -205,12 +205,12 @@
                         <div class="badge badge-success">{{ $guru->NIP }}</div>
                     </td>
                     <td class="text-center">{{ $guru->nama }}</td>
-                    
-                    
+
+
                     <td class="text-center">{{ $guru->jabatan }}</td>
                     <td class="text-center">
                         <a href="/guru/teacher/view/{{ $guru->id }}/={{ urlencode($guru->nama) }}" id="PopoverCustomT-2"
-                            class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i></a>   
+                            class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i></a>
                         <button type="button" id="PopoverCustomT-2"
                         class="btn btn-info btn-sm"><i class="fa-solid fa-user-pen"></i></button>
                         <button type="button" id="PopoverCustomT-2"

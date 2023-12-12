@@ -111,15 +111,12 @@ class GuruController extends Controller
         $request->validate(
             [
                 'nama' => 'required|string|max:255',
-                'email' => ['string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-                'nip' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($user->id)],
+                'email' => ['nullable', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+                'nip' => ['nullable', 'string', 'max:255', Rule::unique('users')->ignore($user->id)],
                 'password' => 'nullable|string|min:8',
             ],
             [
                 'nama.required' => 'Kolom Nama tidak boleh kosong',
-                'nip.required' => 'Kolom NIP tidak boleh kosong',
-                'nip.unique' => 'NIP sudah terdaftar',
-                'email.unique' => 'Email sudah terdaftar',
                 'password.min' => 'Password harus memiliki minimal 8 karakter',
             ],
         );
@@ -167,7 +164,7 @@ class GuruController extends Controller
                 'nip.required' => 'Kolom NIP tidak boleh kosong',
                 'image.required' => 'Tipe file harus JPEG, PNG, JPG, GIF, SVG & tidak lebih dari 10MB',
                 'roles.required' => 'Harap pilih peran (roles) untuk guru',
-                'users_id.unique' => 'ID akun sudah digunakan',
+                'users_id.unique' => 'Akun akun sudah digunakan',
             ],
         );
 
@@ -314,7 +311,7 @@ class GuruController extends Controller
             [
                 'nama.required' => 'Kolom Nama tidak boleh kosong',
                 'nis.required' => 'Kolom NIP tidak boleh kosong',
-                'nis.unique' => 'NIP sudah terdaftar',
+                'nis.unique' => 'NIS sudah terdaftar',
                 'password.min' => 'Password harus memiliki minimal 8 karakter',
             ],
         );
@@ -322,7 +319,7 @@ class GuruController extends Controller
         $user->create([
             'nama' => $request->nama,
             'roles' => 3,
-            'NIS' => $request->nip,
+            'NIS' => $request->nis,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
@@ -350,18 +347,20 @@ class GuruController extends Controller
     public function saving()
     {
         $saving = Saving::all();
+        $siswa = User::where('roles', 3)->get();
         return view('guru.saving', [
+            'siswa' => $siswa,
             'saving' => $saving
         ]);
     }
     public function savingDetail($id)
     {
-        $savingID = Saving::find($id);
-        $siswa = User::where('id', $savingID->users_id)->first();
-        $profil = Siswa::where('users_id', $siswa->id)->first();
-        $saving = Saving::where('users_id', $siswa->id)->get();
-        $menabungCount = $saving->where('jenis_transaksi', 1)->count();
-        $menarikCount = $saving->where('jenis_transaksi', 2)->count();
+            $savingID = Saving::find($id);
+            $siswa = User::where('id', $savingID->users_id)->first();
+            $profil = Siswa::where('users_id', $siswa->id)->first();
+            $saving = Saving::where('users_id', $siswa->id)->get();
+            $menabungCount = $saving->where('jenis_transaksi', 1)->count();
+            $menarikCount = $saving->where('jenis_transaksi', 2)->count();
 
         return view('guru.detail-saving', [
             'saving' => $saving,
@@ -370,5 +369,36 @@ class GuruController extends Controller
             'menabungCount' => $menabungCount,
             'menarikCount' => $menarikCount
         ]);
+    }
+
+    public function storeSaving(Request $request)
+    {
+        $user = auth()->user()->id;
+        $siswa = User::where('id', $request->users_siswa)->first();
+        $request->validate(
+                [
+                    'users_siswa' => 'required',
+                    'jenis_transaksi' => 'required',
+                    'saldo_transaksi' => 'required',
+                    'keterangan' => 'nullable',
+                ],
+                [
+                    'users_siswa.required' => 'Siswa Belum Dipilih',
+                    'jenis_transaksi.required' => 'Jenis Transaksi Error Value',
+                    'saldo_transaksi.required' => 'Saldo Belum Ditambahkan',
+                ],
+            );
+
+        $saving = new Saving([
+            'users_id' => $request->users_siswa,
+            'authors_id' => $user,
+            'jenis_transaksi' => $request->jenis_transaksi,
+            'saldo_transaksi' => $request->saldo_transaksi,
+            'keterangan' => $request->keterangan,
+        ]);
+        $saving->save();
+        return redirect()
+            ->back()
+            ->with('success', 'Tabungan berhasil ditambahkan untuk '. $siswa->nama. ' sejumlah '.$request->saldo_transaksi );
     }
 }

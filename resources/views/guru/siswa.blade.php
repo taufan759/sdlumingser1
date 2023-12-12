@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Daftarkan Akun Untuk Siswa</p>
+<p class="font-weight-bold"> <i class="fa-solid fa-user-plus"></i> Daftarkan Akun Untuk Siswa</p>
 <div class="col-md-6 col-lg-3">
     <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
         <div class="widget-content">
@@ -96,7 +96,7 @@
                 <tr>
                     <td class="text-muted text-center">{{$loop->iteration}}</td>
                     <td class="text-center">{{ $siswa->nama }}</td>
-                   
+
                     <td class="text-center">
                         <div class="badge badge-success">{{ $siswa->NIS }}</div>
                     </td>
@@ -111,6 +111,6 @@
             </tbody>
         </table>
     </div>
-    
-    
+
+
 @endsection

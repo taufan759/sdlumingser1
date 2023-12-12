@@ -229,7 +229,7 @@
                                 <li>
                                     <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                         href="#">
-                                        <i class="fa-solid fa-newspaper"></i>
+                                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
                                         Tabungan
                                     </a>
                                     <ul>
@@ -238,15 +238,6 @@
                                                 href="/guru/saving">
                                                 <i class="metismenu-icon"></i>
                                                 Tabungan
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                href="/guru/insertSaving">
-                                                <i class="metismenu-icon"></i>
-                                                Tambah Tabungan
                                             </a>
                                         </li>
                                     </ul>
@@ -323,7 +314,7 @@
                                 <li>
                                     <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                         href="#">
-                                        <i class="fa-solid fa-newspaper"></i>
+                                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
                                         Tabungan
                                     </a>
                                     <ul>
@@ -332,15 +323,6 @@
                                                 href="/guru/saving">
                                                 <i class="metismenu-icon"></i>
                                                 Tabungan
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li>
-                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                href="/guru/insertSaving">
-                                                <i class="metismenu-icon"></i>
-                                                Tambah Tabungan
                                             </a>
                                         </li>
                                     </ul>

@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Daftarkan Akun Untuk Guru</p>
+<p class="font-weight-bold">  <i class="fa-solid fa-chalkboard-user"></i> Daftarkan Akun Untuk Guru</p>
 <div class="col-md-6 col-lg-3">
     <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
         <div class="widget-content">
@@ -47,7 +47,7 @@
             <label for="nip" class="col-sm-2 col-form-label">{{ __('NIP') }}</label>
             <div class="col-sm-10">
                 <input id="nip" type="text" class="form-control @error('nip') is-invalid @enderror" name="nip"
-                    value="{{ old('nip') }}" required autocomplete="nip" autofocus>
+                    value="{{ old('nip') }}" autocomplete="nip" autofocus>
                 @error('nip')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -59,7 +59,7 @@
             <label for="email" class="col-sm-2 col-form-label">{{ __('Email') }}</label>
             <div class="col-sm-10">
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                    name="email" value="{{ old('email') }}" required autocomplete="email">
+                    name="email" value="{{ old('email') }}" autocomplete="email">
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -71,7 +71,7 @@
             <label for="password" class="col-sm-2 col-form-label">{{ __('New Password') }}</label>
             <div class="col-sm-10">
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                    name="password" autocomplete="new-password">
+                    name="password" required autocomplete="new-password">
                 @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

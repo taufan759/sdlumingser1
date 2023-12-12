@@ -32,7 +32,7 @@ class NewsSeeder extends Seeder
             'title' => 'juara satu lomba puisi',
             'image' => 'news2.jpg',
             'content' => 'Dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            'author_id' => 1, // Assuming user ID 2 is the author
+            'author_id' => 2, // Assuming user ID 2 is the author
             'category_id' => 2, // Assuming category ID 2 is 'Science'
             'created_at' => now(),
             'updated_at' => now(),

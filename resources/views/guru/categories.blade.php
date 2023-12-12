@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Create Category Berita</p>
+<p class="font-weight-bold"> <i class="fa-solid fa-layer-group"></i> Create Category Berita</p>
 <div class="col-md-6 col-lg-3">
     <div class="card-shadow-info widget-chart widget-chart2 card mb-3 text-left">
         <div class="widget-content">
@@ -43,7 +43,7 @@
                 @enderror
             </div>
         </div>
-       
+
         <div class="row mb-3">
             <div class="col-sm-10 offset-sm-2">
                 <button type="submit" class="btn btn-primary">

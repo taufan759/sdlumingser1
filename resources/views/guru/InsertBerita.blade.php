@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Tambahkan Postingan Berita</p>
+<p class="font-weight-bold">  <i class="fa-solid fa-newspaper"></i> Tambahkan Postingan Berita</p>
 <form method="POST" action="/guru/StoreBerita" enctype="multipart/form-data">
     @csrf
     @if (session('success'))
@@ -57,11 +57,11 @@
             <p class="text-xs italic text-red-500">{{ $message }}</p>
         @enderror
     </div>
-    
+
     <div class=" mb-3 mt-4 d-flex flex-row-reverse bd-highlight">
         <div class="mr-0">
             <button type="submit" class="btn btn-primary">
-               Upload Berita    
+               Upload Berita
             </button>
         </div>
     </div>
