@@ -9,7 +9,8 @@
           </div>
             <div class="card-body">
               <h5 class="card-title"><span class="btn btn-outline-primary btn-sm">#{{  $categories->name}}</span></h5>
-              <p class="card-text">{{$show->content}}.</p>
+              <span class="text-black" style="color: black !importan;">{!! $show->content !!}</span>
+
               <p class="card-text">
                 <small class="text-body-secondary">
                   Diperbarui terakhir {{ $show->updated_at->diffForHumans() }} <br>

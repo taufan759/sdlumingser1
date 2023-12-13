@@ -47,7 +47,7 @@ class LandingController extends Controller
 
     public function galery()
     {
-        $galery = News::orderBy('id', 'DESC')->get();
+        $galery = News::where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();        
         return view('pages.galery', [
             'galery' => $galery,
         ]);
@@ -60,13 +60,9 @@ class LandingController extends Controller
 
     public function news()
     {
-        $newsRandom = News::inRandomOrder()
-            ->limit(1)
-            ->get();
-        $newsAll = News::orderBy('id', 'DESC')->get();
-        $latesNews = News::orderBy('id', 'DESC')
-            ->limit('3')
-            ->get();
+        $newsRandom = News::where('status', 1)->inRandomOrder()->get();
+        $latesNews = News::where('status', 1)->inRandomOrder()->limit(10)->get();
+        $newsAll = News::where('status', 1)->orderBy('id', 'DESC')->get();        
         return view('pages.news', [
             'newsAll' => $newsAll,
             'latesNews' => $latesNews,
@@ -88,13 +84,9 @@ class LandingController extends Controller
 
     public function login()
     {
-        // Cek apakah pengguna sudah login
         if (auth()->check()) {
-            // Pengguna sudah login, arahkan ke halaman dashboard atau halaman lain yang sesuai
-            return redirect()->intended('handleRoles'); // Gantilah 'dashboard' sesuai dengan rute dashboard Anda
+            return redirect()->intended('handleRoles');
         }
-
-        // Pengguna belum login, tampilkan halaman login
         return view('pages.login');
     }
 

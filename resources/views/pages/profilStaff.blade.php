@@ -8,210 +8,73 @@
         </div>
     </div>
     <div class="row">
+        @foreach ($kepsek as $kepsek)
         <div class="col p-5 pt-3">
             <div data-aos="fade-up" class="card rounded-4 mx-auto text-center shadow-lg" style="width: 18rem;">
                 <div class="card-body">
                     <div class="card-title">
-                        <h3 class="fw-medium">Kepala Sekolah</h3>
+                        <h3 class="fw-medium">{{$kepsek->title}}</h3>
                     </div>
-                    <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
+                    <img src="{{ asset('storage/'.$kepsek->image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Ini merupakan contoh dari card guru yang nantinya akan diisi nama dan
-                            keterangan lainnya.</p>
-                        <a href="#" class="btn">Kontak Saya</a>
+                        <h5 class="card-title">{{$kepsek->nama}}</h5>
+                        <p class="card-text text-start text-black">Jabatan : {{$kepsek->jabatan}} <br>
+                        <span> NIP : {{$kepsek->NIP}}</span>
+                        </p>
+                        <a href="https://wa.me/{{$kepsek->no_tlp}}" class="btn">Kontak Saya</a>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
     <div class="container">
         <div class="row">
             <!-- Guru 1 -->
+            @foreach ($guru as $guru)
             <div class="col-6 col-md-3 mb-4">
                 <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                     <div class="card-body">
                         <div class="card-title text-center">
-                            <h3 class="fw-medium">Guru Kelas 1</h3>
+                            <h3 class="fw-medium">{{$guru->title}}</h3>
                         </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('storage/'.$guru->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
+                            <h5 class="card-title">{{$guru->nama}}</h5>
+                            <p class="card-text text-start text-black">Jabatan : {{$guru->jabatan}} <br>
+                            <span> NIP : {{$guru->NIP}}</span>
+                            </p>
+                            <a href="https://wa.me/{{$guru->no_tlp}}" class="btn">Kontak Saya</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Guru 2 -->
-            <div class="col-6 col-md-3 mb-4">
-                <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                    <div class="card-body">
-                        <div class="card-title text-center">
-                            <h3 class="fw-medium">Guru Kelas 2</h3>
-                        </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guru 3 -->
-            <div class="col-6 col-md-3 mb-4">
-                <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                    <div class="card-body">
-                        <div class="card-title text-center">
-                            <h3 class="fw-medium">Guru Kelas 3</h3>
-                        </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guru 4 -->
-            <div class="col-6 col-md-3 mb-4">
-                <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                    <div class="card-body">
-                        <div class="card-title text-center">
-                            <h3 class="fw-medium">Guru Kelas 4</h3>
-                        </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Guru 5 -->
-            <div class="col-6 col-md-3 mb-4">
-                <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                    <div class="card-body">
-                        <div class="card-title text-center">
-                            <h3 class="fw-medium">Guru Kelas 5</h3>
-                        </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guru 6 -->
-            <div class="col-6 col-md-3 mb-4">
-                <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                    <div class="card-body">
-                        <div class="card-title text-center">
-                            <h3 class="fw-medium">Guru Kelas 6</h3>
-                        </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guru 7 -->
-            <div class="col-6 col-md-3 mb-4">
-                <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                    <div class="card-body">
-                        <div class="card-title text-center">
-                            <h3 class="fw-medium">Guru PAI</h3>
-                        </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Guru 8 -->
-            <div class="col-6 col-md-3 mb-4">
-                <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                    <div class="card-body">
-                        <div class="card-title text-center">
-                            <h3 class="fw-medium">Guru Penjas</h3>
-                        </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
     <div class="container">
         <div class="row">
             <!-- Staff 1 -->
+            @foreach ($staff as $staff)
             <div class="col-6 col-md-3 offset-md-3 mb-4">
                 <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                     <div class="card-body">
                         <div class="card-title text-center">
-                            <h3 class="fw-medium">Staff 1</h3>
+                            <h3 class="fw-medium">{{$staff->title}}</h3>
                         </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('storage/'.$staff->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
+                            <h5 class="card-title">{{$staff->nama}}</h5>
+                            <p class="card-text text-start text-black">Jabatan : {{$staff->jabatan}} <br>
+                            <span> NIP : {{$staff->NIP}}</span>
+                            </p>
+                            <a href="https://wa.me/{{$staff->no_tlp}}" class="btn">Kontak Saya</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Staff 2 -->
-            <div class="col-6 col-md-3 mb-4">
-                <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                    <div class="card-body">
-                        <div class="card-title text-center">
-                            <h3 class="fw-medium">Staff 2</h3>
-                        </div>
-                        <img src="{{ asset('assets/img/kepsek.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Ini merupakan contoh dari card Kepala Sekolah, Guru atau Staff yang nantinya akan diisi nama dan
-                                keterangan lainya.</p>
-                            <a href="#" class="btn">Kontak Saya</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection
