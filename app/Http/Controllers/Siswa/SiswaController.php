@@ -158,6 +158,6 @@ class SiswaController extends Controller
 
     public function nilai()
     {
-        return abort(404);
+        return view('siswa.nilai');
     }
 }

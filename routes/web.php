@@ -31,7 +31,7 @@ Route::get('/news', [LandingController::class, 'news']);
 Route::get('/news/{id_title}', [LandingController::class, 'show']);
 Route::get('/galery', [LandingController::class, 'galery']);
 Route::get('/contact', [LandingController::class, 'contact']);
-Route::get('/login', [LandingController::class, 'login']);
+Route::get('/login', [LandingController::class, 'login'])->name('login');;
 Route::post('/login', [LandingController::class, 'authenticate']);
 Route::get('/logout', [LandingController::class, 'logout']);
 //handle roles

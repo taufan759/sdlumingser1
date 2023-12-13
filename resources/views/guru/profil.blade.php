@@ -218,7 +218,7 @@
         <div class="row mb-3">
             <div class="col-sm-10 offset-sm-2">
                 <button type="submit" class="btn btn-primary">
-                    {{ __('Edit Sekarang') }}
+                    {{ __('Simpan') }}
                 </button>
             </div>
         </div>
