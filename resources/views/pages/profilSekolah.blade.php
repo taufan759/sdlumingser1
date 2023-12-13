@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col p-5 pt-3">
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                <div class="card-body" id="vm">
+                <div class="card-body p-4 p-md-5" id="vm">
                     <div class="card-title">
                         <h3 class="fw-medium text-center">Visi :</h3>
                     </div>
@@ -57,7 +57,7 @@
     <div class="row">
         <div class="col p-5 pt-2 pt-md-3">
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                <div class="card-body" id="pg">
+                <div class="card-body p-4 p-md-5" id="pg">
                     <div class="card-title">
                         <h3 class="fw-medium pb-2 text-center">Profil Geografis :</h3>
                     </div>
