@@ -42,7 +42,7 @@ function kirimPesan() {
     var whatsappPesan = "Nama : " + encodeURI(nama) + "%0aPesan : " + encodeURI(pesan);
 
     // Mengarahkan pengguna ke WhatsApp dengan pesan yang sudah dibuat
-    window.open("https://api.whatsapp.com/send?phone=6282314552812&text=" + whatsappPesan,'_blank');
+    window.open("https://api.whatsapp.com/send?phone=6288220058707&text=" + whatsappPesan,'_blank');
 };
 
 // JQUERY
