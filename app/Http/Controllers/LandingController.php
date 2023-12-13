@@ -60,9 +60,13 @@ class LandingController extends Controller
 
     public function news()
     {
-        $newsRandom= News::inRandomOrder()->limit(1)->get();; 
-        $newsAll = News::orderBy('id', 'DESC')->get(); 
-        $latesNews = News::orderBy('id', 'DESC')->limit('3')->get(); 
+        $newsRandom = News::inRandomOrder()
+            ->limit(1)
+            ->get();
+        $newsAll = News::orderBy('id', 'DESC')->get();
+        $latesNews = News::orderBy('id', 'DESC')
+            ->limit('3')
+            ->get();
         return view('pages.news', [
             'newsAll' => $newsAll,
             'latesNews' => $latesNews,
@@ -75,29 +79,51 @@ class LandingController extends Controller
         $show = News::where('id_title', $id_title)->first();
         $categories = Categories::where('id', $show->category_id)->first();
         $author = User::where('id', $show->author_id)->first();
-        return view('pages.show',[
+        return view('pages.show', [
             'show' => $show,
             'categories' => $categories,
-            'author' => $author
+            'author' => $author,
         ]);
     }
 
     public function login()
     {
+        // Cek apakah pengguna sudah login
+        if (auth()->check()) {
+            // Pengguna sudah login, arahkan ke halaman dashboard atau halaman lain yang sesuai
+            return redirect()->intended('handleRoles'); // Gantilah 'dashboard' sesuai dengan rute dashboard Anda
+        }
+
+        // Pengguna belum login, tampilkan halaman login
         return view('pages.login');
     }
 
     public function authenticate(Request $request)
     {
-        //dd($request->all());
         $credentials = $request->validate([
             'login' => ['required'],
             'password' => ['required'],
         ]);
 
-        $field = filter_var($credentials['login'], FILTER_VALIDATE_EMAIL) ? 'email' : (is_numeric($credentials['login']) ? (strlen($credentials['login']) == 10 ? 'NIS' : 'NIP') : 'email');
+        $field = filter_var($credentials['login'], FILTER_VALIDATE_EMAIL)
+            ? 'email'
+            : (is_numeric($credentials['login'])
+                ? (strlen($credentials['login']) > 10 ? 'NIP' : (strlen($credentials['login']) > 5 ? 'NIS' : 'invalid'))
+                : 'email'
+            );
 
-        if (Auth::attempt([$field => $credentials['login'], 'password' => $credentials['password']])) {
+        if ($field === 'invalid') {
+            return back()
+                ->withErrors([
+                    'login' => 'Invalid login credentials.',
+                ])
+                ->onlyInput('login');
+        }
+
+        $credentials[$field] = $credentials['login'];
+        unset($credentials['login']);
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->intended('handleRoles');
@@ -109,6 +135,8 @@ class LandingController extends Controller
             ])
             ->onlyInput('login');
     }
+
+
 
     public function logout(Request $request)
     {

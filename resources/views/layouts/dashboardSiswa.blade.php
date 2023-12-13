@@ -49,62 +49,6 @@
                     </button>
                 </div>
             </div>
-            <div class="app-header__menu">
-                <span>
-                    <button type="button"
-                        class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                        <span class="btn-icon-wrapper">
-                            <i class="fa fa-ellipsis-v fa-w-6"></i>
-                        </span>
-                    </button>
-                </span>
-            </div>
-            <div class="app-header__content">
-                <div class="app-header-right">
-                    <div class="header-btn-lg pr-0">
-                        <div class="widget-content p-0">
-                            <div class="widget-content-wrapper">
-                                <div class="widget-content-left">
-                                    <div class="btn-group">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                            class="btn p-0">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg"
-                                                alt="">
-                                            <i class="fa fa-angle-down opacity-8 ml-2"></i>
-                                        </a>
-                                        <div tabindex="-1" role="menu" aria-hidden="true"
-                                            class="dropdown-menu dropdown-menu-right">
-                                            <a style="text-decoration:none" href="/guru/settings"> <button
-                                                    type="button" tabindex="0"
-                                                    class="dropdown-item">Settings</button></a>
-                                            <a style="text-decoration:none" href="/guru/tabungan"> <button
-                                                    type="button" tabindex="0"
-                                                    class="dropdown-item">Tabungan</button></a>
-                                            <div tabindex="-1" class="dropdown-divider"></div>
-                                            <a style="text-decoration:none" href="/logout"> <button type="button"
-                                                    tabindex="0" class="dropdown-item">Logout</button></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="widget-content-left header-user-info ml-3">
-                                    <div class="widget-heading">
-                                        Alina Mclourd
-                                    </div>
-                                    <div class="widget-subheading">
-                                        VP People Manager
-                                    </div>
-                                </div>
-                                <div class="widget-content-right header-user-info ml-3">
-                                    <button type="button"
-                                        class="btn-shadow btn btn-primary btn-sm show-toastr-example p-1">
-                                        <i class="fa fa-calendar pl-1 pr-1 text-white"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="app-main">
             <div class="app-sidebar sidebar-shadow">
@@ -163,6 +107,13 @@
                                     href="/siswa/nilai">
                                     <i class="fa-solid fa-chart-simple"></i>
                                     Nilai
+                                </a>
+                            </li>
+                            <li>
+                                <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                    href="/logout">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    Keluar
                                 </a>
                             </li>
                         </ul>

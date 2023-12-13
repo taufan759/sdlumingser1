@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-<p class="font-weight-bold"> <i class="fa-solid fa-gears"></i> Settings Akun</p>
+<p class="font-weight-bold"> <i class="fa-solid fa-key"></i> Settings Akun</p>
     <form method="POST" action="{{ url('/guru/updateAkun') }}">
         @csrf
         @if (session('success'))
@@ -34,6 +34,18 @@
             </div>
         </div>
         <div class="row mb-3">
+            <label for="nip" class="col-sm-2 col-form-label">{{ __('NIP') }}</label>
+            <div class="col-sm-10">
+                <input id="nip" type="nip" class="form-control @error('nip') is-invalid @enderror"
+                    name="nip" value="{{ auth()->user()->NIP }}" required autocomplete="nip">
+                @error('nip')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="row mb-3">
             <label for="password" class="col-sm-2 col-form-label">{{ __('New Password') }}</label>
             <div class="col-sm-10">
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
@@ -54,5 +66,5 @@
         </div>
     </form>
 
-    
+
 @endsection

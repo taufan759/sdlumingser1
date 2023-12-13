@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'NIP' => '198208292021211001',
             'nama' => 'Nur Ali Pujiarto, S.Pd',
-            'password' => Hash::make('198208292021211001'),
+            'password' => Hash::make('198208292021211001'), 
             'roles' => 2, // Guru role
             'created_at' => now(),
             'updated_at' => now(),

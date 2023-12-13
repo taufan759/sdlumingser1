@@ -84,12 +84,14 @@ class GuruController extends Controller
         $request->validate([
             'nama' => 'required|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'nip' => 'nullable',
             'password' => 'nullable|string|min:8|confirmed',
         ]);
 
         $user->update([
             'nama' => $request->nama,
             'email' => $request->email,
+            'NIP' => $request->nip,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
@@ -214,7 +216,7 @@ class GuruController extends Controller
             'categories' => $categories,
         ]);
     }
-   
+
     public function StoreBerita(Request $request)
     {
         $validatedData = $request->validate([
@@ -354,7 +356,7 @@ class GuruController extends Controller
             'saving' => $saving,
             'sumSaldo' => $sumSaldo,
         ]);
-        
+
     }
     public function savingDetail($id)
     {
@@ -403,13 +405,13 @@ class GuruController extends Controller
                     $saldo_final = $saldo_user - $request->saldo_transaksi;
                     $jenis = 'Ditarik';
                    }
-                    
+
             }
-           
+
             $siswa->update([
                 'saldo' => $saldo_final,
             ]);
-            
+
 
         $saving = new Saving([
             'users_id' => $request->users_siswa,

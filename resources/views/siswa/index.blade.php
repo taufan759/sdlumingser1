@@ -26,8 +26,6 @@
 @endif
 
 @if ($siswa)
-        <p class="font-weight-bold"> <i class="fa-solid fa-users-gear"></i> Data identitas anda lengkap.</p>
-
         <div class="container-fluid">
             <div class="row">
                 <!-- Left Side - Photo -->
@@ -91,6 +89,10 @@
                         <input disabled value="{{ $siswa->nama_ayah }}" type="text" class="form-control">
                     </div>
                     <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">TLP : </span>
+                        <input disabled value="{{ $siswa->no_tlp }}" type="text" class="form-control">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
                         <a><span class="badge text-bg-warning rounded p-2">Kartu Keluarga</span></a>
                     </div>
                 </div>
@@ -103,24 +105,18 @@
         </div>
         </div>
 
+    </div>
+    <div class="d-flex bd-highlight mb-3 mt-4 mr-4 flex-row-reverse">
+        <div class="mr-0">
+            <a href="/edit/profil/{{ $siswa->id }}" class="btn btn-primary">
+                Edit Profil
+            </a>
         </div>
-        <div class="d-flex bd-highlight mb-3 mt-4 flex-row-reverse">
-            <div class="mr-0">
-                <a href="" class="btn btn-primary">
-                    Edit Profil
-                </a>
-            </div>
-        </div>
+    </div>
     @else
         <p class="font-weight-bold"> <i class="fa-solid fa-users-gear"></i> Lengkapi identitas anda.</p>
         <form method="POST" action="{{ url('/siswa/profil') }}" enctype="multipart/form-data">
             @csrf
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
             <div class="row mb-3">
                 <label for="image" class="col-sm-2 col-form-label">Foto <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
@@ -234,7 +230,7 @@
                         </span>
                     @enderror
                 </div>
-            </div>            
+            </div>
             <div class="row mb-3">
                 <label for="foto_kk" class="col-sm-2 col-form-label">Foto Kartu Keluarga<span class="text-danger">*</span></label>
                 <div class="col-sm-10">

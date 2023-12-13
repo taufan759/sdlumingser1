@@ -68,8 +68,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/guru/profil', [GuruController::class, 'profil']);
         Route::post('/guru/profil', [GuruController::class, 'StoreProfil']);
         Route::get('/guru/dashboard', [GuruController::class, 'dashboard']);
-        
-        
+
+
         Route::post('/guru/updateAkun', [GuruController::class, 'updateAkun']);
         Route::post('/guru/updateProfil', [GuruController::class, 'updateProfil']);
     });
@@ -78,6 +78,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/siswa/dashboard', [SiswaController::class, 'dashboard']);
         Route::post('/siswa/profil', [SiswaController::class, 'StoreProfil']);
         Route::middleware(profilSiswa::class)->group(function () {
+            Route::get('/edit/profil/{id}', [SiswaController::class, 'edit']);
+            Route::post('/update/profil/{id}', [SiswaController::class, 'updateProfil']);
             Route::get('/siswa/tabungan', [SiswaController::class, 'saving']);
             Route::get('/siswa/nilai', [SiswaController::class, 'nilai']);
         });

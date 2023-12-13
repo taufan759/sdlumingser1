@@ -47,7 +47,7 @@
                 @endphp
                 <input disabled value="{{ $roleText }}" type="text" class="form-control">
             </div>
-            
+
             <div class="input-group input-group-sm mb-3">
                 <a><span class="badge text-bg-warning p-2 rounded">Identitas {{ $teacher->nama }}</span></a>
             </div>
@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-   
+
 </div>
 <div class=" mb-3 mt-4 d-flex flex-row-reverse bd-highlight">
     <div class="mr-0">
@@ -207,7 +207,7 @@
             <label for="no_tlp" class="col-sm-2 col-form-label">{{ __('No. Tlp') }}</label>
             <div class="col-sm-10">
                 <input id="no_tlp" type="text" class="form-control @error('no_tlp') is-invalid @enderror"
-                    name="no_tlp" value="{{ old('no_tlp') }}" required autocomplete="no_tlp" autofocus>
+                    name="no_tlp" value="{{ old('no_tlp') }}" autocomplete="no_tlp" autofocus>
                 @error('no_tlp')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -218,7 +218,7 @@
         <div class="row mb-3">
             <div class="col-sm-10 offset-sm-2">
                 <button type="submit" class="btn btn-primary">
-                    {{ __('Submit') }}
+                    {{ __('Edit Sekarang') }}
                 </button>
             </div>
         </div>
