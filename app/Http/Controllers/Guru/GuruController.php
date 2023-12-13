@@ -19,7 +19,14 @@ class GuruController extends Controller
 
     public function dashboard()
     {
-        return view('guru.dashboard');
+        $sumSaldo = User::where('roles', 3)->sum('saldo');
+        $siswa = User::where('roles', 3)->count();
+        $guru = User::where('roles', 2)->count();
+        return view('guru.dashboard', [
+            'saldo' => $sumSaldo,
+            'siswa' => $siswa,
+            'guru' => $guru,
+        ]);
     }
 
     public function settings()

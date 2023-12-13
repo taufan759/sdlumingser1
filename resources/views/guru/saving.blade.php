@@ -68,7 +68,7 @@
         <div class="row mb-3">
             <div class="col-sm-10 input-group input-group-sm ">
                <span class="mr-3 ">Saldo Transaksi</span>
-                <span style="margin-left: 34px" class="input-group-text rounded-left bg-primary text-white" id="inputGroup-sizing-sm">Rp. </span>
+                <span style="margin-left: 59px" class="input-group-text rounded-left bg-primary text-white" id="inputGroup-sizing-sm">Rp. </span>
                 <input id="saldo_transaksi" type="text" class="form-control @error('saldo_transaksi') is-invalid @enderror"
                     name="saldo_transaksi" autocomplete="new-saldo_transaksi">
                 @error('saldo_transaksi')
