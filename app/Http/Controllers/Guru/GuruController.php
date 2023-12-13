@@ -214,7 +214,7 @@ class GuruController extends Controller
             'categories' => $categories,
         ]);
     }
-
+   
     public function StoreBerita(Request $request)
     {
         $validatedData = $request->validate([
@@ -226,10 +226,10 @@ class GuruController extends Controller
 
         $user = auth()->user();
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $filename = 'Berita' . '-' . Str::random(10) . '-' . date('Ymd') . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public/' . $filename);
-        }
+        $image = $request->file('image');
+        $filename = 'Berita' . '-' . Str::random(10) . '-' . date('Ymd') . '.' . $image->getClientOriginalExtension();
+        $image->storeAs('public/' . $filename);
+    }
         $news = new News([
             'id_title' => Str::slug($request['title'], '-'),
             'title' => $validatedData['title'],
@@ -348,10 +348,13 @@ class GuruController extends Controller
     {
         $saving = Saving::all();
         $siswa = User::where('roles', 3)->get();
+        $sumSaldo = User::where('roles', 3)->sum('saldo');
         return view('guru.saving', [
             'siswa' => $siswa,
-            'saving' => $saving
+            'saving' => $saving,
+            'sumSaldo' => $sumSaldo,
         ]);
+        
     }
     public function savingDetail($id)
     {
@@ -373,8 +376,6 @@ class GuruController extends Controller
 
     public function storeSaving(Request $request)
     {
-        $user = auth()->user()->id;
-        $siswa = User::where('id', $request->users_siswa)->first();
         $request->validate(
                 [
                     'users_siswa' => 'required',
@@ -389,16 +390,39 @@ class GuruController extends Controller
                 ],
             );
 
+            $user = auth()->user()->id;
+            $siswa = User::where('id', $request->users_siswa)->first();
+            $saldo_user = $siswa->saldo;
+            if ($request->jenis_transaksi == 1) {
+                $saldo_final = $saldo_user + $request->saldo_transaksi;
+                $jenis = 'Ditambah';
+            } else {
+                if($request->saldo_transaksi > $saldo_user) {
+                    return redirect()->back()->with('error', 'Saldo tidak cukup');
+                } else {
+                    $saldo_final = $saldo_user - $request->saldo_transaksi;
+                    $jenis = 'Ditarik';
+                   }
+                    
+            }
+           
+            $siswa->update([
+                'saldo' => $saldo_final,
+            ]);
+            
+
         $saving = new Saving([
             'users_id' => $request->users_siswa,
             'authors_id' => $user,
+            'saldo_user' => $saldo_final,
             'jenis_transaksi' => $request->jenis_transaksi,
             'saldo_transaksi' => $request->saldo_transaksi,
+            'saldo_final' => $saldo_final,
             'keterangan' => $request->keterangan,
         ]);
         $saving->save();
         return redirect()
             ->back()
-            ->with('success', 'Tabungan berhasil ditambahkan untuk '. $siswa->nama. ' sejumlah '.$request->saldo_transaksi );
+            ->with('success', 'Tabungan berhasil '. $jenis .' untuk '. $siswa->nama. ' sejumlah Rp. '. number_format($request->saldo_transaksi, 0, ',', ','));
     }
 }

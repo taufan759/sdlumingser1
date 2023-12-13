@@ -16,26 +16,13 @@ class SavingSeeder extends Seeder
     {
         // Saving 1
         DB::table('saving')->insert([
-            'users_id' => 3, // siswa login
+            'users_id' => 12, // siswa login
             'authors_id' => 2, // data login guru
-            'saldo_sekarang' => 1000,
+            'saldo_user' => 500,
             'jenis_transaksi' => 1, // Menabung
             'saldo_transaksi' => 500,
-            'saldo_final' => 1500,
-            'keterangan' => 'Menabung 500',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        // Saving 2
-        DB::table('saving')->insert([
-            'users_id' => 3, // siswa login
-            'authors_id' => 2, // data login guru
-            'saldo_sekarang' => 800,
-            'jenis_transaksi' => 2, // Menarik
-            'saldo_transaksi' => 300,
             'saldo_final' => 500,
-            'keterangan' => 'Menarik 300',
+            'keterangan' => 'Menabung 500',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

@@ -8,6 +8,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Guru\GuruController;
 use App\Http\Controllers\Siswa\SiswaController;
 use App\Http\Middleware\profilGuru;
+use App\Http\Middleware\profilSiswa;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,19 +63,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/guru/saving', [GuruController::class, 'storeSaving']);
             Route::get('/guru/siswa/saving/{id}/={name}', [GuruController::class, 'savingDetail']);
             Route::get('/guru/siswa/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataSiswa']);
-         });
+        });
         Route::get('/guru/settings', [GuruController::class, 'settings']);
         Route::get('/guru/profil', [GuruController::class, 'profil']);
         Route::post('/guru/profil', [GuruController::class, 'StoreProfil']);
         Route::get('/guru/dashboard', [GuruController::class, 'dashboard']);
-
-
+        
+        
         Route::post('/guru/updateAkun', [GuruController::class, 'updateAkun']);
         Route::post('/guru/updateProfil', [GuruController::class, 'updateProfil']);
     });
     //siswa
     Route::middleware(Siswa::class)->group(function () {
         Route::get('/siswa/dashboard', [SiswaController::class, 'dashboard']);
+        Route::post('/siswa/profil', [SiswaController::class, 'StoreProfil']);
+        Route::middleware(profilSiswa::class)->group(function () {
+            Route::get('/siswa/tabungan', [SiswaController::class, 'saving']);
+            Route::get('/siswa/nilai', [SiswaController::class, 'nilai']);
+        });
     });
 });
 

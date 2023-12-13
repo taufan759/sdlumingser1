@@ -7,12 +7,7 @@
                 <div class="widget-content-outer">
                     <div class="widget-content-wrapper">
                         <div class="widget-content-left pr-2 fsize-1">
-                            <div class="widget-numbers mt-0 fsize-3 text-info">Rp. </div>
-                        </div>
-                        <div class="widget-content-right w-100">
-                            <div class="progress-bar-xs progress">
-                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="89" aria-valuemin="0"
-                                    aria-valuemax="100" style="width: %;"></div>
+                            <div class="widget-numbers mt-0 fsize-3 text-info">Rp. {{ number_format($sumSaldo, 0, ',', ',') }}
                             </div>
                         </div>
                     </div>
@@ -29,6 +24,10 @@
             <div class="alert alert-success">
                 {{ session('success') }}
             </div>
+        @elseif (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
         @endif
 
         <div class="row mb-3">
@@ -70,7 +69,7 @@
             <div class="col-sm-10 input-group input-group-sm ">
                <span class="mr-3 ">Saldo Transaksi</span>
                 <span style="margin-left: 34px" class="input-group-text rounded-left bg-primary text-white" id="inputGroup-sizing-sm">Rp. </span>
-                <input id="saldo_transaksi" type="number" class="form-control @error('saldo_transaksi') is-invalid @enderror"
+                <input id="saldo_transaksi" type="text" class="form-control @error('saldo_transaksi') is-invalid @enderror"
                     name="saldo_transaksi" autocomplete="new-saldo_transaksi">
                 @error('saldo_transaksi')
                     <span class="invalid-feedback" role="alert">
@@ -131,10 +130,6 @@
                         <td class="text-center">
                             <a href="/guru/siswa/saving/{{ $saving->id }}/={{ urlencode($saving->siswa->nama) }}"
                                 id="PopoverCustomT-2" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
-                            <button type="button" id="PopoverCustomT-2" class="btn btn-info btn-sm"><i
-                                    class="fa-solid fa-user-pen"></i></button>
-                            <button type="button" id="PopoverCustomT-2" class="btn btn-danger btn-sm"><i
-                                    class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach

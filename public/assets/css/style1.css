@@ -142,6 +142,45 @@ body {
 footer a {
     text-decoration: none;
 }
+.overflow-slider {
+    overflow-y: auto; /* Menambahkan scrollbar jika konten terlalu panjang */
+    scrollbar-width: thin; /* Untuk Firefox */
+    scrollbar-color: transparent transparent; /* Untuk Firefox */
+}
+
+/* Untuk browser lain seperti Chrome dan Safari */
+.overflow-slider::-webkit-scrollbar {
+    width: 12px;
+}
+    
+.overflow-slider::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+    
+.overflow-slider::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.slider-content {
+    display: flex;
+    flex-direction: column; /* Mengatur tata letak ke vertikal */
+}
+
+#carouselExampleFade .card-title {
+    font-size: 1.5em;
+    color: white;
+}
+
+#hotnews a {
+    text-decoration: none;
+    color: white;
+}
+
+#allnews p {
+    color: black;
+    -webkit-line-clamp: 6;
+}
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {

@@ -14,7 +14,7 @@ class StudentSeeder extends Seeder
     {
 
         DB::table('student')->insert([
-            'users_id' => 3, //siswa roles
+            'users_id' => 12, //siswa roles
             'image' => 'siswa.jpg',
             'NIS' => '12221436',
             'nama_siswa' => 'Yusuf Saputra',

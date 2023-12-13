@@ -107,13 +107,13 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-3">
-                <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
+            <div class="col-md-6 col-lg-auto">
+                <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left  card">
                     <div class="widget-content">
                         <div class="widget-content-outer">
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left pr-2 fsize-1">
-                                    <div class="widget-numbers mt-0 fsize-3 text-info">Rp. </div>
+                                    <div class="widget-numbers mt-0 fsize-3 text-info">Rp. {{  number_format($siswa->saldo, 0, ',', ',')  }}</div>
                                 </div>
                             </div>
                             <div class="widget-content-left fsize-1">
@@ -136,46 +136,36 @@
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
+                            <th class="text-center">Tgl Transaksi</th>
                             <th class="text-center">Nama Siswa</th>
                             <th class="text-center">Penulis</th>
-                            <th class="text-center">Saldo Sekarang</th>
-                            <th class="text-center">Jenis Transaksi</th>
-                            <th class="text-center">Saldo Transaksi</th>
-                            <th class="text-center">Saldo Final</th>
+                            <th class="text-center">Debet</th>
+                            <th class="text-center">Kredit</th>
+                            <th class="text-center">Saldo</th>
                             <th class="text-center">Keterangan</th>
-                            <th class="text-center">Dibuat</th>
-                            <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($saving as $saving)
                             <tr>
                                 <td class="text-muted text-center">{{ $loop->iteration }}</td>
+                                <td class="">{{ $saving->updated_at->format('d-m-Y (H:i)') }}</td>
                                 @if ($profil && $profil->first()->nama_siswa)
-                                  <td class="text-center">{{ $profil->nama_siswa }}</td>
+                                  <td class="">{{ $profil->nama_siswa }}</td>
                                 @else
-                                  <td class="text-center">{{ $saving->siswa->nama }}</td>
+                                  <td class="">{{ $saving->siswa->nama }}</td>
                                 @endif
 
-                                <td class="text-center">{{ $saving->author->nama }}</td>
-                                <td class="text-center">{{ $saving->saldo_sekarang }}</td>
-                                <td class="text-center">
-                                    @if ($saving->jenis_transaksi == 1)
-                                        <div class="badge badge-success">Menabung</div>
+                                <td class="">{{ $saving->author->nama }}</td>
+                                @if ($saving->jenis_transaksi == 1)
+                                    <td class="text-success">Rp. {{  number_format($saving->saldo_transaksi, 0, ',', ',')  }}</td>
+                                    <td class=""></td>
                                     @else
-                                        <div class="badge badge-danger">Menarik</div>
-                                    @endif
-                                </td>
-                                <td class="text-center">{{ $saving->saldo_transaksi }}</td>
-                                <td class="text-center">{{ $saving->saldo_final }}</td>
-                                <td class="text-center">{{ $saving->keterangan }}</td>
-                                <td class="text-center">{{ $saving->updated_at->diffForHumans() }}</td>
-                                <td class="text-center">
-                                    <button type="button" id="PopoverCustomT-2" class="btn btn-info btn-sm"><i
-                                            class="fa-solid fa-user-pen"></i></button>
-                                    <button type="button" id="PopoverCustomT-2" class="btn btn-danger btn-sm"><i
-                                            class="fa-solid fa-trash"></i></button>
-                                </td>
+                                    <td class=""></td>
+                                    <td class="text-danger">Rp. {{  number_format($saving->saldo_transaksi, 0, ',', ',')  }}</td>
+                                @endif
+                                <td class="">Rp. {{  number_format($saving->saldo_final, 0, ',', ',')  }} </td>
+                                <td class="">{{ $saving->keterangan }}</td>
                             </tr>
                         @endforeach
                     </tbody>
