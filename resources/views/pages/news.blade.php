@@ -3,7 +3,7 @@
     use Illuminate\Support\Str;
 @endphp
 @section('content')
-    <div class="container">
+    <div class="container" id="news">
         <div class="row" style="padding-top: 100px">
         </div>
         <div class="row">
@@ -20,7 +20,7 @@
                                             class="card-img-top rounded-3" style="object-fit: cover">
                                         <div class="card-img-overlay d-flex flex-column justify-content-end">
                                             <div class="news overlay-content">
-                                                <div class="card-body">
+                                                <div class="card-body" id="CarouselRandom">
                                                     <h5 class="card-title">{{$newsRandom->title}}</h5>
                                                     <p class="card-text">{!! Str::limit($newsRandom->content, 200) !!}</p>
                                                 </div>
