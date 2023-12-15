@@ -1,6 +1,6 @@
 @extends('layouts.dashboardLayout')
 @section('content')
-<p class="font-weight-bold"> <i class="fa-solid fa-user-plus"></i> Daftarkan Akun Untuk Siswa</p>
+<p class="font-weight-bold"> <i class="fa-solid fa-user-plus"></i> Edit {{ $akun->nama }}</p>
 <div class="col-md-6 col-lg-3">
     <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
         <div class="widget-content">
@@ -23,7 +23,7 @@
         </div>
     </div>
 </div>
-    <form method="POST" action="{{ url('/guru/akun-siswa') }}">
+    <form method="POST" action="{{ url('/guru/updated/akun-siswa/'.$akun->id) }}">
         @csrf
         @if (session('success'))
             <div class="alert alert-success">
@@ -35,7 +35,7 @@
             <label for="nama" class="col-sm-2 col-form-label">{{ __('Nama') }}</label>
             <div class="col-sm-10">
                 <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
-                    value="{{ old('nama') }}" required autocomplete="nama" autofocus>
+                    value="{{ $akun->nama }}" required autocomplete="nama" autofocus>
                 @error('nama')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
             <label for="nis" class="col-sm-2 col-form-label">{{ __('NIS') }}</label>
             <div class="col-sm-10">
                 <input id="nis" type="text" class="form-control @error('nis') is-invalid @enderror" name="nis"
-                    value="{{ old('nis') }}" required autocomplete="nis" autofocus>
+                    value="{{ $akun->NIS }}" required autocomplete="nis" autofocus>
                 @error('nis')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
         <div class="row mb-3">
             <div class="col-sm-10 offset-sm-2">
                 <button type="submit" class="btn btn-primary">
-                    {{ __('Tambah') }}
+                    {{ __('Edit sekarang') }}
                 </button>
             </div>
         </div>

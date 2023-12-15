@@ -23,7 +23,11 @@
             </div>
         </div>
     </div>
-
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="mb-2">
         <div class="input-group">
             <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
@@ -77,10 +81,8 @@
                         <td class="text-center">
                             <a href="/guru/siswa/view/{{ $siswa->id }}/={{ urlencode($siswa->nama_siswa) }}"
                                 id="PopoverCustomT-2" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
-                            <button type="button" id="PopoverCustomT-2" class="btn btn-info btn-sm"><i
-                                    class="fa-solid fa-user-pen"></i></button>
-                            <button type="button" id="PopoverCustomT-2" class="btn btn-danger btn-sm"><i
-                                    class="fa-solid fa-trash"></i></button>
+                            <a href="/guru/delete/siswa/{{ $siswa->id }}" type="button" id="PopoverCustomT-2"
+                                class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach

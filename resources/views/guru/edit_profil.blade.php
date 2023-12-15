@@ -20,6 +20,10 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
+                <div class="col-md-2 mt-2">
+                    <img src="{{ asset('storage/' . $teacher->image) }}"
+                        class="img-fluid rounded">
+                </div>
             </div>
         </div>
         <div class="row mb-3">

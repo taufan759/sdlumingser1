@@ -142,6 +142,56 @@ class GuruController extends Controller
             ->back()
             ->with('success', 'Akun Guru berhasil ditambahkan.');
     }
+    public function updatedAkunTeacher(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $request->validate(
+            [
+                'nama' => 'required|string|max:255',
+                'email' => ['nullable', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+                'nip' => ['nullable', 'string', 'max:255', Rule::unique('users')->ignore($user->id)],
+                'password' => 'nullable|string|min:8',
+            ],
+            [
+                'nama.required' => 'Kolom Nama tidak boleh kosong',
+                'password.min' => 'Password harus memiliki minimal 8 karakter',
+            ],
+        );
+
+        $user->update([
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'NIP' => $request->nip,
+            'password' => $request->password ? Hash::make($request->password) : $user->password,
+        ]);
+
+        return redirect('/guru/akun-teacher')->with('success', 'Akun Guru berhasil diperbarui.');
+    }
+    public function updatedAkunSiswa(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $request->validate(
+            [
+                'nama' => 'required|string|max:255',
+                'nis' => ['nullable', 'string', 'max:255', Rule::unique('users')->ignore($user->id)],
+                'password' => 'nullable|string|min:8',
+            ],
+            [
+                'nama.required' => 'Kolom Nama tidak boleh kosong',
+                'password.min' => 'Password harus memiliki minimal 8 karakter',
+            ],
+        );
+
+        $user->update([
+            'nama' => $request->nama,
+            'NIS' => $request->nis,
+            'password' => $request->password ? Hash::make($request->password) : $user->password,
+        ]);
+
+        return redirect('/guru/siswa')->with('success', 'Akun Siswa berhasil diperbarui.');
+    }
 
     public function teacher()
     {
@@ -261,8 +311,7 @@ class GuruController extends Controller
 
         $teacher->save();
 
-        return redirect('/guru/profil')
-            ->with('success', 'Data Guru berhasil diupdate.');
+        return redirect('/guru/profil')->with('success', 'Data Guru berhasil diupdate.');
     }
 
     public function Insertberita()
@@ -364,9 +413,13 @@ class GuruController extends Controller
         try {
             $category = Categories::findOrFail($id);
             $category->delete();
-            return redirect()->back()->with('success', 'Category deleted successfully.');
+            return redirect()
+                ->back()
+                ->with('success', 'Category deleted successfully.');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Error deleting category: ' . $e->getMessage());
+            return redirect()
+                ->back()
+                ->with('error', 'Error deleting cate karena akun masih aktif');
         }
     }
     public function deleteBerita($id)
@@ -374,9 +427,69 @@ class GuruController extends Controller
         try {
             $category = News::findOrFail($id);
             $category->delete();
-            return redirect()->back()->with('success', 'Category deleted successfully.');
+            return redirect()
+                ->back()
+                ->with('success', 'Category deleted successfully.');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Error deleting category: ' . $e->getMessage());
+            return redirect()
+                ->back()
+                ->with('error', 'Error deleting cate karena akun masih aktif');
+        }
+    }
+    public function deleteAkunTeacher($id)
+    {
+        try {
+            $akunGuru = User::findOrFail($id);
+            $akunGuru->delete();
+            return redirect()
+                ->back()
+                ->with('success', 'Guru deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('success', 'Error deleting akun karena akun masih aktif');
+        }
+    }
+    public function deleteSiswa($id)
+    {
+        try {
+            $siswa = Siswa::findOrFail($id);
+            $siswa->delete();
+            return redirect()
+                ->back()
+                ->with('success', 'Siswa deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('success', 'Error deleting akun karena akun masih aktif');
+        }
+    }
+    public function deleteTeacher($id)
+    {
+        try {
+            $akunGuru = Teacher::findOrFail($id);
+            $akunGuru->delete();
+            return redirect()
+                ->back()
+                ->with('success', 'Guru deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('success', 'Error deleting akun karena akun masih aktif');
+        }
+    }
+    public function deleteAkunSiswa($id)
+    {
+        try {
+            $akunGuru = User::findOrFail($id);
+            $akunGuru->delete();
+            return redirect()
+                ->back()
+                ->with('success', 'Siswa deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('success', 'Error deleting akun karena akun masih aktif');
         }
     }
 
@@ -505,5 +618,90 @@ class GuruController extends Controller
         return redirect()
             ->back()
             ->with('success', 'Tabungan berhasil ' . $jenis . ' untuk ' . $siswa->nama . ' sejumlah Rp. ' . number_format($request->saldo_transaksi, 0, ',', ','));
+    }
+
+    public function editCategory($id)
+    {
+        $categories = Categories::all();
+        $category = Categories::where('id', $id)->first();
+        return view('guru.edit_category', [
+            'category' => $category,
+            'categories' => $categories,
+        ]);
+    }
+    public function editAkunTeacher($id)
+    {
+        $guru = User::where('roles', 2)->get();
+        $akun = User::where('id', $id)->first();
+        return view('guru.edit_AkunTeacher', [
+            'akun' => $akun,
+            'guru' => $guru,
+        ]);
+    }
+    public function editAkunSiswa($id)
+    {
+        $siswa = User::where('roles', 3)->get();
+        $akun = User::where('id', $id)->first();
+        return view('guru.edit_AkunSiswa', [
+            'akun' => $akun,
+            'siswa' => $siswa,
+        ]);
+    }
+
+    public function updatedCategory(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $category = Categories::findOrFail($id);
+        $category->name = $validatedData['name'];
+        $category->save();
+
+        return redirect('/guru/categories')->with('success', 'Category successfully updated!');
+    }
+    public function editBerita($id)
+    {
+        $berita = News::where('id', $id)->first();
+        $categories = Categories::all();
+        return view('guru.edit_berita', [
+            'berita' => $berita,
+            'categories' => $categories,
+        ]);
+    }
+
+    public function updatedBerita(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|string',
+            'content' => 'required|string',
+            'category_id' => 'required|',
+        ]);
+
+        $user = auth()->user();
+        $news = News::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = 'Berita' . '-' . Str::random(10) . '-' . date('Ymd') . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/' . $filename);
+
+            if ($news->image) {
+                Storage::delete('public/' . $news->image);
+            }
+        } else {
+            $filename = $news->image;
+        }
+
+        $news->id_title = Str::slug($request['title'], '-');
+        $news->image = $filename;
+        $news->title = $validatedData['title'];
+        $news->content = $validatedData['content'];
+        $news->author_id = $user->id;
+        $news->category_id = $validatedData['category_id'];
+
+        $news->save();
+
+        return redirect('/guru/berita')->with('success', 'Berita berhasil diupdate!');
     }
 }

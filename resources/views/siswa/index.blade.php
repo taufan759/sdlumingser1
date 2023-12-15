@@ -6,8 +6,8 @@
             <div class="widget-content">
                 <div class="widget-content-outer">
                     <div class="widget-content-wrapper">
-                        <div class="widget-content-left pr-2 fsize-1">
-                            <div class="widget-numbers mt-0 fsize-3 text-info">Rp. {{auth()->user()->saldo == null ? '0' : auth()->user()->saldo}}</div>
+                        <div class="widget-content-left pr-2 fsize-1"> 
+                            <div class="widget-numbers mt-0 fsize-3 text-info">Rp. {{auth()->user()->saldo == null ? '0' : number_format(auth()->user()->saldo, 0, ',', ',')}}</div>
                         </div>
                     </div>
                     <div class="widget-content-left fsize-1">

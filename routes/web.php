@@ -43,6 +43,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware(Guru::class)->group(function () {
         Route::middleware(Roles1::class)->group(function () {
             Route::get('/guru/akun-teacher', [GuruController::class, 'akunTeacher']);
+            Route::get('/guru/edit/akun-teacher/{id}', [GuruController::class, 'editAkunTeacher']);
+            Route::get('/guru/edit/akun-siswa/{id}', [GuruController::class, 'editAkunSiswa']);
+            Route::post('/guru/updated/akun-teacher/{id}', [GuruController::class, 'updatedAkunTeacher']);
+            Route::post('/guru/updated/akun-siswa/{id}', [GuruController::class, 'updatedAkunSiswa']);
+            Route::get('/guru/delete/akun-teacher/{id}', [GuruController::class, 'deleteAkunTeacher']);
+            Route::get('/guru/delete/akun-siswa/{id}', [GuruController::class, 'deleteAkunSiswa']);
+            Route::get('/guru/delete/teacher/{id}', [GuruController::class, 'deleteTeacher']);
+            Route::get('/guru/delete/siswa/{id}', [GuruController::class, 'deleteSiswa']);
             Route::post('/guru/akun-teacher', [GuruController::class, 'insertAkunTeacher']);
             Route::get('/guru/teacher', [GuruController::class, 'teacher']);
             Route::post('/guru/teacher', [GuruController::class, 'insertTeacher']);
@@ -64,8 +72,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/guru/siswa/saving/{id}/={name}', [GuruController::class, 'savingDetail']);
             Route::get('/guru/siswa/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataSiswa']);
         });
+        Route::get('/guru/edit/berita/{id}', [GuruController::class, 'editBerita']);
+        Route::post('/guru/updated/berita/{id}', [GuruController::class, 'updatedBerita']);
         Route::get('/edit/profil/guru/{id}', [GuruController::class, 'editProfilGuru']);
         Route::get('/guru/delete/category/{id}', [GuruController::class, 'deleteCategory']);
+        Route::get('/guru/edit/category/{id}', [GuruController::class, 'editCategory']);
+        Route::post('/guru/updated/category/{id}', [GuruController::class, 'updatedCategory']);
+
         Route::get('/guru/delete/berita/{id}', [GuruController::class, 'deleteBerita']);
         Route::post('/guru/profil/updated/{id}', [GuruController::class, 'updatedProfilGuru']);
         Route::get('/guru/settings', [GuruController::class, 'settings']);
