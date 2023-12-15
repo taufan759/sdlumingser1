@@ -78,7 +78,7 @@ class SiswaController extends Controller
     }
 
     public function edit($id)
-    {
+    { 
         $siswa = Siswa::find($id)->first();
         return view('siswa.edit-profil', [
             'siswa' => $siswa,

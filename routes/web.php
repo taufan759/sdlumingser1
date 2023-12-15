@@ -64,6 +64,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/guru/siswa/saving/{id}/={name}', [GuruController::class, 'savingDetail']);
             Route::get('/guru/siswa/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataSiswa']);
         });
+        Route::get('/edit/profil/guru/{id}', [GuruController::class, 'editProfilGuru']);
+        Route::get('/guru/delete/category/{id}', [GuruController::class, 'deleteCategory']);
+        Route::get('/guru/delete/berita/{id}', [GuruController::class, 'deleteBerita']);
+        Route::post('/guru/profil/updated/{id}', [GuruController::class, 'updatedProfilGuru']);
         Route::get('/guru/settings', [GuruController::class, 'settings']);
         Route::get('/guru/profil', [GuruController::class, 'profil']);
         Route::post('/guru/profil', [GuruController::class, 'StoreProfil']);

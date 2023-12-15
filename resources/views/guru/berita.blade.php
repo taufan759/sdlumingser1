@@ -98,10 +98,10 @@
                             @else
                                 <!-- Handle other cases if needed -->
                             @endif
-                            <button type="button" id="PopoverCustomT-2" class="btn btn-info btn-sm"><i
-                                    class="fa-solid fa-user-pen"></i></button>
-                            <button type="button" id="PopoverCustomT-2" class="btn btn-danger btn-sm"><i
-                                    class="fa-solid fa-trash"></i></button>
+                            <a href="/guru/edit/berita/{{$berita->id}}" type="button" id="PopoverCustomT-2"
+                                class="btn btn-info btn-sm"><i class="fa-solid fa-user-pen"></i></a>
+                            <a href="/guru/delete/berita/{{$berita->id}}" type="button" id="PopoverCustomT-2" class="btn btn-danger btn-sm"><i
+                                    class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach

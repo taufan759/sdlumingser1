@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\Guru;
 
 use App\Models\News;
-use App\Models\Saving;
 use App\Models\User;
+use App\Models\Siswa;
+use App\Models\Saving;
 use App\Models\Teacher;
+use App\Models\Categories;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
-use App\Models\Categories;
-use App\Models\Siswa;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class GuruController extends Controller
 {
-
     public function dashboard()
     {
         $sumSaldo = User::where('roles', 3)->sum('saldo');
@@ -39,7 +39,7 @@ class GuruController extends Controller
         $user = auth()->user()->id;
         $teacher = Teacher::where('users_id', $user)->first();
         return view('guru.profil', [
-            'teacher' => $teacher
+            'teacher' => $teacher,
         ]);
     }
 
@@ -203,7 +203,7 @@ class GuruController extends Controller
     {
         $detail = Teacher::where('id', $id)->first();
         return view('guru.detail_data_guru', [
-            'detail' => $detail
+            'detail' => $detail,
         ]);
     }
 
@@ -213,6 +213,56 @@ class GuruController extends Controller
         return view('guru.berita', [
             'berita' => $berita,
         ]);
+    }
+
+    public function editProfilGuru($id)
+    {
+        $teacher = Teacher::where('id', $id)->first();
+        return view('guru.edit_profil', [
+            'teacher' => $teacher,
+        ]);
+    }
+
+    public function updatedProfilGuru(Request $request, $id)
+    {
+        //dd($request->all());
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'roles' => 'required|string|max:255',
+            'jabatan' => 'nullable|string|max:255',
+            'alamat' => 'nullable|string|max:255',
+            'no_tlp' => 'nullable|string|max:20',
+        ]);
+
+        $teacher = Teacher::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            if ($teacher->image) {
+                Storage::delete('public/' . $teacher->image);
+            }
+            $image = $request->file('image');
+            $filename = 'guru' . '-' . Str::random(10) . '-' . date('Ymd') . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/' . $filename);
+            $teacher->image = $filename;
+        } else {
+            $filename = $teacher->image;
+        }
+
+        $user = auth()->user();
+        $teacher->title = $request->title;
+        $teacher->users_id = $user->id;
+        $teacher->nama = $request->nama;
+        $teacher->roles = $request->roles;
+        $teacher->NIP = $user->NIP;
+        $teacher->jabatan = $request->jabatan;
+        $teacher->alamat = $request->alamat;
+        $teacher->no_tlp = $request->no_tlp;
+
+        $teacher->save();
+
+        return redirect('/guru/profil')
+            ->with('success', 'Data Guru berhasil diupdate.');
     }
 
     public function Insertberita()
@@ -235,10 +285,10 @@ class GuruController extends Controller
 
         $user = auth()->user();
         if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $filename = 'Berita' . '-' . Str::random(10) . '-' . date('Ymd') . '.' . $image->getClientOriginalExtension();
-        $image->storeAs('public/' . $filename);
-    }
+            $image = $request->file('image');
+            $filename = 'Berita' . '-' . Str::random(10) . '-' . date('Ymd') . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/' . $filename);
+        }
         $news = new News([
             'id_title' => Str::slug($request['title'], '-'),
             'title' => $validatedData['title'],
@@ -261,7 +311,7 @@ class GuruController extends Controller
         ]);
         return redirect()
             ->back()
-            ->with('success', $title. ' Berhasil dipublish.');
+            ->with('success', $title . ' Berhasil dipublish.');
     }
 
     public function draft($id)
@@ -273,7 +323,7 @@ class GuruController extends Controller
         ]);
         return redirect()
             ->back()
-            ->with('success', $title. ' Berhasil disimpan didraft.');
+            ->with('success', $title . ' Berhasil disimpan didraft.');
     }
 
     public function categories()
@@ -296,15 +346,38 @@ class GuruController extends Controller
 
         $category->save();
 
-        return redirect()->back()->with('success', 'Category successfully created!');
+        return redirect()
+            ->back()
+            ->with('success', 'Category successfully created!');
     }
 
     public function siswa()
     {
         $siswa = User::where('roles', 3)->get();
         return view('guru.siswa', [
-            'siswa' => $siswa
+            'siswa' => $siswa,
         ]);
+    }
+
+    public function deleteCategory($id)
+    {
+        try {
+            $category = Categories::findOrFail($id);
+            $category->delete();
+            return redirect()->back()->with('success', 'Category deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error deleting category: ' . $e->getMessage());
+        }
+    }
+    public function deleteBerita($id)
+    {
+        try {
+            $category = News::findOrFail($id);
+            $category->delete();
+            return redirect()->back()->with('success', 'Category deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error deleting category: ' . $e->getMessage());
+        }
     }
 
     public function StoreSiswaAccount(Request $request)
@@ -341,7 +414,7 @@ class GuruController extends Controller
     {
         $siswa = Siswa::orderBy('id', 'DESC')->get();
         return view('guru.data_siswa', [
-            'siswa' => $siswa
+            'siswa' => $siswa,
         ]);
     }
 
@@ -349,7 +422,7 @@ class GuruController extends Controller
     {
         $detail = Siswa::where('id', $id)->first();
         return view('guru.detail_data_siswa', [
-            'detail' => $detail
+            'detail' => $detail,
         ]);
     }
 
@@ -363,62 +436,61 @@ class GuruController extends Controller
             'saving' => $saving,
             'sumSaldo' => $sumSaldo,
         ]);
-
     }
     public function savingDetail($id)
     {
-            $savingID = Saving::find($id);
-            $siswa = User::where('id', $savingID->users_id)->first();
-            $profil = Siswa::where('users_id', $siswa->id)->first();
-            $saving = Saving::where('users_id', $siswa->id)->get();
-            $menabungCount = $saving->where('jenis_transaksi', 1)->count();
-            $menarikCount = $saving->where('jenis_transaksi', 2)->count();
+        $savingID = Saving::find($id);
+        $siswa = User::where('id', $savingID->users_id)->first();
+        $profil = Siswa::where('users_id', $siswa->id)->first();
+        $saving = Saving::where('users_id', $siswa->id)->get();
+        $menabungCount = $saving->where('jenis_transaksi', 1)->count();
+        $menarikCount = $saving->where('jenis_transaksi', 2)->count();
 
         return view('guru.detail-saving', [
             'saving' => $saving,
             'siswa' => $siswa,
             'profil' => $profil,
             'menabungCount' => $menabungCount,
-            'menarikCount' => $menarikCount
+            'menarikCount' => $menarikCount,
         ]);
     }
 
     public function storeSaving(Request $request)
     {
         $request->validate(
-                [
-                    'users_siswa' => 'required',
-                    'jenis_transaksi' => 'required',
-                    'saldo_transaksi' => 'required',
-                    'keterangan' => 'nullable',
-                ],
-                [
-                    'users_siswa.required' => 'Siswa Belum Dipilih',
-                    'jenis_transaksi.required' => 'Jenis Transaksi Error Value',
-                    'saldo_transaksi.required' => 'Saldo Belum Ditambahkan',
-                ],
-            );
+            [
+                'users_siswa' => 'required',
+                'jenis_transaksi' => 'required',
+                'saldo_transaksi' => 'required',
+                'keterangan' => 'nullable',
+            ],
+            [
+                'users_siswa.required' => 'Siswa Belum Dipilih',
+                'jenis_transaksi.required' => 'Jenis Transaksi Error Value',
+                'saldo_transaksi.required' => 'Saldo Belum Ditambahkan',
+            ],
+        );
 
-            $user = auth()->user()->id;
-            $siswa = User::where('id', $request->users_siswa)->first();
-            $saldo_user = $siswa->saldo;
-            if ($request->jenis_transaksi == 1) {
-                $saldo_final = $saldo_user + $request->saldo_transaksi;
-                $jenis = 'Ditambah';
+        $user = auth()->user()->id;
+        $siswa = User::where('id', $request->users_siswa)->first();
+        $saldo_user = $siswa->saldo;
+        if ($request->jenis_transaksi == 1) {
+            $saldo_final = $saldo_user + $request->saldo_transaksi;
+            $jenis = 'Ditambah';
+        } else {
+            if ($request->saldo_transaksi > $saldo_user) {
+                return redirect()
+                    ->back()
+                    ->with('error', 'Saldo tidak cukup');
             } else {
-                if($request->saldo_transaksi > $saldo_user) {
-                    return redirect()->back()->with('error', 'Saldo tidak cukup');
-                } else {
-                    $saldo_final = $saldo_user - $request->saldo_transaksi;
-                    $jenis = 'Ditarik';
-                   }
-
+                $saldo_final = $saldo_user - $request->saldo_transaksi;
+                $jenis = 'Ditarik';
             }
+        }
 
-            $siswa->update([
-                'saldo' => $saldo_final,
-            ]);
-
+        $siswa->update([
+            'saldo' => $saldo_final,
+        ]);
 
         $saving = new Saving([
             'users_id' => $request->users_siswa,
@@ -432,6 +504,6 @@ class GuruController extends Controller
         $saving->save();
         return redirect()
             ->back()
-            ->with('success', 'Tabungan berhasil '. $jenis .' untuk '. $siswa->nama. ' sejumlah Rp. '. number_format($request->saldo_transaksi, 0, ',', ','));
+            ->with('success', 'Tabungan berhasil ' . $jenis . ' untuk ' . $siswa->nama . ' sejumlah Rp. ' . number_format($request->saldo_transaksi, 0, ',', ','));
     }
 }

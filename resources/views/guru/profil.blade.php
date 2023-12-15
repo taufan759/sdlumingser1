@@ -99,7 +99,7 @@
 </div>
 <div class=" mb-3 mt-4 d-flex flex-row-reverse bd-highlight">
     <div class="mr-0">
-        <a href="" class="btn btn-primary">
+        <a href="/edit/profil/guru/{{ $teacher->id }}" class="btn btn-primary">
           Edit Profil
         </a>
     </div>

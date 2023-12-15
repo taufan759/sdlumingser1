@@ -74,10 +74,10 @@
                     <td class="text-muted text-center">{{$loop->iteration}}</td>
                     <td class="text-center">{{ $categories->name  }}</td>
                     <td class="text-center">
-                        <button type="button" id="PopoverCustomT-2"
-                        class="btn btn-info btn-sm"><i class="fa-solid fa-user-pen"></i></button>
-                        <button type="button" id="PopoverCustomT-2"
-                            class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                        <a href="/guru/edit/category/{{$categories->id}}" type="button" id="PopoverCustomT-2"
+                        class="btn btn-info btn-sm"><i class="fa-solid fa-user-pen"></i></a>
+                        <a href="/guru/delete/category/{{$categories->id}}" type="button" id="PopoverCustomT-2"
+                            class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach

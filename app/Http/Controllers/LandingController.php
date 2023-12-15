@@ -100,7 +100,7 @@ class LandingController extends Controller
         $field = filter_var($credentials['login'], FILTER_VALIDATE_EMAIL)
             ? 'email'
             : (is_numeric($credentials['login'])
-                ? (strlen($credentials['login']) > 10 ? 'NIP' : (strlen($credentials['login']) > 5 ? 'NIS' : 'invalid'))
+                ? (strlen($credentials['login']) > 15 ? 'NIP' : (strlen($credentials['login']) < 15 ? 'NIS' : 'invalid'))
                 : 'email'
             );
 

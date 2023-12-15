@@ -11,6 +11,7 @@ class Siswa extends Model
     use HasFactory;
     protected $table = 'student';
     protected $guarded = [];
+    
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id');
