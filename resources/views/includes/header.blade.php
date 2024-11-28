@@ -42,7 +42,6 @@
                             class="{{ request()->is('contact') ? 'nav-link active' : 'nav-link' }}">Kritik & Saran</a>
                     </li>
                 </ul>
-                <a href="/login" class="{{ request()->is('login') ? 'btn active' : 'btn' }}">Login <i class="bi bi-arrow-right-circle"></i></a>
             </div>
         </div>
     </div>
