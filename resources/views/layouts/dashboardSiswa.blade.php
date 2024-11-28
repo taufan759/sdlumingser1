@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SDN Kesamiran 01</title>
+    <title>SDN Lumingser 01</title>
     <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -28,7 +28,7 @@
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class=""><img width="75px" src="{{ asset('assets/sdn.png') }}" alt=""></div>
+                <div class=""><img width="50px" src="{{ asset('assets/kemdikbud.png') }}" alt=""></div>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -129,8 +129,8 @@
                                     <i class="fa-solid fa-screwdriver-wrench"></i>
                                 </div>
                                 <div>Dashboard Siswa
-                                    <div class="page-title-subheading">👋 Hai!, {{ auth()->user()->nama }} Siswa
-                                        SD Negeri Kesamiran 01.
+                                    <div class="page-title-subheading">👋 Hai! {{ auth()->user()->nama }} Siswa
+                                        SD Negeri Kesamiran 01!🌟📚
                                     </div>
                                 </div>
                             </div>

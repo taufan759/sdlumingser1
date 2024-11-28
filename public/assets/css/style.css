@@ -3,8 +3,8 @@ body {
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    background: rgb(188,219,127);
-    background: radial-gradient(circle, rgba(188,219,127,1) 0%, rgba(204,225,160,1) 51%, rgba(187,230,188,1) 95%);
+    background: rgb(19, 62, 135);
+    background: radial-gradient(circle, rgb(96, 139, 193) 0%, rgb(19, 62, 135) 100%);
     background-repeat: no-repeat;
 }
 

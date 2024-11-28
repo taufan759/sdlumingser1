@@ -26,7 +26,7 @@
                 @csrf
                 <form>
                     <div class="form-group text-center">
-                        <p class="lead fw-normal pt-3">Portal Layanan SDN Kesamiran 01</p>
+                        <p class="lead fw-normal pt-3">Portal Layanan SDN Lumingser 01</p>
                     </div>
 
                     <div class="form-group p-3 pt-2">

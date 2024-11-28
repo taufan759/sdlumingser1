@@ -109,8 +109,8 @@ class UsersTableSeeder extends Seeder
 
         // Siswa user 1
         DB::table('users')->insert([
-            'NIS' => '12221436',
-            'nama' => 'Yusuf Saputra',
+            'NIS' => '12226666',
+            'nama' => 'Budiono Siregar',
             'email' => 'siswa@siswa.com',
             'password' => Hash::make('password'),
             'saldo' => '500',
