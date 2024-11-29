@@ -5,7 +5,7 @@
     <div class="row vh-100 d-flex align-items-center justify-content-center">
         <div class="card px-5 py-3 rounded-4" style="max-width: 500px;">
             <div class="card-body mx-auto my-auto">
-                <h2 class="pb-3">Form Kritik & Saran SDN Kesamiran 01</h2>
+                <h2 class="pb-3">Form Kritik & Saran SDN Lumingser 01</h2>
                 <form onsubmit="return validateForm()">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>

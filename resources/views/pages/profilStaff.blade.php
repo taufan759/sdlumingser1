@@ -1,82 +1,80 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="vh-100">
-        <div class="row" style="padding-top: 100px">
-            <div data-aos="fade-up" class="col text-center">
+    <div class="container mt-5">
+        <div class="row text-center mb-4">
+            <div class="col">
                 <h1>Profil Kepala Sekolah, Guru dan Staff</h1>
-                <h2>SD Negeri Kesamiran 01</h2>
+                <h2>SD Negeri Lumingser 01</h2>
             </div>
         </div>
+
         <div class="row">
-            @foreach ($kepsek as $kepsek)
+            @foreach ($kepsek as $kepsekItem)
                 <div class="col p-5 pt-3">
                     <div data-aos="fade-up" class="card rounded-4 mx-auto text-center shadow-lg" style="width: 18rem;">
                         <div class="card-body">
                             <div class="card-title">
-                                <h3 class="fw-medium">{{ $kepsek->title }}</h3>
+                                <h3 class="fw-medium">{{ $kepsekItem->title }}</h3>
                             </div>
-                            <img src="{{ asset('storage/' . $kepsek->image) }}" class="card-img-top" alt="...">
+                            <img src="{{ asset('storage/' . $kepsekItem->image) }}" class="card-img-top" alt="Kepala Sekolah">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $kepsek->nama }}</h5>
-                                <p class="card-text text-start text-black">Jabatan : {{ $kepsek->jabatan }} <br>
-                                    <span> NIP : {{ $kepsek->NIP }}</span>
+                                <h5 class="card-title">{{ $kepsekItem->nama }}</h5>
+                                <p class="card-text text-start text-black">Jabatan : {{ $kepsekItem->jabatan }} <br>
+                                    <span> NIP : {{ $kepsekItem->NIP }}</span>
                                 </p>
-                                <a href="https://wa.me/{{ $kepsek->no_tlp }}" class="btn">Kontak Saya</a>
+                                <a href="https://wa.me/{{ $kepsekItem->no_tlp }}" class="btn btn-primary">Kontak Saya</a>
                             </div>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-        <div class="container">
-            <div class="row">
-                <!-- Guru 1 -->
-                @foreach ($guru as $guru)
-                    <div class="col-6 col-md-3 mb-4">
-                        <div data-aos="fade-up" class="card rounded-4 shadow-lg">
+
+        <div class="row">
+            <!-- Guru -->
+            @foreach ($guru as $guruItem)
+                <div class="col-6 col-md-3 mb-4">
+                    <div data-aos="fade-up" class="card rounded-4 shadow-lg">
+                        <div class="card-body">
+                            <div class="card-title text-center">
+                                <h3 class="fw-medium">{{ $guruItem->title }}</h3>
+                            </div>
+                            <img src="{{ asset('storage/' . $guruItem->image) }}" class="card-img-top" alt="Guru">
                             <div class="card-body">
-                                <div class="card-title text-center">
-                                    <h3 class="fw-medium">{{ $guru->title }}</h3>
-                                </div>
-                                <img src="{{ asset('storage/' . $guru->image) }}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $guru->nama }}</h5>
-                                    <p class="card-text text-start text-black">Jabatan : {{ $guru->jabatan }} <br>
-                                        <span> NIP : {{ $guru->NIP }}</span>
-                                    </p>
-                                    <a href="https://wa.me/{{ $guru->no_tlp }}" class="btn">Kontak Saya</a>
-                                </div>
+                                <h5 class="card-title">{{ $guruItem->nama }}</h5>
+                                <p class="card-text text-start text-black">Jabatan : {{ $guruItem->jabatan }} <br>
+                                    <span> NIP : {{ $guruItem->NIP }}</span>
+                                </p>
+                                <a href="https://wa.me/{{ $guruItem->no_tlp }}" class="btn btn-primary">Kontak Saya</a>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
 
-        <div class="container">
-            <div class="row">
-                <!-- Staff 1 -->
-                @foreach ($staff as $staff)
-                    <div class="col-6 col-md-3 offset-md-3 mb-4">
-                        <div data-aos="fade-up" class="card rounded-4 shadow-lg">
+        <div class="row">
+            <!-- Staff -->
+            @foreach ($staff as $staffItem)
+                <div class="col-6 col-md-3 mb-4">
+                    <div data-aos="fade-up" class="card rounded-4 shadow-lg">
+                        <div class="card-body">
+                            <div class="card-title text-center">
+                                <h3 class="fw-medium">{{ $staffItem->title }}</h3>
+                            </div>
+                            <img src="{{ asset('storage/' . $staffItem->image) }}" class="card-img-top" alt="Staff">
                             <div class="card-body">
-                                <div class="card-title text-center">
-                                    <h3 class="fw-medium">{{ $staff->title }}</h3>
-                                </div>
-                                <img src="{{ asset('storage/' . $staff->image) }}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $staff->nama }}</h5>
-                                    <p class="card-text text-start text-black">Jabatan : {{ $staff->jabatan }} <br>
-                                        <span> NIP : {{ $staff->NIP }}</span>
-                                    </p>
-                                    <a href="https://wa.me/{{ $staff->no_tlp }}" class="btn">Kontak Saya</a>
-                                </div>
+                                <h5 class="card-title">{{ $staffItem->nama }}</h5>
+                                <p class="card-text text-start text-black">Jabatan : {{ $staffItem->jabatan }} <br>
+                                    <span> NIP : {{ $staffItem->NIP }}</span>
+                                </p>
+                                <a href="https://wa.me/{{ $staffItem->no_tlp }}" class="btn btn-primary">Kontak Saya</a>
                             </div>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

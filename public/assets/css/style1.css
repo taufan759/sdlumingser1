@@ -30,7 +30,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .navbar img {
-    filter: invert(1);
+    filter: none;
 }
 .dropdown-menu {
     background: white; /* Krem Lembut */
@@ -166,25 +166,24 @@ footer a {
 
 #carouselExampleFade .card-title {
     font-size: 1.5em;
-    color: white;
+    color: #1E90FF; 
 }
 
 #DetailNews p {
-    color: black;
+    color: #4682B4; 
 }
 
 #hotnews a {
     text-decoration: none;
-    color: white;
+    color: #1E90FF; 
 }
 
 #allnews p {
-    color: black;
-    -webkit-line-clamp: 6;
+    color: #4682B4; 
 }
 
 #news p {
-    color: black;
+    color: #003366; 
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */

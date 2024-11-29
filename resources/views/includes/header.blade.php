@@ -1,16 +1,16 @@
 <nav class="navbar fixed-top navbar-expand-md bg-transparent">
     <div class="container-md">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('assets/img/icon.png') }}" alt="Logo" class="d-inline-block align-text-center"
+            <img src="{{ asset('assets/kemdikbud.png') }}" alt="Logo" class="d-inline-block align-text-center"
                 width="50" height="50">
-            SDN Lumingser 01
+                SDN LUMINGSER 01
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-end justify-content-center" tabindex="-1" id="navbarNav">
             <div class="offcanvas-header ms-2 mt-2">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SDN Lumingser 01</h5>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SDN LUMINGSER 01</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body ms-3">

@@ -17,7 +17,7 @@ body {
     }
 }
 .navbar img {
-    filter: invert(1);
+    filter: none;
 }
 .jumbotron {
     padding-top: 35px

@@ -5,15 +5,15 @@
         <div id="carouselExampleIndicators" class="jumbotron carousel slide mb-4" data-bs-ride="carousel">
             <div class="jumbotron carousel-inner">
                 <div class="carousel-item active rounded-4" data-bs-interval="3000">
-                    <img src="{{ asset('assets/img/Carousel1.jpg') }}" class="d-block w-100 object-fit-cover rounded-4"
+                    <img src="{{ asset('assets/img/Carousel.jpg') }}" class="d-block w-100 object-fit-cover rounded-4"
                         style="height: 80vh">
                 </div>
                 <div class="carousel-item rounded-4" data-bs-interval="3000">
-                    <img src="{{ asset('assets/img/Carousel2.jpeg') }}" class="d-block w-100 object-fit-cover rounded-4"
+                    <img src="{{ asset('assets/img/Carousel.jpg') }}" class="d-block w-100 object-fit-cover rounded-4"
                         style="height: 80vh">
                 </div>
-                <div class="carousel-item rounded-4" data-bs-interval="3000">
-                    <img src="{{ asset('assets/img/Carousel3.jpg') }}" class="d-block w-100 object-fit-cover rounded-4"
+                <div class="carousel-item rounded-4" data-bs-interval="3000"> 
+                    <img src="{{ asset('assets/img/Carousel.jpg') }}" class="d-block w-100 object-fit-cover rounded-4"
                         style="height: 80vh">
                 </div>
             </div>
@@ -25,7 +25,7 @@
 
         <div class="row">
             <div class="col-12 col-lg-4 text-center">
-                <img src="{{ asset('assets/img/kepsek.png') }}" alt="" class="img-fluid mb-3">
+                <img src="{{ asset('assets/img/kepsek_kartun.png') }}" alt="" class="img-fluid mb-3">
             </div>
             <div class="col-12 col-lg-8" id="sambutan">
                 <h2>Selamat Datang di Laman Web Resmi <br>SD Negeri Lumingser 01!</h2>
