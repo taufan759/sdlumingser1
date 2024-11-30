@@ -19,22 +19,22 @@ function kirimPesan() {
     if (nama === '' && pesan === '') {
         Swal.fire({
             icon: "error",
-            title: "Eitss",
-            text: "Isi dulu Nama & Pesanya",
+            title: "Peringatan",
+            text: "Silakan isi nama dan pesan terlebih dahulu.",
         });
         return;
     } else if (nama === '') {
         Swal.fire({
             icon: "error",
-            title: "Eitss",
-            text: "Isi dulu Namanya",
+            title: "Peringatan",
+            text: "Silakan isi nama terlebih dahulu.",
         });
         return;
     } else if (pesan === '') {
         Swal.fire({
             icon: "error",
-            title: "Eitss",
-            text: "Isi dulu Pesanya",
+            title: "Peringatan",
+            text: "Silakan isi pesan terlebih dahulu.",
         });
         return;
     }
@@ -42,7 +42,7 @@ function kirimPesan() {
     var whatsappPesan = "Nama : " + encodeURI(nama) + "%0aPesan : " + encodeURI(pesan);
 
     // Mengarahkan pengguna ke WhatsApp dengan pesan yang sudah dibuat
-    window.open("https://api.whatsapp.com/send?phone=6288220058707&text=" + whatsappPesan,'_blank');
+    window.open("https://api.whatsapp.com/send?phone=6283124332900&text=" + whatsappPesan,'_blank'); // UBAH NOMOR WHATSAPP
 };
 
 // JQUERY
@@ -52,7 +52,7 @@ $(document).ready(function () {
 
 function animateText() {
     var textElement = $('.typing-text');
-    var textQueue = ["Sekolah Kami", "SDN Kesamiran 01"];
+    var textQueue = ["Sekolah Kami", "SDN Lumingser 01"];
     var currentText = "";
 
     typeText();
@@ -64,7 +64,7 @@ function animateText() {
         } else {
             // All phrases typed, start over
             setTimeout(function () {
-                textQueue = ["Sekolah Kami", "SDN Kesamiran 01"];
+                textQueue = ["Sekolah Kami", "SDN Lumingser 01"];
                 typeText();
             }, 1000); // Wait for 1000ms (1 second) before starting over
         }

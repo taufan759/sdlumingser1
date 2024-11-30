@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="container mt-5">
+    <div style="padding-top: 75px; class="container mt-5">
         <div class="row text-center mb-4">
             <div class="col">
                 <h1>Profil Kepala Sekolah, Guru dan Staff</h1>
