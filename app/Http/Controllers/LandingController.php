@@ -47,7 +47,8 @@ class LandingController extends Controller
 
     public function galery()
     {
-        $galery = News::where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();        
+        $galery = News::with('category')->where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();
+        
         return view('pages.galery', [
             'galery' => $galery,
         ]);
