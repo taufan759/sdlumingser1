@@ -39,7 +39,7 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-    <p><strong>© <span>Copyright</span> <span id="current-year"></span> Made with 💓 BSI Tegal</strong></p>
+    <p><strong>© <span>Copyright</span> <span id="current-year"></span> Made with 💓 UBSI Tegal</strong></p>
     </div>
     
     <script>
