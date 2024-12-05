@@ -234,3 +234,74 @@ footer a {
     /* End School Profile Contact Overflow */
 }
 
+
+/*-----------Gallery----------------------*/
+.yt-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF0000; 
+    color: #fff; 
+    padding: 10px 20px; 
+    font-size: 16px;
+    font-weight: bold; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
+}
+
+.yt-custom:hover {
+    background-color: #CC0000; 
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.yt-custom i {
+    margin-right: 8px; 
+    font-size: 20px; 
+}
+/* Gaya untuk teks judul utama */
+.gallery-title {
+    font-size: 2rem; 
+    font-weight: bold; 
+    color: #333; 
+    text-transform: uppercase; 
+    margin-bottom: 10px; 
+}
+
+/* Garis di bawah teks */
+.line-separator {
+    width: 60px; 
+    height: 3px; 
+    background-color: #007BFF; 
+    margin: 10px auto 15px; 
+    position: relative; 
+}
+/* Garis horizontal di kanan dan kiri */
+.line-separator::before,
+.line-separator::after {
+    content: "";
+    position: absolute; 
+    top: 50%; 
+    width: 40px; 
+    height: 1px; 
+    background-color: #ccc; 
+    transform: translateY(-50%); 
+}
+
+.line-separator::before {
+    left: -50px; 
+}
+
+.line-separator::after {
+    right: -50px; 
+}
+
+/* Gaya untuk teks subjudul */
+.gallery-subtitle {
+    font-size: 1.5rem; 
+    font-weight: normal; 
+    color: #555; 
+    font-style: italic; 
+}
