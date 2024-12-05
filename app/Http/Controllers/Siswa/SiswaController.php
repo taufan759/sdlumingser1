@@ -8,6 +8,7 @@ use App\Models\Saving;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Tugas;
 use Illuminate\Support\Facades\Storage;
 
 class SiswaController extends Controller
@@ -159,5 +160,28 @@ class SiswaController extends Controller
     public function nilai()
     {
         return view('siswa.nilai');
+    }
+
+    public function tugas()
+    {
+        $siswa = auth()->user(); // Mengambil data siswa yang sedang login
+        $tugasSiswa = Tugas::where('users_id', $siswa->id)->get(); // Menampilkan tugas berdasarkan ID siswa
+
+        return view('siswa.tugas', [
+            'tugasSiswa' => $tugasSiswa,
+            'siswa' => $siswa,
+        ]);
+    }
+
+    // Menampilkan detail tugas
+    public function tugasDetail($id)
+    {
+        $siswa = auth()->user(); // Mengambil data siswa yang sedang login
+        $tugasSiswa = Tugas::findOrFail($id); // Menampilkan tugas berdasarkan ID
+
+        return view('siswa.detail-tugas', [
+            'tugas' => $tugasSiswa,
+            'siswa' => $siswa,
+        ]);
     }
 }

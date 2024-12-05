@@ -58,6 +58,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/guru/akun-siswa', [GuruController::class, 'StoreSiswaAccount']);
             Route::get('/guru/data-siswa', [GuruController::class, 'DataSiswa']);
             Route::get('/guru/teacher/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataTeacher']);
+            Route::get('/guru/tugas', [GuruController::class, 'tugas'])->name('guru.tugas');
+            Route::get('/guru/tugas/{id}', [GuruController::class, 'tugasDetail'])->name('guru.tugas.detail');
+            Route::post('/guru/tugas', [GuruController::class, 'storeTugas'])->name('guru.tugas.store');
+            Route::get('/guru/tugas/{id}/edit', [GuruController::class, 'editTugas'])->name('guru.tugas.edit');
+            Route::put('/guru/tugas/{id}', [GuruController::class, 'updateTugas'])->name('guru.tugas.update');
+            Route::delete('/guru/tugas/{id}', [GuruController::class, 'destroyTugas'])->name('guru.tugas.destroy');
         });
         Route::middleware(profilGuru::class)->group(function () {
             Route::get('/guru/berita', [GuruController::class, 'berita']);
@@ -71,6 +77,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/guru/saving', [GuruController::class, 'storeSaving']);
             Route::get('/guru/siswa/saving/{id}/={name}', [GuruController::class, 'savingDetail']);
             Route::get('/guru/siswa/view/{id}/={nama_siswa}', [GuruController::class, 'ShowDataSiswa']);
+            Route::get('/guru/tugas', [GuruController::class, 'tugas'])->name('guru.tugas');
+            Route::get('/guru/tugas/{id}', [GuruController::class, 'tugasDetail'])->name('guru.tugas.detail');
+            Route::post('/guru/tugas', [GuruController::class, 'storeTugas'])->name('guru.tugas.store');
+            Route::get('/guru/tugas/{id}/edit', [GuruController::class, 'editTugas'])->name('guru.tugas.edit');
+            Route::put('/guru/tugas/{id}', [GuruController::class, 'updateTugas'])->name('guru.tugas.update');
+            Route::delete('/guru/tugas/{id}', [GuruController::class, 'destroyTugas'])->name('guru.tugas.destroy');
         });
         Route::get('/guru/edit/berita/{id}', [GuruController::class, 'editBerita']);
         Route::post('/guru/updated/berita/{id}', [GuruController::class, 'updatedBerita']);
@@ -99,6 +111,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/update/profil/{id}', [SiswaController::class, 'updateProfil']);
             Route::get('/siswa/tabungan', [SiswaController::class, 'saving']);
             Route::get('/siswa/nilai', [SiswaController::class, 'nilai']);
+            Route::get('/siswa/tugas', [SiswaController::class, 'tugas'])->name('siswa.tugas');
+            Route::get('/siswa/tugas/{id}', [SiswaController::class, 'tugasDetail'])->name('siswa.detail-tugas');
         });
     });
 });
