@@ -102,13 +102,13 @@
                                     Tabungan
                                 </a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                     href="/siswa/nilai">
                                     <i class="fa-solid fa-chart-simple"></i>
                                     Nilai
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                     href="/siswa/tugas">

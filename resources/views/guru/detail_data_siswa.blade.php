@@ -18,10 +18,10 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">NAMA AKUN : </span>
                     <input disabled value="{{ $detail->user->nama }}" type="text" class="form-control">
                 </div>
-                <div class="input-group input-group-sm mb-3">
+                {{-- <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-sm">EMAIL : </span>
                     <input disabled value="{{ $detail->user->email }}" type="text" class="form-control">
-                </div>
+                </div> --}}
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-sm">NIS : </span>
                     <input disabled value="{{ $detail->user->NIS }}" type="text" class="form-control">

@@ -18,6 +18,17 @@ body {
 }
 /* End Page Load Animation */
 
+/* Jumbotron Carousel */
+.jumbotron {
+    padding-top: 35px;
+    padding-inline: 10px;
+}
+
+.jumbotron .carousel-inner img {
+    filter: brightness(80%);
+}
+/* End Jumbotron Carousel */
+
 /* Navbar */
 .navbar {
     background-color: transparent;
@@ -45,15 +56,6 @@ body {
     text-decoration: underline;
 }
 /* End Navbar */
-
-/* Jumbotron Carousel */
-.jumbotron {
-    padding-top: 35px
-}
-.jumbotron .carousel-inner img {
-    filter: brightness(80%);
-}
-/* End Jumbotron Carousel */
 
 /* Welcome Text Overlay */
 .welcome-overlay {
@@ -89,7 +91,6 @@ body {
     }
 }
 /* End Welcome Text Overlay */
-
 
 /* Sambutan Home */
 #sambutan p {
@@ -213,11 +214,6 @@ footer a {
         background: rgb(243, 243, 224); /* Krem Lembut */
     }
     /* End Offcanvas */
-    /* Jumbotron Carousel */
-    .jumbotron {
-        padding-inline: 10px;
-    }
-    /* End Jumbotron Carousel */
 
     /* Welcome Text Overlay */
     .typing-text {
