@@ -39,7 +39,7 @@
                             Pengumuman
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/staff_profile">Berita Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/news">Berita Sekolah</a></li>
                             <li><a class="dropdown-item" href="/staff_profile">Prestasi Siswa</a></li>
                             </li>
                         </ul>

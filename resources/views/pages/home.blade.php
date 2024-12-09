@@ -51,7 +51,7 @@
                 <div class="text">
                     <h3>{{ $item->title }}</h3>
                     <p>{{ Str::limit($item->description, 100) }}</p>
-                    <a href="{{ route('news.show', $item->id) }}" class="read-more">Selengkapnya</a>
+                    <a href="/news" class="read-more">Selengkapnya</a>
                 </div>
                 <div class="image">
                     <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}">
