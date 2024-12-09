@@ -21,11 +21,26 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {{ request()->is('profile') || request()->is('staff_profile') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Profil
+                            Profil Sekolah
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/profile">Profil Sekolah</a></li>
-                            <li><a class="dropdown-item" href="/staff_profile">Profil Guru & Staff</a>
+                            <li><a class="dropdown-item" href="{{ route('kepalasekolah') }}">Kepala Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/staff_profile">Sejarah Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/visimisi">Visi dan Misi</a></li>
+                            <li><a class="dropdown-item" href="{{ route('datasekolah') }}">Data Pokok Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/staff_profile">Guru & Staff</a></li>
+                            <li><a class="dropdown-item" href="/staff_profile">Struktur Organisasi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ request()->is('profile') || request()->is('staff_profile') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Pengumuman
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/staff_profile">Berita Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/staff_profile">Prestasi Siswa</a></li>
                             </li>
                         </ul>
                     </li>
@@ -34,12 +49,9 @@
                             class="{{ request()->is('galery') ? 'nav-link active' : 'nav-link' }}">Galeri</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/news"
-                            class="{{ request()->is('news') ? 'nav-link active' : 'nav-link' }}">Berita</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/contact"
-                            class="{{ request()->is('contact') ? 'nav-link active' : 'nav-link' }}">Kritik & Saran</a>
+                        <a href="/login"
+                        class="{{ request()->is('login') ? 'btn active' : 'btn' }}">Login <i class="bi bi-arrow-right-circle"></i></a>
+                    </div>
                     </li>
                 </ul>
                 {{-- <a href="/login" class="{{ request()->is('login') ? 'btn active' : 'btn' }}">Login <i class="bi bi-arrow-right-circle"></i></a> --}}

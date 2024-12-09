@@ -24,16 +24,32 @@ use App\Http\Middleware\profilSiswa;
 //Route::get('/', function () {
 //    return view('comingsoon');
 //});
+
+//Home 
 Route::get('/', [LandingController::class, 'home']);
-Route::get('/profile', [LandingController::class, 'profilSekolah']);
+Route::get('/news/{id}', [LandingController::class, 'show'])->name('news.show');
+
+//Header Profile Sekolah
+Route::get('/kepalasekolah', [LandingController::class, 'kepalasekolah'])->name('kepalasekolah');
+Route::get('/datasekolah', [LandingController::class, 'dataPokok'])->name('datasekolah');
+Route::get('/visimisi', [LandingController::class, 'visiMisi'])->name('visimisi');
 Route::get('/staff_profile', [LandingController::class, 'profilStaff']);
+
+//Header Berita
 Route::get('/news', [LandingController::class, 'news']);
 Route::get('/news/{id_title}', [LandingController::class, 'show']);
+
+//Header Galery
 Route::get('/galery', [LandingController::class, 'galery']);
+
+//Header Contact
 Route::get('/contact', [LandingController::class, 'contact']);
+
+//Header Login
 Route::get('/login', [LandingController::class, 'login'])->name('login');;
 Route::post('/login', [LandingController::class, 'authenticate']);
 Route::get('/logout', [LandingController::class, 'logout']);
+
 //handle roles
 Route::middleware(['auth'])->group(function () {
     Route::get('/handleRoles', [LandingController::class, 'handleRoles']);
