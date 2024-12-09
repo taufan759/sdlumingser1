@@ -25,7 +25,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('kepalasekolah') }}">Kepala Sekolah</a></li>
-                            <li><a class="dropdown-item" href="/staff_profile">Sejarah Sekolah</a></li>
+                            <li><a class="dropdown-item" href="/sejarah">Sejarah Sekolah</a></li>
                             <li><a class="dropdown-item" href="/visimisi">Visi dan Misi</a></li>
                             <li><a class="dropdown-item" href="{{ route('datasekolah') }}">Data Pokok Sekolah</a></li>
                             <li><a class="dropdown-item" href="/staff_profile">Guru & Staff</a></li>

@@ -301,3 +301,260 @@ footer a {
     color: #555; 
     font-style: italic; 
 }
+/* Styling untuk bagian sambutan */
+section.mb-5 {
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #495057; /* Warna teks default */
+}
+
+section.mb-5 h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #6c757d;
+}
+
+section.mb-5 p {
+    margin-bottom: 15px;
+}
+
+section.mb-5 .text-end {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Styling untuk bagian profil */
+section ul.list-group {
+    margin-top: 20px;
+}
+
+section ul.list-group li {
+    font-size: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    color: #495057;
+}
+
+section ul.list-group li strong {
+    font-weight: 600;
+    color: #212529;
+}
+
+section ul.list-group ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+section ul.list-group ul li {
+    list-style: disc;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+/* Media queries untuk responsivitas */
+@media (max-width: 768px) {
+    .container .text-center h1 {
+        font-size: 2rem;
+    }
+
+    section.mb-5 h2 {
+        font-size: 1.5rem;
+    }
+
+    section ul.list-group li {
+        font-size: 0.95rem;
+    }
+}
+/* Sambutan Section */
+.sambutan-section {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.sambutan-title {
+    font-size: 2rem;
+    color: #6c757d; /* Warna sekunder */
+    margin-bottom: 20px;
+    margin: 40px 0 20px;
+}
+
+.sambutan-highlight {
+    font-size: 1.2rem;
+    color: #333; /* Warna biru utama */
+    margin-bottom: 20px;
+    margin: 40px 0 20px;
+}
+
+.sambutan-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #495057; /* Warna teks utama */
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.sambutan-footer {
+    font-size: 0.9rem;
+    color: #6c757d; /* Warna muted */
+    margin-top: 20px;
+}
+
+.sambutan-signature {
+    font-size: 1rem;
+    color: #495057; /* Warna teks utama */
+}
+.header-section h1 {
+    color: #5b5b5b;
+}
+
+.header-with-lines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.header-with-lines .line {
+    height: 2px;
+}
+
+.header-with-lines .line.black {
+    background-color: #6c757d; /* Warna abu-abu gelap (bukan hitam pekat) */
+    height: 0.5px; /* Ketebalan garis lebih tipis */
+    width: 80px; /* Panjang garis lebih pendek */
+    margin: 0 1px; /* Jarak antar-garis */
+}
+
+.header-with-lines .line.blue {
+    background-color: #007bff; /* Warna biru */
+    width: 100px; /* Panjang garis biru */
+    height: 3px;
+}
+
+/*-----------------Sejarah------------------ */
+/* Header Section */
+.text-center .header-with-lines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.text-center .line {
+    height: 2px;
+    width: 30px;
+    margin: 0 5px;
+}
+
+.text-center .line.black {
+    background-color: #6c757d; /* Warna hitam */
+}
+
+.text-center .line.blue {
+    background-color: #007bff; /* Warna biru */
+}
+
+/* Sejarah Sekolah Section */
+/* Header Styling */
+.main-title {
+    color: #4c4c4c;
+    position: relative;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.header-decorator {
+    width: 120px;
+    height: 5px;
+    background-color: #007bff;
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Image Styling */
+.school-image {
+    max-width: 100%;
+    border: 8px solid #e9ecef;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+.school-image:hover {
+    transform: scale(1.03);
+}
+
+/* Header Section Styling */
+.main-title {
+    color: #5b5b5b;
+
+}
+
+.header-with-lines {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    height: 3px;
+    background-color: #000;
+    width: 50px;
+}
+
+.line.blue {
+    background-color: #007bff;
+    width: 75px;
+}
+
+/* History Section Styling */
+
+/* CSS untuk memastikan layout teks dan gambar ditampilkan dengan baik */
+.history-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.history-section .col-md-6 {
+    padding: 10px;
+}
+
+.history-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Mengatur ukuran gambar agar sesuai dengan layout */
+.history-section .col-md-6 img {
+    object-fit: cover;
+    height: 60vh; /* Menyesuaikan tinggi gambar */
+}
+
+/* Mengatur jarak antara gambar dan teks */
+.history-section .col-md-6 {
+    padding-right: 30px;
+}
+
+/* Menyesuaikan teks */
+.history-section .col-md-6 p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+}
+
+.history-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #5b5b5b;
+}
+
+.history-section .col-md-6 h2 {
+    margin-bottom: 20px;
+}
+.history-section .col-md-6 img {
+    object-fit: cover;
+    height: 60vh; /* Atur tinggi gambar sesuai kebutuhan */
+    border-radius: 8px;
+}

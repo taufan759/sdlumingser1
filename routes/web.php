@@ -32,6 +32,7 @@ Route::get('/news/{id}', [LandingController::class, 'show'])->name('news.show');
 //Header Profile Sekolah
 Route::get('/kepalasekolah', [LandingController::class, 'kepalasekolah'])->name('kepalasekolah');
 Route::get('/datasekolah', [LandingController::class, 'dataPokok'])->name('datasekolah');
+Route::get('/sejarah', [LandingController::class, 'sejarah'])->name('sejarah');
 Route::get('/visimisi', [LandingController::class, 'visiMisi'])->name('visimisi');
 Route::get('/staff_profile', [LandingController::class, 'profilStaff']);
 

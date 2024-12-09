@@ -75,6 +75,11 @@ public function visiMisi()
         return view('pages.kepalasekolah');
     }
 
+    public function sejarah()
+    {
+        return view('pages.sejarah');
+    }
+
     public function news()
     {
         $newsRandom = News::where('status', 1)->inRandomOrder()->get();
