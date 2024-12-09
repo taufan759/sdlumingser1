@@ -1,12 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SDN Kesamiran 01</title>
+    <title>SD Lumingser 01</title>
     <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
@@ -29,7 +28,7 @@
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class=""><img width="75px" src="{{ asset('assets/sdn.png') }}" alt=""></div>
+                <div class=""><img width="50px" src="{{ asset('assets/kemdikbud.png') }}" alt=""></div>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -116,7 +115,7 @@
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                                 href="/guru/categories">
                                                 <i class="metismenu-icon"></i>
-                                                insert Category
+                                                Insert Category
                                             </a>
                                         </li>
                                     </ul>
@@ -141,7 +140,7 @@
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                                 href="/guru/insert-berita">
                                                 <i class="metismenu-icon"></i>
-                                                insert Berita
+                                                Insert Berita
                                             </a>
                                         </li>
                                     </ul>
@@ -158,14 +157,14 @@
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                                 href="/guru/siswa">
                                                 <i class="metismenu-icon"></i>
-                                                insert akun Siswa
+                                                Insert Akun Siswa
                                             </a>
                                         </li>
                                         <li>
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                                 href="/guru/data-siswa">
                                                 <i class="metismenu-icon"></i>
-                                                data lengkap siswa
+                                                Data Lengkap Siswa
                                             </a>
                                         </li>
                                     </ul>
@@ -232,7 +231,7 @@
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                                 href="/guru/categories">
                                                 <i class="metismenu-icon"></i>
-                                                insert Category
+                                                Insert Category
                                             </a>
                                         </li>
                                     </ul>
@@ -257,7 +256,7 @@
                                             <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                                 href="/guru/insert-berita">
                                                 <i class="metismenu-icon"></i>
-                                                insert Berita
+                                                Insert Berita
                                             </a>
                                         </li>
                                     </ul>
@@ -301,8 +300,8 @@
                                     <i class="fa-solid fa-screwdriver-wrench"></i>
                                 </div>
                                 <div>Dashboard Guru
-                                    <div class="page-title-subheading">👋 Hai!, {{ auth()->user()->nama }} Bpk/Ibu guru
-                                        SD Negeri Kesamiran 01.
+                                    <div class="page-title-subheading">Selamat Datang, {{ auth()->user()->nama }} Bpk/Ibu guru
+                                        SD Negeri Lumingser 01.
                                     </div>
                                 </div>
                             </div>
