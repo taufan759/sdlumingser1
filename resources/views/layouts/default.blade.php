@@ -41,7 +41,7 @@
 
                     <div class="form-group d-flex justify-content-center pb-3">
                         <button type="reset" class="btn btn-secondary me-2" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-success ms-2" onclick="kirimPesan()">Kirim</button>
+                        <button type="button" class="btn btn-primary ms-2" onclick="kirimPesan()">Kirim</button>
                     </div>
                 </form>
             </div>

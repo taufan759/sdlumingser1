@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use PharIo\Manifest\Author;
 
 class News extends Model
-{
+{ 
     use HasFactory;
     protected $table = 'news';
     protected $primary = 'id_title';

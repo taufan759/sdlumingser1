@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Models\Tugas;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -618,6 +619,148 @@ class GuruController extends Controller
         return redirect()
             ->back()
             ->with('success', 'Tabungan berhasil ' . $jenis . ' untuk ' . $siswa->nama . ' sejumlah Rp. ' . number_format($request->saldo_transaksi, 0, ',', ','));
+    }
+
+    public function tugas()
+    {
+        $tugas = Tugas::all();
+        $siswa = User::where('roles', 3)->get();
+        $totalTugas = Tugas::count();
+
+        return view('guru.tugas', [
+            'siswa' => $siswa,
+            'tugas' => $tugas,
+            'totalTugas' => $totalTugas,
+        ]);
+    }
+
+    public function tugasDetail($id)
+    {
+        $tugasID = Tugas::findOrFail($id);
+        $siswa = User::where('id', $tugasID->users_id)->first();
+        $profil = $siswa->profil;
+        $tugasSiswa = Tugas::where('users_id', $siswa->id)->get();
+        $tugasSelesaiCount = $tugasSiswa->where('status', 'selesai')->count();
+        $tugasBelumSelesaiCount = $tugasSiswa->where('status', 'belum selesai')->count();
+
+        return view('guru.detail-tugas', [
+            'tugas' => $tugasID,
+            'siswa' => $siswa,
+            'profil' => $profil,
+            'tugasSelesaiCount' => $tugasSelesaiCount,
+            'tugasBelumSelesaiCount' => $tugasBelumSelesaiCount,
+        ]);
+    }
+
+    public function storeTugas(Request $request)
+    {
+        $request->validate([
+            'users_siswa' => 'required|exists:users,id',
+            'judul_tugas' => 'required',
+            'deskripsi_tugas' => 'nullable',
+            'deadline' => 'required|date',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file_url' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:10240',
+        ], [
+            'users_siswa.required' => 'Siswa belum dipilih',
+            'judul_tugas.required' => 'Judul tugas harus diisi',
+            'deadline.required' => 'Deadline harus diisi',
+            'deadline.date' => 'Format deadline tidak valid',
+        ]);
+
+        $user = auth()->user()->id;
+        $tugas = new Tugas([
+            'users_id' => $request->users_siswa,
+            'authors_id' => $user,
+            'judul_tugas' => $request->judul_tugas,
+            'deskripsi_tugas' => $request->deskripsi_tugas,
+            'deadline' => $request->deadline,
+            'status' => 'belum selesai',
+        ]);
+
+        if ($request->hasFile('foto')) {
+            $path = $request->file('foto')->store('public/tugas');
+            $tugas->foto = basename($path);
+        }
+
+        if ($request->hasFile('file_url')) {
+            $path = $request->file('file_url')->store('public/tugas');
+            $tugas->file_url = basename($path);
+        }
+
+        $tugas->save();
+        $siswa = User::find($request->users_siswa);
+
+        return redirect()
+            ->back()
+            ->with('success', 'Tugas berhasil ditambahkan untuk ' . $siswa->nama . ' dengan judul "' . $request->judul_tugas . '".');
+    }
+
+    public function editTugas($id)
+    {
+        $tugas = Tugas::findOrFail($id);
+        $siswa = User::where('roles', 3)->get(); // Mengambil daftar siswa jika perlu
+
+        return view('guru.edit-tugas', [
+            'tugas' => $tugas,
+            'siswa' => $siswa,
+        ]);
+    }
+
+    public function updateTugas(Request $request, $id)
+    {
+        $request->validate([
+            'users_siswa' => 'required|exists:users,id',
+            'judul_tugas' => 'required',
+            'deskripsi_tugas' => 'nullable',
+            'deadline' => 'required|date',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file_url' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:10240',
+        ]);
+
+        $tugas = Tugas::findOrFail($id);
+        $tugas->users_id = $request->users_siswa;
+        $tugas->judul_tugas = $request->judul_tugas;
+        $tugas->deskripsi_tugas = $request->deskripsi_tugas;
+        $tugas->deadline = $request->deadline;
+
+        if ($request->hasFile('foto')) {
+            // Hapus foto lama jika ada
+            if ($tugas->foto) {
+                Storage::delete('public/tugas/' . $tugas->foto);
+            }
+            $path = $request->file('foto')->store('public/tugas');
+            $tugas->foto = basename($path);
+        }
+
+        if ($request->hasFile('file_url')) {
+            // Hapus file lama jika ada
+            if ($tugas->file_url) {
+                Storage::delete('public/tugas/' . $tugas->file_url);
+            }
+            $path = $request->file('file_url')->store('public/tugas');
+            $tugas->file_url = basename($path);
+        }
+
+        $tugas->save();
+
+        return redirect()->route('guru.tugas')->with('success', 'Tugas berhasil diupdate.');
+    }
+
+    public function destroyTugas($id)
+    {
+        $tugas = Tugas::findOrFail($id);
+        // Hapus file jika ada
+        if ($tugas->file_url) {
+            Storage::delete('public/tugas/' . $tugas->file_url);
+        }
+        if ($tugas->foto) {
+            Storage::delete('public/tugas/' . $tugas->foto);
+        }
+        
+        $tugas->delete();
+
+        return redirect()->route('guru.tugas')->with('success', 'Tugas berhasil dihapus.');
     }
 
     public function editCategory($id)

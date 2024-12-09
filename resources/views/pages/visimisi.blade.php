@@ -1,0 +1,78 @@
+@extends('layouts.default')
+
+@section('content')
+<div class="container" style="margin-top: 75px; margin-bottom: 75px;">
+    <div class="row">
+        <div data-aos="fade-up" class="col text-center">
+            <h1 class="gallery-title">Visi & Misi</h1>
+            <div class="line-separator mx-auto"></div>
+            <h2 class="gallery-subtitle">SDN Lumingser 01</h2>
+        </div>
+    </div>
+    <!-- Visi and Misi Section -->
+    <div class="row mb-5">
+        <div class="col p-4">
+            <div data-aos="fade-up" class="card border-0 rounded-4 shadow-lg">
+                <div class="card-body p-4 p-md-5 bg-light">
+                    <!-- Visi -->
+                    <div class="mb-5">
+                        <h3 class="fw-bold text-center text-primary mb-3">Visi</h3>
+                        <p class="lead text-center fst-italic mb-0 text-dark">
+                            "Tercetaknya lulusan yang berprestasi dalam pembelajaran dan memiliki kecakapan hidup yang berwawasan global. Beriman dan bertaqwa, serta unggul dalam kepribadian, dan mandiri.”
+                        </p>
+                    </div>
+                    <hr class="my-4">
+                    <!-- Misi -->
+                    <div>
+                        <h3 class="fw-bold text-center text-primary mb-3">Misi</h3>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item lead text-dark">
+                                Melaksanakan pembelajaran dengan mengoptimalkan Pembelajaran Aktif, Inovatif, Kreatif, Efektif dan Menyenangkan (PAIKEM) dan tematik, pembiasaan bidang keagamaan, budi pekerti, dan hidup sehat.
+                            </li>
+                            <li class="list-group-item lead text-dark">
+                                Mengembangkan pengetahuan, kecakapan hidup, prestasi dan kepribadian siswa melalui kegiatan kurikuler, ekstrakurikuler, serta bimbingan.
+                            </li>
+                            <li class="list-group-item lead text-dark">
+                                Menerapkan dan mengembangkan manajemen partisipatif.
+                            </li>
+                            <li class="list-group-item lead text-dark">
+                                Melakukan pembimbingan dan pelatihan untuk pengembangan minat dan bakat secara terencana dan terarah.
+                            </li>
+                            <li class="list-group-item lead text-dark">
+                                Menyelenggarakan berbagai even kompetisi untuk memfasilitasi pengembangan kompetensi siswa sesuai minat dan bakat peserta didik.
+                            </li>
+                            <li class="list-group-item lead text-dark">
+                                Melaksanakan berbagai pembiasaan bagi seluruh warga sekolah, dalam rangka pembentukan sikap dan perilaku untuk menguatkan profil pelajar Pancasila.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nilai-Nilai Section -->
+    <div class="row">
+        <div class="col p-4">
+            <div data-aos="fade-up" class="card border-0 rounded-4 shadow-lg">
+                <div class="card-body p-4 p-md-5 bg-light">
+                    <h3 class="fw-bold text-center text-primary mb-4">Nilai-Nilai</h3>
+                    <p class="lead text-center mb-4 text-dark">
+                        <strong>Beriman, bertaqwa kepada Tuhan yang Maha Esa (YMW), dan Berakhlak mulia</strong><br>
+                        Berkebinekaan Global<br>
+                        Bergotong Royong<br>
+                        Mandiri<br>
+                        Bernalar Kritis<br>
+                        Kreatif
+                    </p>
+                    <hr class="my-4">
+                    <h3 class="fw-bold text-center text-primary mb-4">Filosofi Pendidikan</h3>
+                    <p class="lead text-justify text-dark">
+                        Profil Pelajar Pancasila dibangun melalui berbagai aspek dalam kehidupan sehari-hari pelajar, termasuk budaya sekolah, pembelajaran intrakurikuler, kokurikuler, dan ekstrakurikuler. Dalam budaya sekolah, enam dimensi profil ini diintegrasikan dalam iklim sekolah, kebijakan, pola interaksi, dan norma yang berlaku. Sedangkan, dalam pembelajaran intrakurikuler, capaian pembelajaran dan tujuan pembelajaran sudah mencakup elemen-elemen profil ini.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

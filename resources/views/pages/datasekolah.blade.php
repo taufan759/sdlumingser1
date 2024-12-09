@@ -1,56 +1,12 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="row" style="padding-top: 75px;">
-        <div data-aos="fade-up" class="col text-center">
-            <h1>Profil Sekolah</h1>
-        </div>
-    </div>
+<div class="container" style="margin-top: 75px; margin-bottom: 75px;">
     <div class="row">
-        <div class="col p-5 pt-3">
-            <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                <div class="card-body p-4 p-md-5" id="vm">
-                    <div class="card-title">
-                        <h3 class="fw-medium text-center">Visi :</h3>
-                    </div>
-                    <div class="card-text text-center" id="visi">
-                        <p class="lead">
-                            "Tercetaknya lulusan yang berprestasi dalam pembelajaran dan memiliki kecakapan hidup yang
-                            berwawasan
-                            global.beriman dan Bertaqwa, serta unggul dalam Kepribadian, dan Mandiri”
-                        </p>
-                    </div>
-                    <div class="card-title">
-                        <h3 class="fw-medium text-center">Misi :</h3>
-                    </div>
-                    <div class="card-text" id="misi">
-                        <ul>
-                            <li class="lead">Melaksanakan pembelajaran dengan mengoptimalkan Pembelajaran Aktif, Inovatif,
-                                Kreatif,
-                                Efektif dan
-                                Menyenangkan (PAIKEM) dan tematik, pembiasaan bidang keagamaan, budi pekerti, dan hidup
-                                sehat.</li>
-                            <li class="lead">Mengembangkan pengetahuan, kecapakan hidup, prestasi dan kepribadian siswa
-                                melalui kegiatan
-                                kurikuler,
-                                ekstrakurikuler, serta bimbingan</li>
-                            <li class="lead">Menerapkan dan mengembangkan manajemen partisipatif.</li>
-                            <li class="lead">Melakukan pembimbingan dan pelatihan untuk pengembangan minat dan bakat
-                                secara terencana dan
-                                terarah.
-                            </li>
-                            <li class="lead">Menyelenggarakan berbagai even kompetisi untuk memfasilitasi pengembangan
-                                kompetensi siswa
-                                sesuai minat
-                                dan bakat peserta didik.</li>
-                            <li class="lead">Melaksanakan berbagai pembiasaan bagi seluruh warga sekolah, dalam rangka
-                                pembentukan sikap
-                                dan perilaku
-                                untuk menguatkan profil pelajar Pancasila.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div data-aos="fade-up" class="col text-center">
+            <h1 class="gallery-title">Data Pokok Sekolah</h1>
+            <div class="line-separator mx-auto"></div>
+            <h2 class="gallery-subtitle">SDN Lumingser 01</h2>
         </div>
     </div>
     <div class="row">
@@ -58,16 +14,19 @@
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                 <div class="card-body p-4 p-md-5" id="pg">
                     <div class="card-title">
-                        <h3 class="fw-medium pb-2 text-center">Profil Geografis :</h3>
+                        <h3 class="fw-medium pb-2 text-center">Data Pokok sekolah :</h3>
                     </div>
                     <div class="card-text">
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="card rounded-3">
                                     <iframe class="rounded-3"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.702651612595!2d109.20762637445968!3d-6.926102493073644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fc72b89bbe8c9%3A0x3a628f4a23460c07!2sSD%20NEGERI%20KESAMIRAN%2001!5e0!3m2!1sid!2sid!4v1701753633234!5m2!1sid!2sid"
-                                        width="auto" height="500px" style="border:1;" allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.660480604865!2d109.09440117410688!3d-6.931122667843353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fbbdf15555555%3A0xb186d903a2e049db!2sSD%20N.%20Lumingser%2001!5e0!3m2!1sid!2sid!4v1732870992012!5m2!1sid!2sid" 
+                                        width="auto" height="500" style="border:0;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 pt-md-0 pt-3">
@@ -93,23 +52,22 @@
                                                 <tr>
                                                     <th>Nama Sekolah</th>
                                                     <td>:</td>
-                                                    <td>SDN Kesamiran 01</td>
+                                                    <td>SD NEGERI LUMINGSER 01</td>
                                                 </tr>
                                                 <tr>
                                                     <th>N.S.S</th>
                                                     <td>:</td>
-                                                    <td>1010328150008</td>
+                                                    <td>-</td>
                                                 </tr>
                                                 <tr>
                                                     <th>N.P.S.N</th>
                                                     <td>:</td>
-                                                    <td>20325223</td>
+                                                    <td>20325178</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Alamat</th>
                                                     <td>:</td>
-                                                    <td>Jl. Wanabhakti II, Desa Kesamiran, Kecamatan Tarub, Kabupaten Tegal,
-                                                        Provinsi Jawa Tengah, Indonesia.</td>
+                                                    <td>Jl. Kemiri Raya No.Rt 3/1, Kedawung, Lumingser, Kec. Adiwerna, Kabupaten Tegal, Jawa Tengah 52194</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Daerah</th>
@@ -144,12 +102,12 @@
                                                 <tr>
                                                     <th>Jarak ke Kecamatan</th>
                                                     <td>:</td>
-                                                    <td>1 Km</td>
+                                                    <td>5 Km</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Jarak ke Kabupaten</th>
                                                     <td>:</td>
-                                                    <td>6 Km</td>
+                                                    <td>10 Km</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -174,7 +132,7 @@
                                                 <tr>
                                                     <th>No. SK. Pendirian</th>
                                                     <td>:</td>
-                                                    <td>-</td>
+                                                    <td>No. 421.2/025/ /56/85</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Tanggal SK. Pendirian</th>
@@ -184,7 +142,7 @@
                                                 <tr>
                                                     <th>Nomor SK Operasional</th>
                                                     <td>:</td>
-                                                    <td>421.2/025/ /39/1985</td>
+                                                    <td>NO. 421.2/025/ /56/85</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Tanggal SK Operasional</th>
@@ -194,14 +152,17 @@
                                                 <tr>
                                                     <th>File SK Operasional</th>
                                                     <td>:</td>
-                                                    <td><a
-                                                            href="https://vervalsp.data.kemdikbud.go.id/verval/dokumen/skoperasional/816643-412872-132643-83306457-1902083528.pdf">Lihat
-                                                            SK Operasional</a></td>
+                                                    <td>
+                                                        -
+                                                        {{-- <a href="https://vervalsp.data.kemdikbud.go.id/verval/dokumen/skoperasional/816643-412872-132643-83306457-1902083528.pdf">
+                                                            Lihat SK Operasional
+                                                        </a> --}}
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <th>Tanggal Upload SK Op.</th>
                                                     <td>:</td>
-                                                    <td>2023-04-19 03:56:30.160</td>
+                                                    <td>-</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -211,22 +172,22 @@
                                                 <tr>
                                                     <th>Lintang</th>
                                                     <td>:</td>
-                                                    <td>-6.9261025</td>
+                                                    <td>-6.930900000000</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Bujur</th>
                                                     <td>:</td>
-                                                    <td>109.2076264</td>
+                                                    <td>109.096300000000</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Luas Tanah</th>
                                                     <td>:</td>
-                                                    <td>2.800 m2</td>
+                                                    <td>1.670 m2</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Akses Internet</th>
                                                     <td>:</td>
-                                                    <td>50 Mb</td>
+                                                    <td>20 Mbps</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Sumber Listrik</th>
@@ -236,7 +197,7 @@
                                                 <tr>
                                                     <th>Daya Listrik</th>
                                                     <td>:</td>
-                                                    <td>1300 W</td>
+                                                    <td>1200 W</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Fax</th>
@@ -251,12 +212,15 @@
                                                 <tr>
                                                     <th>Email</th>
                                                     <td>:</td>
-                                                    <td>sdnkesamiran01@gmail.com</td>
+                                                    <td>sdnlumingser01@gmail.com</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Website</th>
                                                     <td>:</td>
-                                                    <td><a href="/">sdnkesamiran01.sch.id</a></td>
+                                                    <td>
+                                                        -
+                                                        {{-- <a href="/">sdnkesamiran01.sch.id</a> --}}
+                                                    </td>
                                                 </tr>
                                             </table>
                                         </div>

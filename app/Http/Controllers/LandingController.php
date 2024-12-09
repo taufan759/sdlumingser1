@@ -12,18 +12,29 @@ use Illuminate\Support\Facades\Auth;
 
 class LandingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function home()
-    {
-        return view('pages.home');
-    }
+public function home()
+{
+    // Ambil 5 berita terbaru
+    $news = News::latest()->limit(5)->get();
 
-    public function profilSekolah()
-    {
-        return view('pages.profilSekolah');
-    }
+    // Kirim data berita ke view
+    return view('pages.home', compact('news'));
+}
+
+
+public function dataPokok()
+{
+    $schoolData = [
+        'name' => 'SD Negeri Lumingser 01',
+        // Tambahkan data lainnya jika diperlukan
+    ];
+    return view('pages.datasekolah', compact('schoolData'));
+}
+
+public function visiMisi()
+{
+    return view('pages.visimisi');
+}
 
     public function profilKepsek()
     {
@@ -47,7 +58,8 @@ class LandingController extends Controller
 
     public function galery()
     {
-        $galery = News::where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();        
+        $galery = News::with('category')->where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();
+        
         return view('pages.galery', [
             'galery' => $galery,
         ]);
@@ -56,6 +68,11 @@ class LandingController extends Controller
     public function contact()
     {
         return view('pages.contact');
+    }
+
+    public function kepalasekolah()
+    {
+        return view('pages.kepalasekolah');
     }
 
     public function news()

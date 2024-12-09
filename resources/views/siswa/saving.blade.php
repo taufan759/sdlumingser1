@@ -4,12 +4,12 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 @if ($profil && $profil->first()->image)
                     <img src="{{ asset('storage/' . $profil->first()->image) }}" alt="" class="img-fluid rounded">
                 @else
                 @endif
-            </div>
+            </div> --}}
 
             <!-- Right Side - Details -->
             <div class="col-md-8 mt-2">
@@ -20,10 +20,10 @@
                     <span class="input-group-text" id="inputGroup-sizing-sm">NAMA AKUN : </span>
                     <input disabled value="{{ $siswa->nama }}" type="text" class="form-control">
                 </div>
-                <div class="input-group input-group-sm mb-3">
+                {{-- <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-sm">EMAIL : </span>
                     <input disabled value="{{ $siswa->email }}" type="text" class="form-control">
-                </div>
+                </div> --}}
                 <div class="input-group input-group-sm mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-sm">NIS : </span>
                     <input disabled value="{{ $siswa->NIS }}" type="text" class="form-control">
