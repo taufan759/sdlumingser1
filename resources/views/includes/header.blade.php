@@ -29,7 +29,7 @@
                             <li><a class="dropdown-item" href="/visimisi">Visi dan Misi</a></li>
                             <li><a class="dropdown-item" href="{{ route('datasekolah') }}">Data Pokok Sekolah</a></li>
                             <li><a class="dropdown-item" href="/staff_profile">Guru & Staff</a></li>
-                            <li><a class="dropdown-item" href="/staff_profile">Struktur Organisasi</a>
+                            <li><a class="dropdown-item" href="/struktur">Struktur Organisasi</a>
                             </li>
                         </ul>
                     </li>
@@ -40,7 +40,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/news">Berita Sekolah</a></li>
-                            <li><a class="dropdown-item" href="/staff_profile">Prestasi Siswa</a></li>
+                            <li><a class="dropdown-item" href="/prestasi">Prestasi Siswa</a></li>
                             </li>
                         </ul>
                     </li>

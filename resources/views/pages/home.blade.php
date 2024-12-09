@@ -38,31 +38,27 @@
             </button>
         </div>
 
-    <div class="news-portal">
-        <div class="header">
-            <div class="info-box">
-                <div class="border-box"></div>
+        <div class="news-portal container" style="margin-bottom: 20px">
+            <div class="header text-center mb-4">
                 <h2>Informasi Terkini</h2>
             </div>
-        </div>
-        <div class="news-list">
-            @foreach ($news as $item)
-            <div class="news-item">
-                <div class="text">
-                    <h3>{{ $item->title }}</h3>
-                    <p>{{ Str::limit($item->description, 100) }}</p>
-                    <a href="/news" class="read-more">Selengkapnya</a>
+            <div class="news-list row g-4">
+                @foreach ($news as $item)
+                <div class="news-item col-12 col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="image">
+                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="card-img-top">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ $item->title }}</h5>
+                            <p class="card-text">{{ Str::limit($item->description, 100) }}</p>
+                            <a href="/news/{{ $item->id }}" class="btn btn-primary mt-auto">Selengkapnya</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="image">
-                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}">
-                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
-    </div>
-    
-    
-    
 
     <div class="welcome-overlay">
         <h1 class="display-1 text-white"><span class="typing-text"></span></h1>

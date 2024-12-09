@@ -37,7 +37,7 @@
         <div class="col-xl-4 pt-xl-0 pt-5 pt-md-3">
             <h4>Berita Terhangat</h4>
             <div class="ratio" style="--bs-aspect-ratio: 119.66%;">
-                <div class="card bg-dark px-3 text-white">
+                <div class="card bg-secondary px-3 text-white">
                     <div class="card-body overflow-slider">
                         @foreach ($latesNews as $latesNews)
                             <div id="hotnews"

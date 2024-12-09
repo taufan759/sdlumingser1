@@ -80,6 +80,16 @@ public function visiMisi()
         return view('pages.sejarah');
     }
 
+    public function prestasi()
+    {
+        return view('pages.prestasi');
+    }
+
+    public function struktur()
+    {
+        return view('pages.struktur');
+    }
+
     public function news()
     {
         $newsRandom = News::where('status', 1)->inRandomOrder()->get();

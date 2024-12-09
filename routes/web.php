@@ -32,13 +32,15 @@ Route::get('/news/{id}', [LandingController::class, 'show'])->name('news.show');
 //Header Profile Sekolah
 Route::get('/kepalasekolah', [LandingController::class, 'kepalasekolah'])->name('kepalasekolah');
 Route::get('/datasekolah', [LandingController::class, 'dataPokok'])->name('datasekolah');
-Route::get('/sejarah', [LandingController::class, 'sejarah'])->name('sejarah');
 Route::get('/visimisi', [LandingController::class, 'visiMisi'])->name('visimisi');
 Route::get('/staff_profile', [LandingController::class, 'profilStaff']);
+Route::get('/struktur', [LandingController::class, 'struktur']);
+Route::get('/sejarah', [LandingController::class, 'sejarah']);
 
 //Header Berita
 Route::get('/news', [LandingController::class, 'news']);
 Route::get('/news/{id_title}', [LandingController::class, 'show']);
+Route::get('/prestasi', [LandingController::class, 'prestasi'])->name('prestasi');
 
 //Header Galery
 Route::get('/galery', [LandingController::class, 'galery']);
