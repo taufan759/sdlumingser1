@@ -38,27 +38,27 @@
             </button>
         </div>
 
-        <div class="news-portal container" style="margin-bottom: 20px">
+        <div class="news-portal container my-5">
             <div class="header text-center mb-4">
-                <h2>Informasi Terkini</h2>
+                <h2 class="display-5 fw-bold">Informasi Terkini</h2>
             </div>
             <div class="news-list row g-4">
                 @foreach ($news as $item)
                 <div class="news-item col-12 col-md-6 col-lg-4">
                     <div class="card h-100">
                         <div class="image">
-                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="card-img-top">
+                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="card-img-top img-fluid" style="object-fit: cover; height: 200px; width: 100%;">
                         </div>
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ $item->title }}</h5>
-                            <p class="card-text">{{ Str::limit($item->description, 100) }}</p>
-                            <a href="/news/{{ $item->id }}" class="btn btn-primary mt-auto">Selengkapnya</a>
+                            <h5 class="card-title text-truncate" title="{{ $item->title }}" style="font-size: 1.25rem;">{{ $item->title }}</h5>
+                            <p class="card-text text-truncate" title="{{ $item->description }}" style="font-size: 0.9rem;">{{ Str::limit($item->description, 100, '...') }}</p>
+                            <a href="{{ url('news') }}" class="btn btn-primary mt-auto">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
                 @endforeach
             </div>
-        </div>
+        </div>        
 
     <div class="welcome-overlay">
         <h1 class="display-1 text-white"><span class="typing-text"></span></h1>
