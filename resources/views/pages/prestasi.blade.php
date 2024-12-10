@@ -1,8 +1,10 @@
 @extends('layouts.default')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('assets/css/prestasi.css') }}">
-    <div class="container py-5">
+    <link rel="stylesheet" href="{{ asset('assets/css/prestasi.css') }}">
+
+    <div class="container py-5" style="margin-top: 50px">
+        <!-- Section Title -->
         <div class="text-center mb-5">
             <h1 class="achievement-title">PRESTASI SISWA</h1>
             <div class="line-separator"></div>
@@ -11,51 +13,60 @@
 
         <!-- Grid Prestasi -->
         <div class="achievement-grid">
-            <!-- Item Dummy 1 -->
+            <!-- Item 1 -->
             <div class="achievement-item">
                 <div class="achievement-image-wrapper">
-                    <img src="https://via.placeholder.com/300x200" alt="Prestasi 1" class="achievement-image">
+                    <img src="{{ ('assets/img/Edukasi.jpg') }}" alt="Prestasi" class="achievement-image">
                 </div>
                 <div class="achievement-content">
-                    <h3 class="achievement-name">Juara 1 Lomba Matematika</h3>
-                    <p class="achievement-description">Siswa kelas 6 memenangkan lomba matematika tingkat kabupaten.</p>
-                    <span class="achievement-date">10 Oktober 2024</span>
+                    <h3 class="achievement-name">Penghargaan Terbaik Tahun 2024</h3>
+                    <p class="achievement-description">
+                        Lorem ipsum dolor sit amet.
+                    </p>
+                    <p class="achievement-date">20 September 2024</p>
+                    <a href="{{ url('detail-prestasi') }}" class="achievement-btn">Lihat Selengkapnya</a>
                 </div>
-            </div>
-
-            <!-- Item Dummy 2 -->
+            </div>            
+            <!-- Item 2 -->
             <div class="achievement-item">
                 <div class="achievement-image-wrapper">
-                    <img src="https://via.placeholder.com/300x200" alt="Prestasi 2" class="achievement-image">
+                    <img src="{{ ('assets/img/Festival.jpg') }}" alt="Prestasi" class="achievement-image">
                 </div>
                 <div class="achievement-content">
-                    <h3 class="achievement-name">Juara 2 Lomba Sains</h3>
-                    <p class="achievement-description">Tim sains SDN Lumingser 01 meraih juara kedua tingkat provinsi.</p>
-                    <span class="achievement-date">12 November 2024</span>
+                    <h3 class="achievement-name">Penghargaan Terbaik Tahun 2024</h3>
+                    <p class="achievement-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, sint?
+                    </p>
+                    <p class="achievement-date">20 September 2024</p>
+                    <a href="{{ url('detail-prestasi') }}" class="achievement-btn">Lihat Selengkapnya</a>
                 </div>
-            </div>
-
-            <!-- Item Dummy 3 -->
+            </div>            
+            <!-- Item 3 -->
             <div class="achievement-item">
                 <div class="achievement-image-wrapper">
-                    <img src="https://via.placeholder.com/300x200" alt="Prestasi 3" class="achievement-image">
+                    <img src="{{ ('assets/img/Membaca.jpg') }}" alt="Prestasi" class="achievement-image">
                 </div>
                 <div class="achievement-content">
-                    <h3 class="achievement-name">Juara 3 Lomba Pidato</h3>
-                    <p class="achievement-description">Siswa kelas 5 memenangkan lomba pidato tingkat kota.</p>
-                    <span class="achievement-date">20 Desember 2024</span>
+                    <h3 class="achievement-name">Penghargaan Terbaik Tahun 2024</h3>
+                    <p class="achievement-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolorum porro veritatis nihil modi ullam, nesciunt eum delectus suscipit placeat.
+                    </p>
+                    <p class="achievement-date">20 September 2024</p>
+                    <a href="{{ url('detail-prestasi') }}" class="achievement-btn">Lihat Selengkapnya</a>
                 </div>
-            </div>
-
-            <!-- Item Dummy 4 -->
+            </div>            
+            <!-- Item 4 -->
             <div class="achievement-item">
                 <div class="achievement-image-wrapper">
-                    <img src="https://via.placeholder.com/300x200" alt="Prestasi 4" class="achievement-image">
+                    <img src="{{ ('assets/img/Bebersih.jpg') }}" alt="Prestasi" class="achievement-image">
                 </div>
                 <div class="achievement-content">
-                    <h3 class="achievement-name">Juara Harapan 1 Futsal</h3>
-                    <p class="achievement-description">Tim futsal SDN Lumingser 01 tampil memukau di lomba futsal tingkat kabupaten.</p>
-                    <span class="achievement-date">15 Januari 2024</span>
+                    <h3 class="achievement-name">Penghargaan Terbaik Tahun 2024</h3>
+                    <p class="achievement-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus libero neque sed vero perspiciatis nemo debitis fugiat alias aliquid iste, distinctio iusto harum sequi qui, dicta, fuga voluptatum cumque nulla similique necessitatibus? Voluptatem eligendi facilis odio repellendus aliquid eveniet hic. Nostrum possimus ut quia nobis excepturi maxime facilis exercitationem eaque.
+                    </p>
+                    <p class="achievement-date">20 September 2024</p>
+                    <a href="{{ url('detail-prestasi') }}" class="achievement-btn">Lihat Selengkapnya</a>
                 </div>
             </div>
         </div>

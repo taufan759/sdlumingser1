@@ -85,6 +85,11 @@ public function visiMisi()
         return view('pages.prestasi');
     }
 
+    public function detailprestasi()
+    {
+        return view('pages.detail-prestasi');
+    }
+
     public function struktur()
     {
         return view('pages.struktur');

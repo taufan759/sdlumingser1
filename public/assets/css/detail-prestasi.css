@@ -1,0 +1,119 @@
+/* Detail Prestasi */
+.achievement-detail {
+    display: flex;
+    flex-wrap: wrap;
+    background: E8F0FE;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+.achievement-detail-image-wrapper {
+    flex: 1 1 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.achievement-detail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+}
+
+.achievement-detail-content {
+    flex: 2 1 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.detail-achievement-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.line-separator {
+    width: 100px;
+    height: 3px;
+    background-color: #007BFF;
+    margin: 10px auto;
+}
+
+.achievement-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.achievement-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.achievement-details {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.5;
+}
+
+.achievement-btn {
+    display: inline-block;
+    background-color: #007BFF; 
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.achievement-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    .achievement-detail {
+        flex-direction: column;
+    }
+
+    .achievement-detail-image-wrapper {
+        height: 200px;
+    }
+
+    .achievement-detail-content {
+        padding: 15px;
+    }
+
+    .achievement-name {
+        font-size: 1.3rem;
+    }
+
+    .achievement-description {
+        font-size: 0.9rem;
+    }
+
+    .achievement-details {
+        font-size: 0.85rem;
+    }
+
+    .achievement-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}

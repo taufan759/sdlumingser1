@@ -41,6 +41,7 @@ Route::get('/sejarah', [LandingController::class, 'sejarah']);
 Route::get('/news', [LandingController::class, 'news']);
 Route::get('/news/{id_title}', [LandingController::class, 'show']);
 Route::get('/prestasi', [LandingController::class, 'prestasi'])->name('prestasi');
+Route::get('/detail-prestasi', [LandingController::class, 'detailprestasi'])->name('detail-prestasi');
 
 //Header Galery
 Route::get('/galery', [LandingController::class, 'galery']);

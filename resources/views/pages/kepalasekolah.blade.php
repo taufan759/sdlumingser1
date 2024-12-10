@@ -3,8 +3,8 @@
 @section('content')
 <div class="container py-5"> 
     <!-- Header Section -->
-    <div class="text-center mb-5" style="padding-top: 75px;">
-        <h1 class="display-5 fw-bold" style="color: #5b5b5b">Sambutan dan Profil Kepala Sekolah</h1>
+    <div class="text-center mb-5" style="padding-top: 50px;">
+        <h1 class="title fw-bold" style="color: #333">Sambutan dan Profil Kepala Sekolah</h1>
         <div class="header-with-lines">
             <div class="line black"></div>
             <div class="line blue"></div>
@@ -49,7 +49,7 @@
 
     <!-- Profil -->
     <section>
-        <h2 class="text-center fw-bold" style="color: #5b5b5b">Profil Kepala Sekolah</h2>
+        <h2 class="text-center fw-bold" style="color: #333">Profil Kepala Sekolah</h2>
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><strong>Nama:</strong> Kanapi, S.Pd SD</li>
             <li class="list-group-item"><strong>Jabatan:</strong> Kepala Sekolah</li>
@@ -59,4 +59,27 @@
         </ul>
     </section>
 </div>
+
+<style>
+    .title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+    
+    .line-separator {
+        width: 60px;
+        height: 3px;
+        background-color: #007BFF;
+        margin: 10px auto 15px;
+    }
+    
+    .subtitle {
+        font-size: calc(1.325rem + .9vw);
+        color: #333;
+        font-style: normal;
+    }
+</style>
 @endsection

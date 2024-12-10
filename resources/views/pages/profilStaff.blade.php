@@ -5,9 +5,9 @@
     <!-- Title Section -->
     <div class="row mb-5">
         <div data-aos="fade-up" class="col text-center">
-            <h1 class="gallery-title fw-bold">Guru & Staff</h1>
+            <h1 class="title fw-bold">Guru & Staff</h1>
             <div class="line-separator mx-auto"></div>
-            <h2 class="gallery-subtitle text-muted">SDN Lumingser 01</h2>
+            <h2 class="subtitle">SDN Lumingser 01</h2>
         </div>
     </div>
     <!-- Guru Section -->
@@ -51,4 +51,27 @@
         @endforeach
     </div>
 </div>
+
+<style>
+    .title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+    
+    .line-separator {
+        width: 60px;
+        height: 3px;
+        background-color: #007BFF;
+        margin: 10px auto 15px;
+    }
+    
+    .subtitle {
+        font-size: calc(1.325rem + .9vw);
+        color: #333;
+        font-style: normal;
+    }
+</style>
 @endsection

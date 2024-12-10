@@ -4,9 +4,9 @@
 <div class="container" style="margin-top: 75px; margin-bottom: 75px;">
     <div class="row">
         <div data-aos="fade-up" class="col text-center">
-            <h1 class="gallery-title">Data Pokok Sekolah</h1>
+            <h1 class="title">Data Pokok Sekolah</h1>
             <div class="line-separator mx-auto"></div>
-            <h2 class="gallery-subtitle">SDN Lumingser 01</h2>
+            <h2 class="subtitle">SDN Lumingser 01</h2>
         </div>
     </div>
     <div class="row">
@@ -14,7 +14,6 @@
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
                 <div class="card-body p-4 p-md-5" id="pg">
                     <div class="card-title">
-                        <h3 class="fw-medium pb-2 text-center">Data Pokok sekolah :</h3>
                     </div>
                     <div class="card-text">
                         <div class="row">
@@ -233,4 +232,27 @@
             </div>
         </div>
     </div>
-@endsection
+
+<style>
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.line-separator {
+    width: 60px;
+    height: 3px;
+    background-color: #007BFF;
+    margin: 10px auto 15px;
+}
+
+.subtitle {
+    font-size: calc(1.325rem + .9vw);
+    color: #333;
+    font-style: normal;
+}
+</style>
+@endsection        
