@@ -4,43 +4,60 @@
 <div class="container py-5">
     <!-- Header Section -->
     <div class="text-center mb-5" style="padding-top: 50px;">
-        <h1 class="title fw-bold" style="color: #333;">Sejarah SD Negeri Lumingser 01</h1>
+        <h1 class="title fw-bold" style="color: #333;">Profil SD Negeri Lumingser 01</h1>
         <div class="header-with-lines">
             <div class="line black"></div>
             <div class="line blue"></div>
             <div class="line black"></div>
         </div>
-        <p class="lead text-muted">Mengenal lebih dekat tentang sekolah dan sejarah berdirinya.</p>
+        <p class="lead text-muted">Mengenal lebih dekat SD Negeri Lumingser 01</p>
     </div>
 
     <!-- Sejarah Sekolah dengan teks di sebelah kanan gambar -->
     <section class="history-section mb-5">
         <div class="row justify-content-center align-items-center">
             <!-- Gambar Sekolah di sebelah kiri -->
-            <div class="col-md-6 mb-4 mb-md-0">
-                <img src="{{ asset('assets/img/Sejarah.jpg') }}" 
-                    class="img-fluid shadow-lg rounded-4" 
-                    style="object-fit: cover; height: 100%; width: 100%; border-radius: 15px;" 
-                    alt="Gambar Sekolah">
+            <div class="col-lg-6 order-lg-2 order-1">
+                <div class="position-relative">
+                    <img src="{{ asset('assets/img/Sejarah.jpg') }}" 
+                        class="img-fluid shadow-lg rounded-4" 
+                        style="object-fit: cover; width: 100%; border-radius: 30px;" 
+                        alt="Gambar Sekolah">
+                </div>
             </div>
 
-            <!-- Teks Sejarah di sebelah kanan -->
-            <div class="col-md-6">
-                <p class="text-justify fs-5">
-                    SD Negeri Lumingser 01 berdiri pada tahun 1980 di bawah naungan Dinas Pendidikan Kabupaten Tegal. Berlokasi di Kecamatan Adiwerna, sekolah ini awalnya dibangun untuk memenuhi kebutuhan pendidikan dasar bagi masyarakat sekitar.
-                </p>
-                <p class="text-justify fs-5">
-                    Seiring waktu, SD Negeri Lumingser 01 terus berkembang, baik dari segi fasilitas maupun kualitas pendidikan. Dengan komitmen untuk memberikan pendidikan yang inklusif dan berkualitas, sekolah ini telah meluluskan ribuan siswa yang kini telah berkontribusi di berbagai bidang.
-                </p>
-                <p class="text-justify fs-5">
-                    Dengan visi "Menciptakan Generasi Cerdas, Berkarakter, dan Berdaya Saing," SD Negeri Lumingser 01 bertekad untuk terus menjadi pusat pendidikan yang unggul di Kabupaten Tegal. Dilengkapi dengan tenaga pendidik profesional, sekolah ini terus berinovasi dalam metode pembelajaran dan pengembangan siswa.
-                </p>
-                <p class="text-justify fs-5">
-                    Hingga kini, SD Negeri Lumingser 01 tetap menjadi pilihan utama bagi masyarakat sekitar yang menginginkan pendidikan dasar yang berkualitas dan berkarakter.
-                </p>
-            </div>
+           <!-- Teks Sejarah di sebelah kanan -->
+           <div class="col-md-6">
+            <p class="text-justify fs-5">
+                SD Negeri Lumingser 01 terletak di Desa Lumingser, Kecamatan Lumingser, Kabupaten Tegal, di tengah masyarakat agraris yang religius dan memiliki tradisi gotong royong yang kuat.
+            </p>
+            <p class="text-justify fs-5">
+                Sebagian besar siswa berasal dari keluarga buruh tani, pedagang, dan pegawai, menciptakan keberagaman latar belakang yang memperkaya proses pembelajaran.
+            </p>
+            <p class="text-justify fs-5">
+                Sekolah ini memiliki 9 guru berkompeten, 3 tenaga kependidikan, dan fasilitas yang memadai, termasuk 6 ruang kelas, perpustakaan, serta alat peraga pembelajaran.
+            </p>
+            <p class="text-justify fs-5">
+                Pembelajaran yang diterapkan bersifat kolaboratif, mendukung siswa dengan berbagai latar belakang untuk berkembang secara maksimal.
+            </p>
         </div>
-    </section>
+        
+        
+    </div>
+
+    <!-- Dua Paragraf Teks yang Diperlukan untuk Pindah ke Bawah -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <p class="text-justify fs-5">
+                Sekolah ini dengan bangga menjunjung tinggi nilai kebhinekaan yang tercermin dalam berbagai aktivitas dan budaya lokal yang ada, salah satunya adalah seni hadroh. Seni hadroh ini tidak hanya menjadi bagian dari tradisi budaya yang hidup di masyarakat sekitar, tetapi juga menjadi sarana penting dalam penguatan karakter Profil Pelajar Pancasila. Melalui seni hadroh, siswa-siswa di SD Negeri Lumingser 01 diajarkan untuk menghargai keberagaman, bekerja sama dalam kelompok, serta memperkuat rasa kebersamaan. Selain itu, seni ini juga mengajarkan nilai-nilai ketekunan dan kedisiplinan, yang sangat penting dalam membentuk karakter yang baik bagi generasi muda.
+            </p>
+            <p class="text-justify fs-5">
+                Selain itu, sekolah ini sangat menyadari pentingnya komunikasi yang terbuka dan baik antara pihak sekolah dan orang tua. Sebagai mitra dalam pendidikan, hubungan yang erat antara kedua belah pihak sangat berpengaruh terhadap perkembangan siswa. SD Negeri Lumingser 01 tidak hanya berfokus pada pengajaran di dalam kelas, tetapi juga aktif melibatkan orang tua dalam berbagai kegiatan yang diadakan oleh sekolah, seperti pertemuan orang tua dan kegiatan pengajaran bersama. Komunikasi yang baik ini membantu memastikan bahwa setiap kebutuhan dan harapan orang tua terhadap pendidikan anak-anak mereka dapat dipahami dengan baik, serta memastikan bahwa program pendidikan yang diterapkan di sekolah selaras dengan tujuan yang ingin dicapai bersama. Dengan komitmen kuat dari sekolah, guru, orang tua, dan seluruh pihak terkait, SD Negeri Lumingser 01 terus berupaya untuk menyediakan pendidikan berkualitas yang dapat membawa manfaat besar bagi masyarakat setempat dan mempersiapkan generasi penerus yang cerdas, berkarakter, dan siap menghadapi tantangan masa depan.
+            </p>
+            
+        </div>
+    </div>
+</section>
 </div>
 
 <style>
@@ -64,5 +81,23 @@
         color: #333;
         font-style: normal;
     }
+    .col-lg-6.order-lg-2.order-1 .position-relative {
+    position: relative;
+    top: -50px; /* Mengatur gambar bergerak ke atas */
+}
+/* Menambahkan jarak antara gambar dan teks */
+.history-section img {
+        width: 100%;
+        border-radius: 30px;
+    }
+
+    /* Untuk memastikan dua paragraf berada di bawah gambar */
+    .row.mt-4 {
+        margin-top: 40px;
+    }
+    .text-justify, .fs-5 {
+    color: #333; /* Ganti dengan warna yang sesuai jika diperlukan */
+}
+
 </style>
 @endsection

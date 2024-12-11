@@ -7,21 +7,21 @@
         <div id="carouselExampleIndicators" class="jumbotron carousel slide mb-4" data-bs-ride="carousel">
             <div class="jumbotron carousel-inner">
                 <div class="carousel-item active rounded-4" data-bs-interval="3000">
-                    <img src="{{ asset('assets/img/Carousel.jpg') }}" class="d-block w-100 object-fit-cover rounded-4" style="height: 80vh">
+                    <img src="{{ asset('assets/img/Sekolah1.jpg') }}" class="d-block w-100 object-fit-cover rounded-4" style="height: 80vh">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Selamat Datang di Sekolah Dasar Kami</h5>
                         <p style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Mendidik Generasi Unggul untuk Masa Depan Cerah.</p>
                     </div>
                 </div>
                 <div class="carousel-item rounded-4" data-bs-interval="3000">
-                    <img src="{{ asset('assets/img/Carousel.jpg') }}" class="d-block w-100 object-fit-cover rounded-4" style="height: 80vh">
+                    <img src="{{ asset('assets/img/Sekolah2.jpg') }}" class="d-block w-100 object-fit-cover rounded-4" style="height: 80vh">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Belajar dan Bermain</h5>
                         <p style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Menjalani Hari-Hari Menyenangkan di Sekolah.</p>
                     </div>
                 </div>
                 <div class="carousel-item rounded-4" data-bs-interval="3000">
-                    <img src="{{ asset('assets/img/Carousel.jpg') }}" class="d-block w-100 object-fit-cover rounded-4" style="height: 80vh">
+                    <img src="{{ asset('assets/img/Sekolah3.jpg') }}" class="d-block w-100 object-fit-cover rounded-4" style="height: 80vh">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Kreativitas Tanpa Batas</h5>
                         <p style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Mengembangkan Bakat dan Potensi Anak Sejak Dini.</p>
