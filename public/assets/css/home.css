@@ -10,6 +10,34 @@
 /* End Jumbotron Carousel */
 
 /* news */
+.carousel-item .card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.carousel-item:hover .card {
+  transform: scale(1.02);
+}
+
+.card-title.text-truncate, .card-text.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#hotnews {
+  transition: transform 0.2s ease-in-out;
+}
+
+#hotnews:hover {
+  transform: scale(1.02);
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .news-portal {
   padding: 40px 20px;
   background-color: #f8f9fa;

@@ -9,7 +9,7 @@
                 <div class="carousel-item active rounded-4" data-bs-interval="3000">
                     <img src="{{ asset('assets/img/Sekolah1.jpg') }}" class="d-block w-100 object-fit-cover rounded-4" style="height: 80vh">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5 style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Selamat Datang di Sekolah Dasar Kami</h5>
+                        <h5 style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Selamat datang di SDN Lumingser 01</h5>
                         <p style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Mendidik Generasi Unggul untuk Masa Depan Cerah.</p>
                     </div>
                 </div>
@@ -23,8 +23,8 @@
                 <div class="carousel-item rounded-4" data-bs-interval="3000">
                     <img src="{{ asset('assets/img/Sekolah3.jpg') }}" class="d-block w-100 object-fit-cover rounded-4" style="height: 80vh">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5 style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Kreativitas Tanpa Batas</h5>
-                        <p style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Mengembangkan Bakat dan Potensi Anak Sejak Dini.</p>
+                        <h5 style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Tenaga Pendidik Yang Berkompeten</h5>
+                        <p style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Berkomitmen Untuk Mendidik Generasi Penerus Yang Cerdas dan Berkarakter.</p>
                     </div>
                 </div>
             </div>
@@ -40,10 +40,10 @@
 
         <div class="news-portal container my-5">
             <div class="header text-center mb-4">
-                <h2 class="display-5 fw-bold">Informasi Terkini</h2>
+                <h2 class="fw-bold">Informasi Terkini</h2>
             </div>
             <div class="news-list row g-4">
-                @foreach ($news as $item)
+                @foreach ($news->take(3) as $item)
                 <div class="news-item col-12 col-md-6 col-lg-4">
                     <div class="card h-100">
                         <div class="image">
