@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Saving;
+use App\Models\Photo;
+use App\Models\Video;
+use App\Models\Achievement;
 use App\Models\Categories;
 use App\Models\Teacher;
 use App\Models\User;
@@ -58,11 +61,33 @@ public function visiMisi()
 
     public function galery()
     {
-        $galery = News::with('category')->where('status', 1)->orderBy('id', 'DESC')->limit(6)->get();
-        
+        $galery = News::with('category')
+            ->where('status', 1)
+            ->orderBy('id', 'DESC')
+            ->limit(6)
+            ->get();
+
+        $photos = Photo::all(); 
+        $videos = Video::all(); 
+
         return view('pages.galery', [
             'galery' => $galery,
+            'photos' => $photos,
+            'videos' => $videos,
         ]);
+    }
+
+    public function prestasi()
+    {
+        $achievements = Achievement::latest()->get();
+        return view('pages.prestasi', compact('achievements'));
+    }
+
+    // Method untuk menampilkan detail prestasi
+    public function detailPrestasi($id)
+    {
+        $achievement = Achievement::findOrFail($id);
+        return view('pages.detail-prestasi', compact('achievement'));
     }
 
     public function contact()
@@ -78,16 +103,6 @@ public function visiMisi()
     public function sejarah()
     {
         return view('pages.sejarah');
-    }
-
-    public function prestasi()
-    {
-        return view('pages.prestasi');
-    }
-
-    public function detailprestasi()
-    {
-        return view('pages.detail-prestasi');
     }
 
     public function struktur()

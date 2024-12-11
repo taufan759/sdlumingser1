@@ -41,7 +41,7 @@ Route::get('/sejarah', [LandingController::class, 'sejarah']);
 Route::get('/news', [LandingController::class, 'news']);
 Route::get('/news/{id_title}', [LandingController::class, 'show']);
 Route::get('/prestasi', [LandingController::class, 'prestasi'])->name('prestasi');
-Route::get('/detail-prestasi', [LandingController::class, 'detailprestasi'])->name('detail-prestasi');
+Route::get('/detail-prestasi/{id}', [LandingController::class, 'detailPrestasi'])->name('detail-prestasi');
 
 //Header Galery
 Route::get('/galery', [LandingController::class, 'galery']);
@@ -84,6 +84,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/guru/tugas/{id}/edit', [GuruController::class, 'editTugas'])->name('guru.tugas.edit');
             Route::put('/guru/tugas/{id}', [GuruController::class, 'updateTugas'])->name('guru.tugas.update');
             Route::delete('/guru/tugas/{id}', [GuruController::class, 'destroyTugas'])->name('guru.tugas.destroy');
+            Route::get('/guru/photo', [GuruController::class, 'photo'])->name('guru.photo');
+            Route::post('/guru/photo/store', [GuruController::class, 'storePhoto'])->name('guru.photo.store');
+            Route::get('/guru/photo/{id}/edit', [GuruController::class, 'editPhoto'])->name('guru.photo.edit');
+            Route::put('/guru/photo/{id}', [GuruController::class, 'updatePhoto'])->name('guru.photo.update');
+            Route::delete('/guru/photo/{id}', [GuruController::class, 'destroyPhoto'])->name('guru.photo.destroy');
+            Route::get('/guru/video', [GuruController::class, 'video'])->name('guru.video');
+            Route::post('/guru/video/store', [GuruController::class, 'storeVideo'])->name('guru.video.store');
+            Route::get('/guru/video/{id}/edit', [GuruController::class, 'editVideo'])->name('guru.video.edit');
+            Route::put('/guru/video/{id}', [GuruController::class, 'updateVideo'])->name('guru.video.update');
+            Route::delete('/guru/video/{id}', [GuruController::class, 'destroyVideo'])->name('guru.video.destroy');
+            Route::get('/guru/achievements', [GuruController::class, 'achievements'])->name('achievement');
+            Route::post('/guru/achievements', [GuruController::class, 'storeAchievement'])->name('achievement.store');
+            Route::get('/guru/achievements/{id}/edit', [GuruController::class, 'editAchievement'])->name('achievement.edit');
+            Route::put('/guru/achievements/{id}', [GuruController::class, 'updateAchievement'])->name('achievement.update');
+            Route::delete('/guru/achievements/{id}', [GuruController::class, 'destroyAchievement'])->name('achievement.destroy');                    
+            
+            
+
         });
         Route::middleware(profilGuru::class)->group(function () {
             Route::get('/guru/berita', [GuruController::class, 'berita']);
@@ -103,6 +121,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/guru/tugas/{id}/edit', [GuruController::class, 'editTugas'])->name('guru.tugas.edit');
             Route::put('/guru/tugas/{id}', [GuruController::class, 'updateTugas'])->name('guru.tugas.update');
             Route::delete('/guru/tugas/{id}', [GuruController::class, 'destroyTugas'])->name('guru.tugas.destroy');
+            Route::get('/guru/photo', [GuruController::class, 'photo'])->name('guru.photo');
+            Route::post('/guru/photo/store', [GuruController::class, 'storePhoto'])->name('guru.photo.store');
+            Route::get('/guru/photo/{id}/edit', [GuruController::class, 'editPhoto'])->name('guru.photo.edit');
+            Route::put('/guru/photo/{id}', [GuruController::class, 'updatePhoto'])->name('guru.photo.update'); 
+            Route::delete('/guru/photo/{id}', [GuruController::class, 'destroyPhoto'])->name('guru.photo.destroy');           
+            Route::get('/guru/video', [GuruController::class, 'video'])->name('guru.video');
+            Route::post('/guru/video/store', [GuruController::class, 'storeVideo'])->name('guru.video.store');
+            Route::get('/guru/video/{id}/edit', [GuruController::class, 'editVideo'])->name('guru.video.edit');
+            Route::put('/guru/video/{id}', [GuruController::class, 'updateVideo'])->name('guru.video.update');
+            Route::delete('/guru/video/{id}', [GuruController::class, 'destroyVideo'])->name('guru.video.destroy');
+            Route::get('/guru/achievements', [GuruController::class, 'achievements'])->name('achievement');
+            Route::post('/guru/achievements', [GuruController::class, 'storeAchievement'])->name('achievement.store');
+            Route::get('/guru/achievements/{id}/edit', [GuruController::class, 'editAchievement'])->name('achievement.edit');
+            Route::put('/guru/achievements/{id}', [GuruController::class, 'updateAchievement'])->name('achievement.update');
+            Route::delete('/guru/achievements/{id}', [GuruController::class, 'destroyAchievement'])->name('achievement.destroy');
+            
         });
         Route::get('/guru/edit/berita/{id}', [GuruController::class, 'editBerita']);
         Route::post('/guru/updated/berita/{id}', [GuruController::class, 'updatedBerita']);

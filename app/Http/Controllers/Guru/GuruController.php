@@ -8,6 +8,9 @@ use App\Models\Siswa;
 use App\Models\Saving;
 use App\Models\Teacher;
 use App\Models\Categories;
+use App\Models\Video;
+use App\Models\Photo;
+use App\Models\Achievement;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -620,6 +623,244 @@ class GuruController extends Controller
             ->back()
             ->with('success', 'Tabungan berhasil ' . $jenis . ' untuk ' . $siswa->nama . ' sejumlah Rp. ' . number_format($request->saldo_transaksi, 0, ',', ','));
     }
+
+    // Controller untuk bagian Photo
+
+public function photo()
+{
+    $photos = Photo::all(); // Mengambil semua foto
+    $totalPhotos = Photo::count(); // Total foto
+
+    return view('guru.photo', [
+        'photos' => $photos,
+        'totalPhotos' => $totalPhotos,
+    ]);
+}
+
+// Menyimpan photo baru
+public function storePhoto(Request $request)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'image_path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
+
+    $path = $request->file('image_path')->store('photos', 'public');
+
+    Photo::create([
+        'title' => $request->title,
+        'image_path' => $path,
+    ]);
+
+    return redirect()->route('guru.photo')->with('success', 'Photo uploaded successfully!');
+}
+
+// Menghapus photo
+public function destroyPhoto($id)
+{
+    $photo = Photo::findOrFail($id);
+
+    // Menghapus file fisik
+    if (Storage::disk('public')->exists($photo->image_path)) {
+        Storage::disk('public')->delete($photo->image_path);
+    }
+
+    $photo->delete();
+
+    return redirect()->route('guru.photo')->with('success', 'Photo deleted successfully!');
+}
+
+// Menampilkan halaman edit photo
+public function editPhoto($id)
+{
+    $photo = Photo::findOrFail($id);
+
+    return view('guru.edit-photo', [
+        'photo' => $photo,
+    ]);
+}
+
+// Memperbarui photo
+public function updatePhoto(Request $request, $id)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'image_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+    ]);
+
+    $photo = Photo::findOrFail($id);
+
+    if ($request->hasFile('image_path')) {
+        // Hapus file lama
+        if (Storage::disk('public')->exists($photo->image_path)) {
+            Storage::disk('public')->delete($photo->image_path);
+        }
+
+        // Simpan file baru
+        $path = $request->file('image_path')->store('photos', 'public');
+        $photo->image_path = $path;
+    }
+
+    $photo->title = $request->title;
+    $photo->save();
+
+    return redirect()->route('guru.photo')->with('success', 'Photo updated successfully!');
+}
+
+    // Menampilkan halaman video
+    public function video()
+    {
+        $videos = Video::all(); // Mengambil semua video
+        $totalVideos = Video::count(); // Total video
+
+        return view('guru.video', [
+            'videos' => $videos,
+            'totalVideos' => $totalVideos,
+        ]);
+    }
+
+    // Menyimpan video baru
+    public function storeVideo(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'youtube_url' => 'required|url',
+        ]);
+
+        Video::create([
+            'title' => $request->title,
+            'youtube_url' => $request->youtube_url,
+        ]);
+
+        return redirect()->route('guru.video')->with('success', 'Video added successfully!');
+    }
+    // Menampilkan halaman edit video
+public function editVideo($id)
+{
+    $video = Video::findOrFail($id);
+
+    return view('guru.edit-video', [
+        'video' => $video,
+    ]);
+}
+
+// Memperbarui video
+public function updateVideo(Request $request, $id)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'youtube_url' => 'required|url',
+    ]);
+
+    $video = Video::findOrFail($id);
+    $video->update([
+        'title' => $request->title,
+        'youtube_url' => $request->youtube_url,
+    ]);
+
+    return redirect()->route('guru.video')->with('success', 'Video updated successfully!');
+}
+
+// Menghapus video
+public function destroyVideo($id)
+{
+    $video = Video::findOrFail($id);
+    $video->delete();
+
+    return redirect()->route('guru.video')->with('success', 'Video deleted successfully!');
+}
+
+public function achievements()
+{
+    $achievements = Achievement::latest()->get();
+
+    return view('guru.achievements', compact('achievements'));
+}
+
+public function storeAchievement(Request $request)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'date' => 'required|date',
+        'organizer' => 'required|string|max:255',
+        'location' => 'required|string|max:255',
+        'student_name' => 'required|string|max:255',
+        'image_path' => 'nullable|image|max:2048',
+    ]);
+
+    $achievement = new Achievement();
+    $achievement->title = $request->title;
+    $achievement->description = $request->description;
+    $achievement->date = $request->date;
+    $achievement->organizer = $request->organizer;
+    $achievement->location = $request->location;
+    $achievement->student_name = $request->student_name;
+
+    if ($request->hasFile('image_path')) {
+        $path = $request->file('image_path')->store('achievements', 'public');
+        $achievement->image_path = $path;
+    }
+
+    $achievement->save();
+
+    return redirect()->route('achievement')->with('success', 'Prestasi berhasil ditambahkan.');
+}
+
+
+public function editAchievement($id)
+{
+    $achievement = Achievement::findOrFail($id);
+
+    return view('guru.edit-achievements', compact('achievement'));
+}
+
+public function updateAchievement(Request $request, $id)
+{
+    $achievement = Achievement::findOrFail($id);
+
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'date' => 'required|date',
+        'organizer' => 'required|string|max:255',
+        'location' => 'required|string|max:255',
+        'student_name' => 'required|string|max:255',
+        'image_path' => 'nullable|image|max:2048',
+    ]);
+
+    $achievement->title = $request->title;
+    $achievement->description = $request->description;
+    $achievement->date = $request->date;
+    $achievement->organizer = $request->organizer;
+    $achievement->location = $request->location;
+    $achievement->student_name = $request->student_name;
+
+    if ($request->hasFile('image_path')) {
+        if ($achievement->image_path && Storage::exists('public/' . $achievement->image_path)) {
+            Storage::delete('public/' . $achievement->image_path);
+        }
+        $path = $request->file('image_path')->store('achievements', 'public');
+        $achievement->image_path = $path;
+    }
+
+    $achievement->save();
+
+    return redirect()->route('guru.achievement')->with('success', 'Prestasi berhasil diperbarui.');
+}
+
+public function destroyAchievement($id)
+{
+    $achievement = Achievement::findOrFail($id);
+
+    if ($achievement->image_path && Storage::exists('public/' . $achievement->image_path)) {
+        Storage::delete('public/' . $achievement->image_path);
+    }
+
+    $achievement->delete();
+
+    return redirect()->route('guru.achievement')->with('success', 'Prestasi berhasil dihapus.');
+}
 
     public function tugas()
     {

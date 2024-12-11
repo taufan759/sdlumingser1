@@ -58,7 +58,7 @@
                 <div class="card-body p-4 p-md-5 bg-light">
                     <h3 class="fw-bold text-center text-primary mb-4">Nilai-Nilai</h3>
                     <p class="lead text-center mb-4 text-dark">
-                        <strong>Beriman, bertaqwa kepada Tuhan yang Maha Esa (YMW), dan Berakhlak mulia</strong><br>
+                        Beriman, bertaqwa kepada Tuhan yang Maha Esa (YMW), dan Berakhlak mulia
                         Berkebinekaan Global<br>
                         Bergotong Royong<br>
                         Mandiri<br>
