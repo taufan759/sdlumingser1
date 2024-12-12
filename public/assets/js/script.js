@@ -14,9 +14,10 @@ window.addEventListener("scroll", function() {
 
 function kirimPesan() {
     var nama = document.getElementById('nama').value;
+    var email = document.getElementById('email').value
     var pesan = document.getElementById('pesan').value;
 
-    if (nama === '' && pesan === '') {
+    if (nama === '' && email === '' && pesan === '') {
         Swal.fire({
             icon: "error",
             title: "Peringatan",
@@ -30,6 +31,13 @@ function kirimPesan() {
             text: "Silakan isi nama terlebih dahulu.",
         });
         return;
+    } else if (email === '') {
+        Swal.fire({
+            icon: "error",
+            title: "Peringatan",
+            text: "Silakan isi email terlebih dahulu.",
+        });
+        return;
     } else if (pesan === '') {
         Swal.fire({
             icon: "error",
@@ -39,10 +47,13 @@ function kirimPesan() {
         return;
     }
     // Membuat pesan yang berisi informasi dari form
-    var whatsappPesan = "Nama : " + encodeURI(nama) + "%0aPesan : " + encodeURI(pesan);
+    var whatsappPesan = "Nama : " + encodeURIComponent(nama) + "%0aEmail : " + encodeURIComponent(email) + "%0aPesan : " + encodeURIComponent(pesan);
 
     // Mengarahkan pengguna ke WhatsApp dengan pesan yang sudah dibuat
-    window.open("https://api.whatsapp.com/send?phone=6283124332900&text=" + whatsappPesan,'_blank'); // UBAH NOMOR WHATSAPP
+    window.open("https://api.whatsapp.com/send?phone=6283124332900&text=" + whatsappPesan,'_blank');
+
+    // Reset form setelah kirim
+    document.querySelector('#waModal form').reset();
 };
 
 // JQUERY

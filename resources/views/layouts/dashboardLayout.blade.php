@@ -145,6 +145,36 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                        href="#">
+                                        <i class="fa-solid fa-photo-video"></i>
+                                        Media
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/photo">
+                                                <i class="fa-solid fa-camera"></i>
+                                                Foto
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="/guru/video">
+                                                <i class="fa-solid fa-video"></i>
+                                                Video
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                    href="/guru/achievements">
+                                        <i class="fa-solid fa-trophy"></i>
+                                        Prestasi
+                                    </a>
+                                </li>   
                                 <li class="app-sidebar__heading">Data Siswa</li>
                                 <li>
                                     <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
@@ -191,37 +221,7 @@
                                         <i class="fa-solid fa-book"></i>
                                         Tugas
                                     </a>
-                                </li>
-                                <li>
-                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                        href="#">
-                                        <i class="fa-solid fa-photo-video"></i>
-                                        Media
-                                    </a>
-                                    <ul>
-                                        <li>
-                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                href="/guru/photo">
-                                                <i class="fa-solid fa-camera"></i>
-                                                Foto
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                href="/guru/video">
-                                                <i class="fa-solid fa-video"></i>
-                                                Video
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                       href="/guru/achievements">
-                                        <i class="fa-solid fa-trophy"></i>
-                                        Prestasi
-                                    </a>
-                                </li>                                
+                                </li>                             
                                 <li>
                                     <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
                                         href="/logout">

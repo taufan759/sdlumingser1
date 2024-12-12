@@ -206,7 +206,7 @@
                                                 <tr>
                                                     <th>Telepon</th>
                                                     <td>:</td>
-                                                    <td>-</td>
+                                                    <td>(0283) 3321443</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Email</th>

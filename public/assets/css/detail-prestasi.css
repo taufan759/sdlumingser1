@@ -1,30 +1,36 @@
 /* Detail Prestasi */
+
 .achievement-detail {
     display: flex;
     flex-wrap: wrap;
-    background: E8F0FE;
+    background: #fff; /* Ditambahkan # untuk warna */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 20px auto;
-    max-width: 900px;
+    max-width: 100%; /* Disesuaikan untuk responsif */
 }
 
 .achievement-detail-image-wrapper {
-    flex: 1 1 300px;
-    height: 300px;
+    flex: 1 1 50%; /* Persentase agar lebih fleksibel */
+    max-width: 50%; /* Pastikan gambar tetap proporsional */
+    height: auto;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .achievement-detail-image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 8px 0 0 8px;
 }
 
 .achievement-detail-content {
-    flex: 2 1 500px;
+    flex: 1 1 50%; /* Persentase agar fleksibel */
+    max-width: 50%; /* Pastikan konten tetap proporsional */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -32,17 +38,19 @@
 }
 
 .detail-achievement-title {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 2.5rem;
     font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .line-separator {
-    width: 100px;
+    width: 60px;
     height: 3px;
-    background-color: #007BFF;
-    margin: 10px auto;
+    background-color: #007BFF; 
+    margin: 10px auto 15px;
 }
 
 .achievement-name {
@@ -50,7 +58,7 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 15px;
-    text-align: left;
+    text-align: center;
 }
 
 .achievement-description {
@@ -65,6 +73,7 @@
     font-size: 0.95rem;
     color: #777;
     line-height: 1.5;
+    margin: 10px auto;
 }
 
 .achievement-btn {
@@ -78,6 +87,7 @@
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .achievement-btn:hover {
@@ -90,30 +100,40 @@
 @media (max-width: 768px) {
     .achievement-detail {
         flex-direction: column;
+        max-width: 100%; /* Penuh untuk perangkat kecil */
     }
 
     .achievement-detail-image-wrapper {
-        height: 200px;
+        max-width: 100%; /* Gambar memenuhi lebar layar */
     }
 
     .achievement-detail-content {
+        max-width: 100%;
         padding: 15px;
+        align-items: center; /* Konten sejajar di tengah */
+    }
+
+    .detail-achievement-title {
+        font-size: 2rem;
     }
 
     .achievement-name {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+        text-align: center;
     }
 
     .achievement-description {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        margin: 10px 0;
     }
 
     .achievement-details {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
+        text-align: center;
     }
 
     .achievement-btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
+        padding: 10px 20px;
+        font-size: 1rem;
     }
 }
