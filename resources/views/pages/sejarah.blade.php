@@ -16,7 +16,7 @@
             <div class="col-lg-6 order-lg-2 order-1">
                 <div class="position-relative">
                     <img src="{{ asset('assets/img/Sejarah.jpg') }}" 
-                        class="img-fluid shadow-lg rounded-4" 
+                        class="img-fluid shadow-sm rounded-4" 
                         style="object-fit: cover; width: 100%; border-radius: 30px;" 
                         alt="Gambar Sekolah">
                 </div>
@@ -80,6 +80,13 @@
         position: relative;
         top: -50px; /* Mengatur gambar bergerak ke atas */
     }
+    /* Mengatur posisi normal untuk tablet dan ponsel */
+@media (max-width: 1024px) {
+    .col-lg-6.order-lg-2.order-1 .position-relative {
+        top: 0; /* Kembali ke posisi default */
+        margin-top: 20px; /* Memberi jarak ke elemen di atas gambar */
+    }
+}
 
     /* Untuk menambahkan jarak antara gambar dan teks */
     .history-section img {
@@ -95,6 +102,10 @@
     .text-justify, .fs-5 {
         color: #333;
     }
+    .col-md-6 {
+    flex: 1; /* Mengatur teks agar proporsional */
+    text-align: justify;
+}
 
     /* Media query untuk mobile */
     @media (max-width: 768px) {
@@ -110,10 +121,6 @@
         .row.mt-4 {
             margin-top: 20px;
         }
-
-        .col-md-6 {
-            margin-top: 20px; /* Memberi jarak antara gambar dan teks */
-        }
-    }
+    }    
 </style>
 @endsection
