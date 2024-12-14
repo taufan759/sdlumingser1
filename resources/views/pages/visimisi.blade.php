@@ -36,21 +36,16 @@
                                 Mengembangkan bidang ilmu pengetahuan dan teknologi berdasarkan minat, bakat, dan potensi peserta didik.
                             </li>
                             <li class="list-group-item lead text-dark">
-                                Menyelenggarakan berbagai even kompetisi untuk memfasilitasi pengembangan kompetensi siswa sesuai minat dan bakat peserta didik.
-                            </li>
-                            <li class="list-group-item lead text-dark">
-                                Menyelenggarakan berbagai even kompetisi untuk memfasilitasi pengembangan kompetensi siswa sesuai minat dan bakat peserta didik.
+                                Menyelenggarakan berbagai event kompetisi untuk memfasilitasi pengembangan kompetensi siswa sesuai minat dan bakat peserta didik.
                             </li>
                             <li class="list-group-item lead text-dark">
                                 Melaksanakan berbagai pembiasaan bagi seluruh warga sekolah, dalam rangka pembentukan sikap dan perilaku untuk menguatkan profil pelajar Pancasila.
                             </li>
                             <li class="list-group-item lead text-dark">
-                                <li class="list-group-item lead text-dark">
-                                    Melaksanakan berbagai pembiasaan bagi seluruh warga sekolah, dalam rangka pembentukan sikap dan perilaku untuk menguatkan profil pelajar Pancasila.
-                                </li>
+                                Menyelenggarakan event kegiatan sebagai media apersepsi bagi peserta didik dalam berbagai bidang seni dan budaya.
                             </li>
                             <li class="list-group-item lead text-dark">
-                                7.	Melakukan transformasi konsep globalisasi dalam berbagai lingkup.
+                                Melakukan transformasi konsep globalisasi dalam berbagai lingkup.
                             </li>
                         </ul>
                     </div>
@@ -60,7 +55,7 @@
     </div>
 
     <!-- Nilai-Nilai Section -->
-    <div class="row">
+    {{-- <div class="row">
         <div class="col p-4">
             <div data-aos="fade-up" class="card border-0 rounded-4 shadow-sm">
                 <div class="card-body p-4 p-md-5 bg-light">
@@ -81,7 +76,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <style>

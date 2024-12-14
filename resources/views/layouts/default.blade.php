@@ -104,7 +104,7 @@
             Swal.fire({
                 icon: "error",
                 title: "Peringatan",
-                text: "Silakan isi nama dan pesan terlebih dahulu.",
+                text: "Silakan isi nama, email, dan pesan terlebih dahulu.",
             });
             return;
         } else if (nama === '') {

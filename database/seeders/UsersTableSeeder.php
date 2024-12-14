@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         // Guru
         DB::table('users')->insert([
             'NIP' => '197109192005011004',
-            'nama' => 'Kanapi, SPd.SD.',
+            'nama' => 'Kanapi, S.Pd.SD.',
             'password' => Hash::make('12345678'),
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'NIP' => '199704022024212018',
-            'nama' => 'Ainnun Nismawati, SPd.SD.',
+            'nama' => 'Ainnun Nismawati, S.Pd.',
             'password' => Hash::make('12345678'),
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'NIP' => '198311262019022001',
-            'nama' => 'Endang Purwanti, S.Pd',
+            'nama' => 'Endang Purwanti, S.Pd.',
             'password' => Hash::make('12345678'), 
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -52,7 +52,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'NIP' => '198408152019022004',
-            'nama' => 'Eni Tisani, S.Pd',
+            'nama' => 'Eni Tisani, S.Pd.',
             'password' => Hash::make('12345678'), 
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -60,7 +60,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'NIP' => '196507231986082001',
-            'nama' => 'Masturoh, S.Pd',
+            'nama' => 'Masturoh, S.Pd.',
             'password' => Hash::make('12345678'), 
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -68,7 +68,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'NIP' => '199711212023212007',
-            'nama' => 'Noviatul Nurbaiti, S.Pd',
+            'nama' => 'Noviatul Nurbaiti, S.Pd.',
             'password' => Hash::make('12345678'), 
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -76,7 +76,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'NIP' => '196905062007012025',
-            'nama' => 'Nurkhayati, S.Pd',
+            'nama' => 'Nurkhayati, S.Pd.',
             'password' => Hash::make('12345678'), 
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -84,7 +84,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'NIP' => '198810262023212015',
-            'nama' => 'Siti Atikah, S.Pd',
+            'nama' => 'Siti Atikah, S.Pd.',
             'password' => Hash::make('12345678'), 
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -92,7 +92,7 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'NIP' => '196810152005012009',
-            'nama' => 'Titi Aeni, S.Pd',
+            'nama' => 'Titi Aeni, S.Pd.',
             'password' => Hash::make('12345678'), 
             'roles' => 2, // Guru role
             'created_at' => now(),
@@ -100,22 +100,22 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'email' => 'sdyulinurhidayati@gmail.com',
-            'nama' => 'Yuli Nurhidayati, SPd.SD.',
+            'nama' => 'Yuli Nurhidayati, S.Pd.',
             'password' => Hash::make('triningsih'),
             'roles' => 2, // Guru role
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        // Siswa user 1
-        DB::table('users')->insert([
-            'NIS' => '1234567890',
-            'nama' => 'Fulan Bin Fulan',
-            'email' => 'fulan@gmail.com',
-            'password' => Hash::make('12345678'),
-            'roles' => 3, // Siswa role
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
+        // // Siswa user 1
+        // DB::table('users')->insert([
+        //     'NIS' => '1234567890',
+        //     'nama' => 'Fulan Bin Fulan',
+        //     'email' => 'fulan@gmail.com',
+        //     'password' => Hash::make('12345678'),
+        //     'roles' => 3, // Siswa role
+        //     'created_at' => now(),
+        //     'updated_at' => now(),
+        // ]);
     }
 }
