@@ -80,7 +80,7 @@ class SiswaController extends Controller
 
     public function edit($id)
     { 
-        $siswa = Siswa::find($id)->first();
+        $siswa = Siswa::find($id);
         return view('siswa.edit-profil', [
             'siswa' => $siswa,
         ]);
@@ -101,7 +101,7 @@ class SiswaController extends Controller
             'kelamin' => 'nullable|in:L,P',
         ]);
 
-        $siswa = Siswa::find($id)->first();
+        $siswa = Siswa::find($id);
         if ($request->hasFile('image')) {
             if ($siswa->image) {
                 Storage::delete('public/' . $siswa->image);

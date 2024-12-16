@@ -15,7 +15,7 @@
 
             <hr>
 
-            <p><strong>Siswa:</strong> <span class="badge bg-info text-white">{{ $tugas->siswa->nama }}</span></p>
+            <p><strong>Kelas:</strong> <span class="badge bg-info text-white">{{ $tugas->kelas }}</span></p>
             <p><strong>Tanggal Tugas Diberikan:</strong> {{ \Carbon\Carbon::parse($tugas->created_at)->format('d F Y') }}</p>
             <p><strong>Deadline:</strong> <span style="color: red;">{{ \Carbon\Carbon::parse($tugas->deadline)->format('d F Y') }}</span></p>
 

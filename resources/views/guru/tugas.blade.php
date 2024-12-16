@@ -36,7 +36,7 @@
             <label for="kelas">Pilih Kelas</label>
             <select name="kelas" id="kelas" class="form-control" required>
                 @foreach ($kelas as $k)
-                    <option value="{{ $k->kelas }}">{{ $k->kelas }}</option>
+                    <option value="{{ $k->kelas }}">{{ strtoupper($k->kelas) }}</option>
                 @endforeach
             </select>
         </div>
@@ -87,7 +87,7 @@
                 @foreach ($tugas as $item)
                     <tr>
                         <td class="text-muted text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $item->kelas }}</td>
+                        <td class="text-center">{{ strtoupper($item->kelas) }}</td>
                         <td class="text-center">{{ $item->judul_tugas }}</td>
                         <td class="text-center">{{ $item->deskripsi_tugas }}</td>
                         <td class="text-center">{{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}</td>

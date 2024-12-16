@@ -937,18 +937,15 @@ public function storeTugas(Request $request)
     public function editTugas($id)
     {
         $tugas = Tugas::findOrFail($id);
-        $siswa = User::where('roles', 3)->get(); // Mengambil daftar siswa jika perlu
 
         return view('guru.edit-tugas', [
             'tugas' => $tugas,
-            'siswa' => $siswa,
         ]);
     }
 
     public function updateTugas(Request $request, $id)
     {
         $request->validate([
-            'users_siswa' => 'required|exists:users,id',
             'judul_tugas' => 'required',
             'deskripsi_tugas' => 'nullable',
             'deadline' => 'required|date',
@@ -957,7 +954,6 @@ public function storeTugas(Request $request)
         ]);
 
         $tugas = Tugas::findOrFail($id);
-        $tugas->users_id = $request->users_siswa;
         $tugas->judul_tugas = $request->judul_tugas;
         $tugas->deskripsi_tugas = $request->deskripsi_tugas;
         $tugas->deadline = $request->deadline;

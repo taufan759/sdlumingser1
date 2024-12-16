@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-4" style="background-color: #F0F4F8; border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-    <h3 class="text-center" style="color: #555; margin-bottom: 20px; font-weight: bold;">Halo {{ $siswa->nama }}, Yuk cek tugasmu di bawah ini!</h3>
+    <h3 class="text-center" style="color: #555; margin-bottom: 20px; font-weight: bold;">Halo {{ auth()->user()->nama }}, Yuk cek tugasmu di bawah ini!</h3>
     @isset($tugas)
         <div class="row mb-4">
             <div class="col-md-4 text-center">
