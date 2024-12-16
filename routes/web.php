@@ -45,7 +45,7 @@ Route::get('/detail-prestasi/{id}', [LandingController::class, 'detailPrestasi']
 
 //Header Galery
 Route::get('/galery', [LandingController::class, 'galery']);
-
+Route::get('/galery', [LandingController::class, 'galery'])->name('galery.index');
 //Header Contact
 Route::get('/contact', [LandingController::class, 'contact']);
 

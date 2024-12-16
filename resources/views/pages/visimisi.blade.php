@@ -18,7 +18,7 @@
                     <div class="mb-5">
                         <h3 class="fw-bold text-center text-primary mb-3">Visi</h3>
                         <p class="lead text-center fst-italic mb-0 text-dark">
-                            "Tercetaknya lulusan yang berprestasi dalam pembelajaran dan memiliki kecakapan hidup yang berwawasan global. Beriman dan bertaqwa, serta unggul dalam kepribadian, dan mandiri.”
+                            "TERWUJUDNYA PESERTA DIDIK YANG BERIMAN DAN BERTAQWA, CERDAS, TERAMPIL, MANDIRI, BERBUDAYA DAN BERWAWASAN GLOBAL”
                         </p>
                     </div>
                     <hr class="my-4">
@@ -27,22 +27,25 @@
                         <h3 class="fw-bold text-center text-primary mb-3">Misi</h3>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item lead text-dark">
-                                Melaksanakan pembelajaran dengan mengoptimalkan Pembelajaran Aktif, Inovatif, Kreatif, Efektif dan Menyenangkan (PAIKEM) dan tematik, pembiasaan bidang keagamaan, budi pekerti, dan hidup sehat.
+                                Menyelenggarakan pembelajaran berkualitas untuk peserta didik.
                             </li>
                             <li class="list-group-item lead text-dark">
-                                Mengembangkan pengetahuan, kecakapan hidup, prestasi dan kepribadian siswa melalui kegiatan kurikuler, ekstrakurikuler, serta bimbingan.
+                                Menyelenggarakan berbagai kegiatan keagamaan sebagai media pembelajaran peserta didik untuk pendalaman implementasi nilai-nilai keagamaan
                             </li>
                             <li class="list-group-item lead text-dark">
-                                Menerapkan dan mengembangkan manajemen partisipatif.
+                                Mengembangkan bidang ilmu pengetahuan dan teknologi berdasarkan minat, bakat, dan potensi peserta didik.
                             </li>
                             <li class="list-group-item lead text-dark">
-                                Melakukan pembimbingan dan pelatihan untuk pengembangan minat dan bakat secara terencana dan terarah.
-                            </li>
-                            <li class="list-group-item lead text-dark">
-                                Menyelenggarakan berbagai even kompetisi untuk memfasilitasi pengembangan kompetensi siswa sesuai minat dan bakat peserta didik.
+                                Menyelenggarakan berbagai event kompetisi untuk memfasilitasi pengembangan kompetensi siswa sesuai minat dan bakat peserta didik.
                             </li>
                             <li class="list-group-item lead text-dark">
                                 Melaksanakan berbagai pembiasaan bagi seluruh warga sekolah, dalam rangka pembentukan sikap dan perilaku untuk menguatkan profil pelajar Pancasila.
+                            </li>
+                            <li class="list-group-item lead text-dark">
+                                Menyelenggarakan event kegiatan sebagai media apersepsi bagi peserta didik dalam berbagai bidang seni dan budaya.
+                            </li>
+                            <li class="list-group-item lead text-dark">
+                                Melakukan transformasi konsep globalisasi dalam berbagai lingkup.
                             </li>
                         </ul>
                     </div>
@@ -52,13 +55,13 @@
     </div>
 
     <!-- Nilai-Nilai Section -->
-    <div class="row">
+    {{-- <div class="row">
         <div class="col p-4">
             <div data-aos="fade-up" class="card border-0 rounded-4 shadow-sm">
                 <div class="card-body p-4 p-md-5 bg-light">
                     <h3 class="fw-bold text-center text-primary mb-4">Nilai-Nilai</h3>
                     <p class="lead text-center mb-4 text-dark">
-                        Beriman, bertaqwa kepada Tuhan yang Maha Esa (YMW), dan Berakhlak mulia
+                        <strong>Beriman, bertaqwa kepada Tuhan yang Maha Esa (YMW), dan Berakhlak mulia</strong><br>
                         Berkebinekaan Global<br>
                         Bergotong Royong<br>
                         Mandiri<br>
@@ -73,7 +76,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <style>
@@ -92,7 +95,7 @@
     margin: 10px auto 15px;
 }
 .subtitle {
-    font-size: calc(1.325rem + .9vw);
+    font-size: calc(1.1rem + 0.6vw);
     color: #333;
     font-style: normal;
 }

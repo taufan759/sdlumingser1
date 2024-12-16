@@ -13,6 +13,12 @@
     margin: 10px auto 15px;
 }
 
+.subtitle {
+    font-size: calc(1.1rem + 0.6vw);
+    color: #333;
+    font-style: normal;
+}
+
 .container-fluid {
     padding: 0;
     margin-top: 75px;
@@ -24,32 +30,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    position: relative;
-}
-
-.organization-item {
-    position: relative;
-    text-align: center;
-    z-index: 1;
+    flex-direction: column; /* Untuk tata letak vertikal pada perangkat kecil */
+    gap: 20px;
 }
 
 .organization-image-wrapper {
-    width: 100%;
-    height: 100vh;
+    max-width: 80%; /* Batas maksimal lebar gambar */
+    max-height: 800px; /* Batas maksimal tinggi gambar */
+    margin: 0 auto;
     overflow: hidden;
+    border-radius: 10px; /* Menambahkan border radius agar gambar lebih estetis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
 }
 
 .organization-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain; /* Memastikan gambar tidak terpotong */
     object-position: center;
+    transition: transform 0.3s ease-in-out; /* Animasi pada hover */
+}
+
+.organization-image:hover {
+    transform: scale(1.05); /* Efek zoom lembut saat hover */
 }
 
 @media (max-width: 768px) {
-    .organization-image {
-        height: auto;
-        object-position: top;
+    .organization-image-wrapper {
+        max-width: 100%; /* Lebar penuh pada perangkat kecil */
+        max-height: 500px;
+    }
+    .organization-title {
+        font-size: 2rem; /* Ukuran font lebih kecil pada tablet */
+    }
+}
+
+/* Media Query untuk layar ponsel */
+@media (max-width: 480px) {
+    .organization-title {
+        font-size: 1.5rem; /* Ukuran font lebih kecil pada ponsel */
     }
 }

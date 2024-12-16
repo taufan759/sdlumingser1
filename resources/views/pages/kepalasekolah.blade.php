@@ -23,7 +23,7 @@
         <section class="sambutan-section">
             
             <p class="sambutan-text">
-                Saya, <strong>Kanapi, S.Pd SD</strong>, dengan bangga menyambut Anda di platform ini, sebuah media untuk berbagi informasi, pencapaian, serta momen berharga dari perjalanan pendidikan di SD Negeri Lumingser 01. Kehadiran Anda di sini adalah wujud dari dukungan dan kerja sama yang terus kita jalin.
+                Saya, <strong>Kanapi, S.Pd.SD.</strong>, dengan bangga menyambut Anda di platform ini, sebuah media untuk berbagi informasi, pencapaian, serta momen berharga dari perjalanan pendidikan di SD Negeri Lumingser 01. Kehadiran Anda di sini adalah wujud dari dukungan dan kerja sama yang terus kita jalin.
             </p>
             <p class="sambutan-text">
                 Di SD Negeri Lumingser 01, kami memandang setiap siswa sebagai individu dengan potensi luar biasa. Dengan dukungan tenaga pendidik yang berdedikasi dan kurikulum yang relevan, kami berkomitmen untuk menciptakan lingkungan belajar yang mendukung tumbuh kembang siswa baik secara akademik maupun karakter.
@@ -33,7 +33,7 @@
             </p>
             <p class="sambutan-footer text-end text-muted">Salam hormat,</p>
             <p class="sambutan-signature text-end fw-bold">
-                Kanapi, S.Pd SD<br>
+                Kanapi, S.Pd.SD.<br>
                 Kepala Sekolah<br>
                 SD Negeri Lumingser 01
             </p>
@@ -46,11 +46,11 @@
     <section>
         <h2 class="text-center fw-bold" style="color: #333">Profil Kepala Sekolah</h2>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>Nama:</strong> Kanapi, S.Pd SD</li>
-            <li class="list-group-item"><strong>Jabatan:</strong> Kepala Sekolah</li>
-            <li class="list-group-item"><strong>NIP:</strong> 1234567890</li>
-            <li class="list-group-item"><strong>Alamat:</strong> Jl. Pendidikan No. 5, Kota Tegal</li>
-            <li class="list-group-item"><strong>Kontak:</strong> 0812 3456 7890</li>
+            <li class="list-group-item"><strong>Nama:</strong> Kanapi, S.Pd.SD. </li>
+            <li class="list-group-item"><strong>Jabatan:</strong> Kepala Sekolah </li>
+            <li class="list-group-item"><strong>NIP:</strong> 197109192005011004 </li>
+            <li class="list-group-item"><strong>Alamat:</strong> Adiwerna </li>
+            <li class="list-group-item"><strong>Kontak:</strong> - </li>
         </ul>
     </section>
     <style>

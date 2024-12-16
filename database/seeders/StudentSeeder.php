@@ -12,7 +12,6 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-
         DB::table('student')->insert([
             'users_id' => 12, //siswa roles
             'image' => 'siswa.jpg',

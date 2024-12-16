@@ -8,28 +8,32 @@
             </a>
         <div class="footer-contact pt-3">
             <p>Jl. Kemiri, RT 3/RW 1, Dusun Lumingsir, Desa Lumingser, Kec. Adiwerna, Kab. Tegal, Prov. Jawa Tengah, Kode Pos 52194.<br>
-            <p class="mt-3"><strong>Telepon:</strong> <span>0812 3456 7890</span></p>
-            <p><strong>Email:</strong> <span>example@gmail.com</span></p>
+            <p class="mt-3"><strong>Telepon:</strong> <span>(0283) 3321443</span></p>
+            <p><strong>Email:</strong> <span>sdnlumingser01@gmail.com</span></p>
         </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-        <h4>Main Menu</h4>
+        <h4>Profil</h4>
         <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Link</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/sejarah') }}">Sejarah</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/visimisi') }}">Visi &  Misi</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/staff_profile') }}">Guru</a></li>
         </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-        <h4>Menu</h4>
+        <h4>Media</h4>
         <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('/') }}">Link</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('news') }}">Berita</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('galery') }}">Galeri</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="{{ url('prestasi') }}">Prestasi</a></li>
         </ul>
         </div>
 
         <div class="col-lg-4 col-md-12 footer-links">
         <h4>Akun</h4>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Media Sosial Resmi Kami.</p>
         <div class="social-links d-flex">
             <a href="#"><i class="bi bi-facebook"></i></a>
             <a href="#"><i class="bi bi-instagram"></i></a>

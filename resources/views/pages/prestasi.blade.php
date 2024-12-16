@@ -11,17 +11,20 @@
         <h2 class="achievement-subtitle">SDN LUMINGSER 01</h2>
     </div>
 
-    <!-- Grid Prestasi -->
-    <div class="achievement-grid">
+    <!-- Horizontal Scroll Grid -->
+    <div class="achievement-horizontal-scroll">
         @foreach($achievements as $achievement)
             <div class="achievement-item">
                 <div class="achievement-image-wrapper">
-                    <img src="{{ asset('storage/' . $achievement->image_path) }}" alt="Prestasi" class="achievement-image">
+                    <img src="{{ asset('storage/' . $achievement->image_path) }}" 
+                         alt="Prestasi" 
+                         class="achievement-image lazy" 
+                         loading="lazy">
                 </div>
                 <div class="achievement-content">
-                    <h3 class="achievement-name">{{ $achievement->title }}</h3>
+                    <h3 class="achievement-name">{{ Str::limit($achievement->title, 50, '...') }}</h3>
                     <p class="achievement-description">
-                        {{ Str::limit($achievement->description, 100) }}
+                        {{ Str::limit($achievement->description, 80, '...') }}
                     </p>
                     <p class="achievement-date">{{ \Carbon\Carbon::parse($achievement->date)->format('d F Y') }}</p>
                     <a href="{{ route('detail-prestasi', $achievement->id) }}" class="achievement-btn">Lihat Selengkapnya</a>

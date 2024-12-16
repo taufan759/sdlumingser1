@@ -17,11 +17,17 @@ class LandingController extends Controller
 {
 public function home()
 {
-    // Ambil 5 berita terbaru
-    $news = News::latest()->limit(5)->get();
+    // Ambil 3 berita terbaru
+    $news = News::latest()->limit(3)->get();
 
-    // Kirim data berita ke view
-    return view('pages.home', compact('news'));
+    // Ambil 3 foto terbaru
+    $photos = Photo::latest()->limit(3)->get();
+
+    // Ambil 3 video terbaru
+    $videos = Video::latest()->limit(3)->get();
+
+    // Kirim data berita, foto, dan video ke view
+    return view('pages.home', compact('news', 'photos', 'videos'));
 }
 
 
@@ -75,6 +81,7 @@ public function visiMisi()
             'photos' => $photos,
             'videos' => $videos,
         ]);
+        
     }
 
     public function prestasi()
