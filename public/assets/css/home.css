@@ -101,3 +101,32 @@
 .news-item .btn-primary:hover {
   background-color: #0056b3;
 }
+
+/*gallery home*?
+.gallery-separator {
+  border-top: 2px solid #ddd;
+  margin: 30px 0;
+}
+
+.youtube-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.line-separator {
+  width: 50px;
+  height: 3px;
+  background-color: #007bff;
+  margin: 10px auto;
+}
+
+.yt-custom {
+  background-color: #FF0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
