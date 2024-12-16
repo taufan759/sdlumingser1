@@ -859,7 +859,7 @@ public function destroyAchievement($id)
 
     $achievement->delete();
 
-    return redirect()->route('guru.achievement')->with('success', 'Prestasi berhasil dihapus.');
+    return redirect()->route('achievement')->with('success', 'Prestasi berhasil dihapus.');
 }
 
     public function tugas()

@@ -217,8 +217,7 @@
                                                     <th>Website</th>
                                                     <td>:</td>
                                                     <td>
-                                                        -
-                                                        {{-- <a href="/">sdnkesamiran01.sch.id</a> --}}
+                                                        <a href="/">sdnlumingser01.sch.id</a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -250,7 +249,7 @@
 }
 
 .subtitle {
-    font-size: calc(1.325rem + .9vw);
+    font-size: calc(1.1rem + 0.6vw);
     color: #333;
     font-style: normal;
 }

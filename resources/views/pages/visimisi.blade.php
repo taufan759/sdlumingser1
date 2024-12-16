@@ -95,7 +95,7 @@
     margin: 10px auto 15px;
 }
 .subtitle {
-    font-size: calc(1.325rem + .9vw);
+    font-size: calc(1.1rem + 0.6vw);
     color: #333;
     font-style: normal;
 }
