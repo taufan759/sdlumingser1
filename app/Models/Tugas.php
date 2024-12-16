@@ -11,14 +11,7 @@ class Tugas extends Model
 
     protected $table = 'tugas';
 
-    protected $fillable = [
-        'users_id',
-        'authors_id',
-        'judul_tugas',
-        'deskripsi_tugas',
-        'deadline',
-        'status',
-    ];
+    protected $guarded = [];
 
     public function siswa()
     {

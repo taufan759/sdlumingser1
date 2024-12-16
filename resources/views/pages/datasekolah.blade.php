@@ -10,40 +10,38 @@
         </div>
     </div>
     <div class="row">
-        <div class="col p-5 pt-2 pt-md-3">
+        <div class="col-12 p-3">
             <div data-aos="fade-up" class="card rounded-4 shadow-lg">
-                <div class="card-body p-4 p-md-5" id="pg">
-                    <div class="card-title">
-                    </div>
-                    <div class="card-text">
-                        <div class="row">
-                            <div class="col-12 col-md-6">
-                                <div class="card rounded-3">
-                                    <iframe class="rounded-3"
+                <div class="card-body p-4">
+                    <div class="row g-4">
+                        <!-- Iframe Map -->
+                        <div class="col-12 col-md-6">
+                            <div class="card rounded-3 overflow-hidden">
+                                <div class="ratio ratio-16x9">
+                                    <iframe 
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.660480604865!2d109.09440117410688!3d-6.931122667843353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fbbdf15555555%3A0xb186d903a2e049db!2sSD%20N.%20Lumingser%2001!5e0!3m2!1sid!2sid!4v1732870992012!5m2!1sid!2sid" 
-                                        width="auto" height="500" style="border:0;" 
-                                        allowfullscreen="" 
-                                        loading="lazy" 
-                                        referrerpolicy="no-referrer-when-downgrade">
+                                        style="border:0;" allowfullscreen="" 
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                                     </iframe>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 pt-md-0 pt-3">
-                                <div class="card rounded-3">
-                                    <nav>
-                                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                            <button class="nav-link active" id="nav-identitas-tab" data-bs-toggle="tab"
-                                                data-bs-target="#nav-identitas" type="button" role="tab"
-                                                aria-controls="nav-identitas" aria-selected="true">Identitas</button>
-                                            <button class="nav-link" id="nav-dokumen-tab" data-bs-toggle="tab"
-                                                data-bs-target="#nav-dokumen" type="button" role="tab"
-                                                aria-controls="nav-dokumen" aria-selected="false">Dokumen &
-                                                Perizinan</button>
-                                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                                                data-bs-target="#nav-contact" type="button" role="tab"
-                                                aria-controls="nav-contact" aria-selected="false">Lain-Lain</button>
-                                        </div>
-                                    </nav>
+                        </div>
+                        <!-- Tabs Section -->
+                        <div class="col-12 col-md-6">
+                            <div class="card rounded-3">
+                                <nav>
+                                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                        <button class="nav-link active" id="nav-identitas-tab" data-bs-toggle="tab"
+                                            data-bs-target="#nav-identitas" type="button" role="tab"
+                                            aria-controls="nav-identitas" aria-selected="true">Identitas</button>
+                                        <button class="nav-link" id="nav-dokumen-tab" data-bs-toggle="tab"
+                                            data-bs-target="#nav-dokumen" type="button" role="tab"
+                                            aria-controls="nav-dokumen" aria-selected="false">Dokumen & Perizinan</button>
+                                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                            data-bs-target="#nav-contact" type="button" role="tab"
+                                            aria-controls="nav-contact" aria-selected="false">Lain-Lain</button>
+                                    </div>
+                                </nav> 
                                     <div class="tab-content" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="nav-identitas" role="tabpanel"
                                             aria-labelledby="nav-identitas-tab" tabindex="0">
@@ -233,26 +231,50 @@
         </div>
     </div>
 
-<style>
-.title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.line-separator {
-    width: 60px;
-    height: 3px;
-    background-color: #007BFF;
-    margin: 10px auto 15px;
-}
-
-.subtitle {
-    font-size: calc(1.325rem + .9vw);
-    color: #333;
-    font-style: normal;
-}
-</style>
+    <style>
+        /* Heading Styling */
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .line-separator {
+            width: 50px;
+            height: 3px;
+            background-color: #007BFF;
+            margin: 10px auto 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        
+        /* Table Styling */
+        .table {
+            font-size: 0.9rem;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+        }
+        
+        /* Mobile-Specific Adjustments */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.5rem;
+            }
+        
+            .subtitle {
+                font-size: 1rem;
+            }
+        
+            .table {
+                font-size: 0.8rem;
+            }
+        }
+        </style>
 @endsection        

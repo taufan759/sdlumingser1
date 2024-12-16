@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('authors_id')->constrained('users')->onDelete('cascade'); // Menambahkan foreign key untuk guru (author)
             $table->string('judul_tugas'); // Sesuaikan nama kolom dengan controller
             $table->text('deskripsi_tugas')->nullable(); // Kolom deskripsi tugas, nullable
+            $table->string('kelas');
             $table->string('foto')->nullable(); // Kolom foto tugas, nullable
             $table->string('file_url')->nullable(); // Kolom file URL tugas, nullable
             $table->date('deadline'); // Kolom deadline

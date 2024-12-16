@@ -20,9 +20,14 @@
 </div>
 <div class="d-flex bd-highlight mb-3 mt-4 mr-4 flex-row-reverse">
     <div class="mr-0">
-        <a href="/edit/profil/{{ $siswa->id }}" class="btn btn-primary">
-            Edit Profil
-        </a>
+        @if($siswa)
+    <a href="/edit/profil/{{ $siswa->id }}" class="btn btn-primary"> 
+        Edit Profil
+    </a>
+@else
+    <p>Data siswa belum dibuat, silahkan lengkapi data.</p>
+@endif
+
     </div>
 </div>
 @csrf

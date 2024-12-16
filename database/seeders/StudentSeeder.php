@@ -19,7 +19,7 @@ class StudentSeeder extends Seeder
             'NIS' => '12226666',
             'nama_siswa' => 'Budiono Siregar',
             'tempat_tanggal_lahir_siswa' => 'Tegal, 31 Desember 2015',
-            'kelas' => 'kelas 3',
+            'kelas' => '3',
             'alamat_lengkap' => 'Kabupaten Tegal',
             'nama_ibu' => 'Maemunah',
             'nama_ayah' => 'Mulyono',

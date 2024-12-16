@@ -862,57 +862,54 @@ public function destroyAchievement($id)
     return redirect()->route('guru.achievement')->with('success', 'Prestasi berhasil dihapus.');
 }
 
-    public function tugas()
-    {
-        $tugas = Tugas::all();
-        $siswa = User::where('roles', 3)->get();
-        $totalTugas = Tugas::count();
+public function tugas()
+{
+    $tugas = Tugas::all(); // Semua tugas
+    $kelas = Siswa::select('kelas')->distinct()->get(); // Mengambil daftar kelas unik
+    $totalTugas = Tugas::count();
 
-        return view('guru.tugas', [
-            'siswa' => $siswa,
-            'tugas' => $tugas,
-            'totalTugas' => $totalTugas,
-        ]);
+    return view('guru.tugas', [
+        'tugas' => $tugas,
+        'kelas' => $kelas, // Mengirim daftar kelas ke view
+        'totalTugas' => $totalTugas,
+    ]);
+}
+
+
+public function tugasDetail($id)
+{
+    $tugas = Tugas::findOrFail($id);
+    $siswa = Siswa::where('kelas', $tugas->kelas)->get(); // Menampilkan siswa berdasarkan kelas
+
+    return view('guru.detail-tugas', [
+        'tugas' => $tugas,
+        'siswa' => $siswa,
+    ]);
+}
+
+public function storeTugas(Request $request)
+{
+    $request->validate([
+        'kelas' => 'required|string', // Pastikan kelas dipilih
+        'judul_tugas' => 'required',
+        'deskripsi_tugas' => 'nullable',
+        'deadline' => 'required|date',
+        'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        'file_url' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:10240',
+    ]);
+
+    $user = auth()->user(); // Guru yang login
+    $siswaDiKelas = Siswa::where('kelas', $request->kelas)->get();
+
+    if ($siswaDiKelas->isEmpty()) {
+        return redirect()->back()->with('error', 'Tidak ada siswa di kelas ' . $request->kelas);
     }
 
-    public function tugasDetail($id)
-    {
-        $tugasID = Tugas::findOrFail($id);
-        $siswa = User::where('id', $tugasID->users_id)->first();
-        $profil = $siswa->profil;
-        $tugasSiswa = Tugas::where('users_id', $siswa->id)->get();
-        $tugasSelesaiCount = $tugasSiswa->where('status', 'selesai')->count();
-        $tugasBelumSelesaiCount = $tugasSiswa->where('status', 'belum selesai')->count();
-
-        return view('guru.detail-tugas', [
-            'tugas' => $tugasID,
-            'siswa' => $siswa,
-            'profil' => $profil,
-            'tugasSelesaiCount' => $tugasSelesaiCount,
-            'tugasBelumSelesaiCount' => $tugasBelumSelesaiCount,
-        ]);
-    }
-
-    public function storeTugas(Request $request)
-    {
-        $request->validate([
-            'users_siswa' => 'required|exists:users,id',
-            'judul_tugas' => 'required',
-            'deskripsi_tugas' => 'nullable',
-            'deadline' => 'required|date',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'file_url' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:10240',
-        ], [
-            'users_siswa.required' => 'Siswa belum dipilih',
-            'judul_tugas.required' => 'Judul tugas harus diisi',
-            'deadline.required' => 'Deadline harus diisi',
-            'deadline.date' => 'Format deadline tidak valid',
-        ]);
-
-        $user = auth()->user()->id;
+    foreach ($siswaDiKelas as $siswa) {
         $tugas = new Tugas([
-            'users_id' => $request->users_siswa,
-            'authors_id' => $user,
+            'kelas' => $request->kelas, // Menyimpan kelas tujuan
+            'users_id' => $siswa->id, // Siswa penerima tugas
+            'authors_id' => $user->id, // Guru yang membuat tugas
             'judul_tugas' => $request->judul_tugas,
             'deskripsi_tugas' => $request->deskripsi_tugas,
             'deadline' => $request->deadline,
@@ -930,12 +927,12 @@ public function destroyAchievement($id)
         }
 
         $tugas->save();
-        $siswa = User::find($request->users_siswa);
-
-        return redirect()
-            ->back()
-            ->with('success', 'Tugas berhasil ditambahkan untuk ' . $siswa->nama . ' dengan judul "' . $request->judul_tugas . '".');
     }
+
+    return redirect()->route('guru.tugas')->with('success', 'Tugas berhasil ditambahkan untuk kelas ' . $request->kelas);
+}
+
+
 
     public function editTugas($id)
     {

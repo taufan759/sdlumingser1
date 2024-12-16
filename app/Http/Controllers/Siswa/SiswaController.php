@@ -163,25 +163,52 @@ class SiswaController extends Controller
     }
 
     public function tugas()
-    {
-        $siswa = auth()->user(); // Mengambil data siswa yang sedang login
-        $tugasSiswa = Tugas::where('users_id', $siswa->id)->get(); // Menampilkan tugas berdasarkan ID siswa
+{
+    // Mendapatkan user yang sedang login
+    $user = auth()->user();
 
-        return view('siswa.tugas', [
-            'tugasSiswa' => $tugasSiswa,
-            'siswa' => $siswa,
-        ]);
+    // Pastikan relasi student di-load dengan benar
+    $siswa = $user->student;
+
+    // Jika data siswa tidak ditemukan, kembalikan error
+    if (!$siswa) {
+        return redirect()->back()->withErrors('Data siswa tidak ditemukan.');
     }
 
-    // Menampilkan detail tugas
-    public function tugasDetail($id)
-    {
-        $siswa = auth()->user(); // Mengambil data siswa yang sedang login
-        $tugasSiswa = Tugas::findOrFail($id); // Menampilkan tugas berdasarkan ID
+    // Mendapatkan kelas siswa dari data relasi
+    $kelas = $siswa->kelas;
 
-        return view('siswa.detail-tugas', [
-            'tugas' => $tugasSiswa,
-            'siswa' => $siswa,
-        ]);
+    // Menampilkan tugas berdasarkan kelas siswa
+    $tugasSiswa = Tugas::where('kelas', $kelas)->get();
+
+    // Mengirimkan data ke view
+    return view('siswa.tugas', [
+        'tugasSiswa' => $tugasSiswa,
+        'siswa' => $siswa,
+    ]);
+}
+
+    
+
+public function tugasDetail($id)
+{
+    // Mendapatkan user yang sedang login
+    $user = auth()->user();
+
+    // Pastikan data siswa tersedia
+    $siswa = $user->student;
+    if (!$siswa) {
+        return redirect()->back()->withErrors('Data siswa tidak ditemukan.');
     }
+
+    // Menampilkan tugas berdasarkan ID
+    $tugasSiswa = Tugas::findOrFail($id);
+
+    // Mengirimkan data ke view
+    return view('siswa.detail-tugas', [
+        'tugas' => $tugasSiswa,
+        'siswa' => $siswa,
+    ]);
+}
+
 }
