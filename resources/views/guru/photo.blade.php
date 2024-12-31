@@ -47,7 +47,8 @@
         <div class="row mb-3">
             <label class="col-sm-2 col-form-label">{{ __('Foto') }}</label>
             <div class="col-sm-10">
-                <input type="file" class="form-control @error('image_path') is-invalid @enderror" name="image_path" accept="image/*" required>
+                <input type="file" class="form-control @error('image_path') is-invalid @enderror" 
+                       name="image_path[]" accept="image/*" multiple required>
                 @error('image_path')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -55,6 +56,8 @@
                 @enderror
             </div>
         </div>
+        
+        
 
         <div class="row mb-3">
             <div class="col-sm-10 offset-sm-2">
@@ -86,19 +89,20 @@
                         </td>
                         <td class="text-center">{{ \Carbon\Carbon::parse($photo->created_at)->format('d F Y') }}</td>
                         <td class="text-center">
-                          <a href="{{ route('guru.photo.edit', $photo->id) }}" class="btn btn-warning btn-sm">
-                              <i class="fa-solid fa-edit"></i>
-                          </a>
-                          <form action="{{ route('guru.photo.destroy', $photo->id) }}" method="POST" style="display:inline;">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
-                                  <i class="fa-solid fa-trash"></i>
-                              </button>
-                          </form>
+                            <a href="{{ route('guru.photo.edit', $photo->id) }}" class="btn btn-warning btn-sm">
+                                <i class="fa-solid fa-edit"></i>
+                            </a>
+                            <form action="{{ route('guru.photo.destroy', $photo->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
-            </tbody>
+            </tbody>            
         </table>
     </div>
 @endsection

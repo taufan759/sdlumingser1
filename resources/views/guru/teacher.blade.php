@@ -210,11 +210,21 @@
 
                         <td class="text-center">{{ $guru->jabatan }}</td>
                         <td class="text-center">
-                            <a href="/guru/teacher/view/{{ $guru->id }}/={{ urlencode($guru->nama) }}"
-                                id="PopoverCustomT-2" class="btn btn-success btn-sm"><i class="fa-solid fa-eye"></i></a>
-                            <a href="/guru/delete/teacher/{{ $guru->id }}" type="button" id="PopoverCustomT-2"
-                                class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
+                            <a href="/guru/teacher/view/{{ $guru->id }}/={{ urlencode($guru->nama) }}" 
+                                id="PopoverCustomT-2" class="btn btn-success btn-sm">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                            <a href="{{ route('guru.edit', $guru->id) }}" 
+                                id="PopoverCustomT-2" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-pen"></i>
+                            </a>
+                                                       
+                            <a href="/guru/delete/teacher/{{ $guru->id }}" 
+                                id="PopoverCustomT-2" class="btn btn-danger btn-sm">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
                         </td>
+                        
                     </tr>
                 @endforeach
             </tbody>

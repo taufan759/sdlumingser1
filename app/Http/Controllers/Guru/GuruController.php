@@ -105,6 +105,7 @@ class GuruController extends Controller
             'NIP' => $request->nip,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
+        
 
         return redirect()
             ->back()
@@ -260,6 +261,53 @@ class GuruController extends Controller
             'detail' => $detail,
         ]);
     }
+
+    public function editTeacher($id)
+    {
+        $teacher = Teacher::findOrFail($id); // Ambil data berdasarkan ID
+        return view('guru.edit-guru', compact('teacher')); // Sesuaikan view dengan variabel
+    }
+
+    public function updateTeacher(Request $request, $id)
+    {
+        $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp',
+            'title' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'roles' => 'required|string|max:255',
+            'jabatan' => 'nullable|string|max:255',
+            'alamat' => 'nullable|string|max:255',
+            'no_tlp' => 'nullable|string|max:20',
+        ]);
+    
+        $teacher = Teacher::findOrFail($id);
+    
+        // Proses gambar
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($teacher->image && Storage::exists('public/' . $teacher->image)) {
+                Storage::delete('public/' . $teacher->image);
+            }
+    
+            // Simpan gambar baru
+            $image = $request->file('image');
+            $filename = 'guru-' . Str::random(10) . '-' . date('Ymd') . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public', $filename);
+            $teacher->image = $filename;
+        }
+    
+        // Update data lainnya
+        $teacher->update([
+            'title' => $request->title,
+            'nama' => $request->nama,
+            'roles' => $request->roles,
+            'jabatan' => $request->jabatan,
+            'alamat' => $request->alamat,
+            'no_tlp' => $request->no_tlp,
+        ]);
+    
+        return redirect('/guru/teacher')->with('success', 'Data Guru berhasil diperbarui.');
+    }    
 
     public function berita()
     {
@@ -642,17 +690,21 @@ public function storePhoto(Request $request)
 {
     $request->validate([
         'title' => 'required|string|max:255',
-        'image_path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'image_path.*' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Validasi untuk setiap file
     ]);
 
-    $path = $request->file('image_path')->store('photos', 'public');
+    if ($request->hasFile('image_path')) {
+        foreach ($request->file('image_path') as $file) {
+            $path = $file->store('photos', 'public');
 
-    Photo::create([
-        'title' => $request->title,
-        'image_path' => $path,
-    ]);
+            Photo::create([
+                'title' => $request->title,
+                'image_path' => $path,
+            ]);
+        }
+    }
 
-    return redirect()->route('guru.photo')->with('success', 'Photo uploaded successfully!');
+    return redirect()->route('guru.photo')->with('success', 'Photos uploaded successfully!');
 }
 
 // Menghapus photo

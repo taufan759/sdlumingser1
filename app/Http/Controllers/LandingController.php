@@ -66,23 +66,23 @@ public function visiMisi()
     }
 
     public function galery()
-    {
-        $galery = News::with('category')
-            ->where('status', 1)
-            ->orderBy('id', 'DESC')
-            ->limit(6)
-            ->get();
+{
+    $galery = News::with('category')
+        ->where('status', 1)
+        ->orderBy('id', 'DESC')
+        ->limit(6)
+        ->get();
 
-        $photos = Photo::all(); 
-        $videos = Video::all(); 
+    $photos = Photo::all()->groupBy('title');
+    $videos = Video::all();
 
-        return view('pages.galery', [
-            'galery' => $galery,
-            'photos' => $photos,
-            'videos' => $videos,
-        ]);
-        
-    }
+    return view('pages.galery', [
+        'galery' => $galery,
+        'photos' => $photos,
+        'videos' => $videos,
+    ]);
+}
+
 
     public function prestasi()
     {

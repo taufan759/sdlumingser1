@@ -15,39 +15,69 @@
         <section class="col-12">
             {{-- Foto Galeri --}}
             <div class="row">
-                @foreach ($photos as $photo)
+                @foreach ($photos as $title => $photoGroup)
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                        <div class="card bg-image hover-overlay ripple shadow-1-strong rounded">
-                            <img src="{{ asset('storage/' . $photo->image_path) }}" class="w-100 gallery-image" alt="{{ $photo->title }}" data-bs-toggle="modal" data-bs-target="#imageModal{{ $photo->id }}" />
+                        <div class="card shadow-1-strong rounded">
+                            {{-- Carousel --}}
+                            <div id="carousel{{ Str::slug($title) }}" class="carousel">
+                                <div class="carousel-inner">
+                                    @foreach ($photoGroup as $key => $photo)
+                                        <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                                            <img src="{{ asset('storage/' . $photo->image_path) }}" 
+                                                 class="d-block w-100 gallery-image" 
+                                                 alt="{{ $photo->title }}" 
+                                                 data-bs-toggle="modal" 
+                                                 data-bs-target="#modal{{ Str::slug($title) }}">
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
-    
-                    {{-- Modal for Image --}}
-                    <div class="modal fade" id="imageModal{{ $photo->id }}" tabindex="-1" aria-labelledby="imageModalLabel{{ $photo->id }}" aria-hidden="true">
+
+
+                    {{-- Modal for Photo Group --}}
+                    <div class="modal fade" id="modal{{ Str::slug($title) }}" tabindex="-1" aria-labelledby="modalLabel{{ Str::slug($title) }}" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="imageModalLabel{{ $photo->id }}">{{ $photo->title }}</h5>
+                                    <h5 class="modal-title" id="modalLabel{{ Str::slug($title) }}">{{ $title }}</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <img src="{{ asset('storage/' . $photo->image_path) }}" class="img-fluid rounded" alt="{{ $photo->title }}" />
+                                    <div id="modalCarousel{{ Str::slug($title) }}" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            @foreach ($photoGroup as $key => $photo)
+                                                <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                                                    <img src="{{ asset('storage/' . $photo->image_path) }}" class="d-block w-100" alt="{{ $photo->title }}">
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel{{ Str::slug($title) }}" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel{{ Str::slug($title) }}" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-    
+
             {{-- Separator Line --}}
             <hr class="gallery-separator">
-    
+
             {{-- Video YouTube Section --}}
             <div class="section-title text-center mt-4">
                 <h3 class="youtube-title">Video YouTube</h3>
                 <div class="line-separator mx-auto"></div>
             </div>
-    
+
             <div class="row">
                 @foreach ($videos as $video)
                     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">

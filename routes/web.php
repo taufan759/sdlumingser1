@@ -74,6 +74,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/guru/akun-teacher', [GuruController::class, 'insertAkunTeacher']);
             Route::get('/guru/teacher', [GuruController::class, 'teacher']);
             Route::post('/guru/teacher', [GuruController::class, 'insertTeacher']);
+            Route::get('/guru/{id}/edit', [GuruController::class, 'editTeacher'])->name('guru.edit');
+            Route::put('/guru/{id}', [GuruController::class, 'updateTeacher'])->name('guru.update');
             Route::get('/guru/siswa', [GuruController::class, 'siswa']);
             Route::post('/guru/akun-siswa', [GuruController::class, 'StoreSiswaAccount']);
             Route::get('/guru/data-siswa', [GuruController::class, 'DataSiswa']);
